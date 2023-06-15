@@ -102,6 +102,45 @@ margin-left:270px ;
 
 }
 
+
+.srch-param {
+    width: 148px;
+    height: 10px;
+    background: transparent;
+    border-bottom: 1px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: rgb(11, 11, 11);
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    font-family: sans-serif;
+    
+   
+  }
+  
+  .srch-param option {
+    color: black;
+    background: lightgray;
+    font-weight: bold;
+  }
+  
+  .srch-param optgroup {
+    font-weight: bold;
+  }
+  
+  .srch-param-size {
+    font-weight: normal;
+  }
+  
+  .srch-param:focus {
+    outline: none;
+  }
+  
+
+
+
 .btn{
 width: 100px;
 height: 40px;
