@@ -1,7 +1,7 @@
 //const { Collection } = require("mongodb");
 const mongoose=require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/LoginFormPractice")
+mongoose.connect('mongodb+srv://eliav:2001@collection.tjg4v6e.mongodb.net/?retryWrites=true&w=majority')
 .then(()=>{
     console.log('mongoose connected');
 })
@@ -20,5 +20,5 @@ const LogInSchema=new mongoose.Schema({
     }
 })
 
-const collection=new mongoose.model('Collection1',LogInSchema)
+const collection=new mongoose.model('Collection',LogInSchema)
 module.exports=collection
