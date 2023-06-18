@@ -30,22 +30,33 @@ app.post("/signup",async(req,res)=>{
     if(checkk!=null){
         //res.send("name taken")
         let alertMessage = "Username already taken";
-        res.render("signup", { alertMessage});
+        res.render("signup",{alertMessage});
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
+       
     }
 else if(req.body.name==''||req.body.password==''){
-    alertMessage = "Fill the missing info";
-        res.render("signup", { alertMessage});
+     let alertMessage = "Fill the missing info";
+        res.render("signup",{alertMessage});
 }
     else{
         const data={
             name:req.body.name,
             password:req.body.password
-        }
+        };
+        try {
+            await collection.insertMany([data]);
+            let alertMessage = "You have successfully signed up";
+            res.render("home", { alertMessage }); // Changed this line
+          } catch (error) {
+            console.error(error);
+            let alertMessage = "Error occurred while signing up";
+            res.render("signup", { alertMessage }); // Changed this line
+          }
         
-        await collection.insertMany([data])
+        //await collection.insertMany([data])
+        //let alertMessage = "you succsfully sign up";
+        //res.render("signup", { alertMessage});
         
-        res.render("home")
     }
     
 })
@@ -56,17 +67,17 @@ app.post("/login",async(req,res)=>{
   try{
     const check=await collection.findOne({name:req.body.name}) 
 if(check.password===req.body.password){
-    alertMessage="you log in sucssfully"
-    res.render("login",{alertMessage})
+    let alertMessage="you log in sucssfully"
+    res.render("home",{alertMessage})
 }
 else{
-    alertMessage="wrong password"
+    let alertMessage="wrong password"
     res.render("login",{alertMessage})
 }
   
   }
   catch{
-    alertMessage="wrong details"
+    let alertMessage="wrong details"
     res.render("login",{alertMessage})
   }
     
