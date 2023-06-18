@@ -1,0 +1,171 @@
+
+
+.form img{
+
+    position: absolute;
+    top: -800px;
+    left: -760px;
+    transform: scale(0.12);
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    font-family: Arial, sans-serif;
+    background:url(https://275w10.com/wp-content/themes/Shephard/assets/images/photos/Shephard-Bedroom1.jpg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #090808;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    height: 400px;
+    background:linear-gradient(to top,  rgb(77, 77, 81)50%, rgb(104, 104, 108)50%);
+    border-radius: 10px;
+   
+}
+
+form input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.link {
+    text-align: center;
+    margin-top: -180px;
+}
+
+.link a {
+    color: #ede6e6;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: none;
+    color: #050505;
+}
+
+
+.liw{
+    padding-top: 45px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #161515;
+    
+    }
+
+  
+
+
+    .icon {
+    display: flex;
+    justify-content: center;
+}
+
+.icon a {
+    margin: 0 5px;
+}
+
+
+.icon a ion-icon[name="logo-facebook"] {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px; /* הזזת האייקון ימינה */
+    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
+}
+.icon a:hover ion-icon[name="logo-facebook"] {
+    color: rgb(50, 95, 199);
+    font-size: 30px;
+}
+
+.icon a ion-icon[name="logo-instagram"] {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px; /* הזזת האייקון ימינה */
+    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
+}
+
+.icon a:hover ion-icon[name="logo-instagram"] {
+    background: linear-gradient(160deg, purple, fuchsia, goldenrod);
+    border-radius: 30%;
+   
+}
+
+
+.icon a ion-icon[name="logo-google"] {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px; /* הזזת האייקון ימינה */
+    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
+}
+
+.icon a:hover ion-icon[name="logo-google"] {
+    background: linear-gradient(160deg, #4285F4, #EA4335, #FBBC05, #34A853);
+    border-radius: 30%;
+}
+
+
+
+.icon a ion-icon[name="logo-twitter"] {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px; /* הזזת האייקון ימינה */
+    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
+}
+.icon a:hover ion-icon[name="logo-twitter"] {
+    color: rgb(63, 158, 240);
+   font-size: 30px;
+}
+
+.icon a ion-icon[name="logo-skype"] {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px; /* הזזת האייקון ימינה */
+    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
+}
+.icon a:hover ion-icon[name="logo-skype"] {
+     color: rgb(63, 158, 240);
+    font-size: 30px;
+}
+
+
+.icon a:hover ion-icon {
+    color: rgb(226, 217, 217); /* צבע הטקסט כאשר העכבר על האייקון */
+}
+
+    

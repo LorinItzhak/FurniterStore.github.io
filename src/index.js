@@ -12,8 +12,11 @@ app.use(express.json())
 //const urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
+
+
+
 //app.engine('ejs', require('ejs').__express);
-app.use(express.static(path.join(__dirname,'public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
+app.use(express.static(path.join(__dirname, 'public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 app.get("/",(req,res)=>{
     res.render("login.ejs", { alertMessage: "" });
 })
@@ -29,7 +32,7 @@ app.post("/signup",async(req,res)=>{
     if(checkk!=null){
         //res.send("name taken")
         let alertMessage = "Username already taken";
-        res.render("signup",{alertMessage});
+        res.render("home.ejs", { alertMessage: "" });
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
        
     }
@@ -67,7 +70,8 @@ app.post("/login",async(req,res)=>{
     const check=await collection.findOne({name:req.body.name}) 
 if(check.password===req.body.password){
     let alertMessage="you log in sucssfully"
-    res.render("home",{alertMessage})
+    res.render("home.ejs", { alertMessage: "" });
+    
 }
 else{
     let alertMessage="wrong password"
