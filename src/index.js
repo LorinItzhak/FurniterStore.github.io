@@ -1,30 +1,45 @@
 const express=require("express")
 const app=express()
 const path =require("path")
-//const ejs=require("ejs")
+const ejs=require("ejs")
+//const {check,validationResult}=require('express-validator ')
+const bodyParser=require('body-parser')
 //const { template } = require("handlebars")
 //const { request } = require("http")
 const collection =require("./mongodb")
-//const viewsPath=path.join(__dirname,"../views")
+//app.set=('views',path.join(__dirname,"../views"))
 app.use(express.json())
+//const urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
+app.use(express.static(path.join(__dirname,'public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 app.get("/",(req,res)=>{
-    res.render("login.ejs") 
+    res.render("login") 
 })
 
 app.get("/signup",(req,res)=>{
-    res.render("signup.ejs") 
+    res.render("signup") 
 })
 
 app.post("/signup",async(req,res)=>{
-const data={
-    name:req.body.name,
-    password:req.body.password
-}
-await collection.insertMany([data])
+    
+    const checkk=await collection.findOne({name:req.body.name})
+    if(checkk!=null){
+        res.send("name taken")
+       // res.render("signup.ejs", { alertMessage: "Username already taken" });
+    }
 
-res.render("home")
+    else{
+        const data={
+            name:req.body.name,
+            password:req.body.password
+        }
+        
+        await collection.insertMany([data])
+        
+        res.render("home")
+    }
+    
 })
 
 
