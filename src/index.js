@@ -12,23 +12,31 @@ app.use(express.json())
 //const urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
+//app.engine('ejs', require('ejs').__express);
 app.use(express.static(path.join(__dirname,'public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 app.get("/",(req,res)=>{
     res.render("login") 
+    res.render("login.ejs", { alertMessage: "" });
 })
 
 app.get("/signup",(req,res)=>{
-    res.render("signup") 
+    //res.render("signup") 
+    res.render("signup.ejs", { alertMessage: "" });
 })
 
 app.post("/signup",async(req,res)=>{
     
     const checkk=await collection.findOne({name:req.body.name})
     if(checkk!=null){
-        res.send("name taken")
+        //res.send("name taken")
+        let alertMessage = "Username already taken";
+        res.render("signup", { alertMessage});
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
     }
-
+else if(req.body.name==''||req.body.password==''){
+    alertMessage = "Fill the missing info";
+        res.render("signup", { alertMessage});
+}
     else{
         const data={
             name:req.body.name,
@@ -48,15 +56,18 @@ app.post("/login",async(req,res)=>{
   try{
     const check=await collection.findOne({name:req.body.name}) 
 if(check.password===req.body.password){
-    res.render("home")
+    alertMessage="you log in sucssfully"
+    res.render("login",{alertMessage})
 }
 else{
-    res.send("wrong password")
+    alertMessage="wrong password"
+    res.render("login",{alertMessage})
 }
   
   }
   catch{
-    res.send("wrong details")
+    alertMessage="wrong details"
+    res.render("login",{alertMessage})
   }
     
     })
