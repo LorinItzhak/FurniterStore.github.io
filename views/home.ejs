@@ -1,12 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My EJS Page</title>
+    <link rel="stylesheet" type="text/css" href="/public/home.css">
 </head>
 <body>
- <h1>Home</h1>
+
+<div class="main">
+    <div class="logo">
+        <img src="/logo.png" alt="לוגו">
+    </div>
+    <div class="navbar">
+        <div class="menu">
+            <ul>
+                <li> <a href="#"> LIVING </a></li>
+                <li> <a href="#"> DINING </a></li>
+                <li> <a href="#"> BED </a></li>
+                <li> <a href="#"> RUGS </a></li>
+                <li> <a href="#"> DECOR </a></li>
+                <li> <a href="#"> SALE </a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input class="srch" type="search" name="" placeholder="Type to search">
+            <a href="#"><button class="btn">Search</button></a>
+            <select class="srch-param" name="category">
+                <option value="">category</option>
+                <option value="beds">beds</option>
+                <option value="sofas">sofas</option>
+                <option value="tables">tables</option>
+                <option value="mirrors">mirrors</option>
+                <option value="chairs">chairs</option>
+                <option value="rugs">rugs</option>
+            </select>
+            <select class="srch-param" name="MATERIAL">
+                <option value="">material</option>
+                <option value="Solid Wood">Solid Wood</option>
+                <option value="Iron">Iron</option>
+                <option value="Glass">Glass</option>
+                <option value="Marble">Marble</option>
+                <option value="Leather">Leather</option>
+                <option value="Fabric">Fabric</option>
+            </select>
+            <select class="srch-param" name="COLOR">
+                <option value="">color</option>
+                <option value="white">white</option>
+                <option value="black">black</option>
+                <option value="brown">brown</option>
+                <option value="beige">beige</option>
+                <option value="grey">grey</option>
+                <option value="green">red</option>
+            </select>
+            <select class="srch-param" name="SIZE">
+                <option value="">size</option>
+                <optgroup label="width">
+                    <option value="50cm">up to 50cm</option>
+                    <option value="100cm">up to 100cm</option>
+                    <option value="150cm">up to 150cm</option>
+                </optgroup>
+                <optgroup label="height">
+                    <option value="50cm">up to 50cm</option>
+                    <option value="100cm">up to 100cm</option>
+                    <option value="150cm">up to 150cm</option>
+                </optgroup>
+                <optgroup label="depth">
+                    <option value="50cm">up to 50cm</option>
+                    <option value="100cm">up to 100cm</option>
+                    <option value="150cm">up to 150cm</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1> Furniture <br> <span> Design </span><br> Studio</h1>
+        <br></br>
+        <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+        <button class="cn"><a href="#"> SIGN IN</a></button>
+    </div>
+</div>
 </body>
-</html> 
+</html>
+
+
