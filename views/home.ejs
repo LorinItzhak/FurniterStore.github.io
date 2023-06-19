@@ -19,12 +19,14 @@
                 <% if (alertMessage) { %>    
                 <li> <%= alertMessage %>  </li>
                   <% } %>
-                <li> <a href="#"> LIVING </a></li>
+                <li><a href="addChair.ejs">for admin </a></li>
+                <li> <a href=""> LIVING </a></li>
                 <li> <a href="#"> DINING </a></li>
                 <li> <a href="#"> BED </a></li>
                 <li> <a href="#"> RUGS </a></li>
                 <li> <a href="#"> DECOR </a></li>
                 <li> <a href="#"> SALE </a></li>
+               
             </ul>
         </div>
         <div class="search">
@@ -85,6 +87,12 @@
         <button class="cn"><a href="#"> SIGN IN</a></button>
     </div>
 </div>
+<script>
+function navigateTo(url) {
+  // Perform the navigation here
+  window.location.href = url;
+}
+</script>
 </body>
 </html>
 
