@@ -38,7 +38,7 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 30px;
-    height: 400px;
+    height: 750px;
     background:linear-gradient(to top,  rgb(77, 77, 81)50%, rgb(104, 104, 108)50%);
     border-radius: 10px;
    
@@ -66,7 +66,9 @@ form input[type="submit"]:hover {
 
 .link {
     text-align: center;
-    margin-top: -180px;
+    margin-top: -320px;
+    font-size: 20px;
+    color: #161515;
 }
 
 .link a {
@@ -76,15 +78,15 @@ form input[type="submit"]:hover {
 
 .link a:hover {
     text-decoration: none;
-    color: #050505;
+    color: #161515;
 }
 
 
 .liw{
-    padding-top: 45px;
+    padding-top: 40px;
     padding-bottom: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     color: #161515;
     
     }
@@ -168,4 +170,3 @@ form input[type="submit"]:hover {
     color: rgb(226, 217, 217); /* צבע הטקסט כאשר העכבר על האייקון */
 }
 
-    
