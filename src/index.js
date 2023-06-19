@@ -16,7 +16,7 @@ app.set("view engine","ejs")
 
 
 //app.engine('ejs', require('ejs').__express);
-app.use(express.static(path.join(__dirname, 'public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
+app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 app.get("/",(req,res)=>{
     res.render("login.ejs", { alertMessage: "" });
 })
