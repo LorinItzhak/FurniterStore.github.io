@@ -16,6 +16,9 @@
     <div class="navbar">
         <div class="menu">
             <ul>
+                <% if (alertMessage) { %>    
+                <li> <%= alertMessage %>  </li>
+                  <% } %>
                 <li> <a href="#"> LIVING </a></li>
                 <li> <a href="#"> DINING </a></li>
                 <li> <a href="#"> BED </a></li>

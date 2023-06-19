@@ -25,6 +25,10 @@ app.get("/signup",(req,res)=>{
     //res.render("signup") 
     res.render("signup.ejs", { alertMessage: "" });
 })
+app.get("/home",(req,res)=>{
+    //res.render("signup") 
+    res.render("home.ejs", { alertMessage: "" });
+})
 
 app.post("/signup",async(req,res)=>{
     
@@ -69,8 +73,8 @@ app.post("/login",async(req,res)=>{
   try{
     const check=await collection.findOne({name:req.body.name}) 
 if(check.password===req.body.password){
-    let alertMessage="you log in sucssfully"
-    res.render("home.ejs", { alertMessage: "" });
+    let alertMessage="Hi "+req.body.name
+    res.render("home.ejs", { alertMessage});
     
 }
 else{
