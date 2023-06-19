@@ -68,11 +68,32 @@ ul li a:hover{
     color: #f1ebeb;
 }
 
+.btn-sr {
+    width: 100px;
+    height: 25px;
+    background-color:rgb(9, 9, 9) ;
+    border: 2px solid rgb(96, 91, 91);
+    margin-top: 8px;
+    color: rgb(181, 181, 188);
+     font-size: 15px;
+    border-bottom-right-radius:6px ;
+    border-top-right-radius:6px ;
+    
+    
+    }
+    
+   
+
 .search{
 
-width: 330px;
-float: left;
-margin-left:270px ;
+width: 45%;
+border-radius: 10px;
+background: linear-gradient(to top,  rgb(77, 77, 81) 50%, rgb(104, 104, 108) 50%);
+border: 2px solid rgb(96, 91, 91);
+position: relative
+
+
+
 
 }
 
@@ -80,10 +101,10 @@ margin-left:270px ;
 
     font-family: 'Times New Roman', Times, serif;
     width: 200px;
-    height: 40px;
-    background:transparent ;
-    border: 1px solid black;
-    margin-top: 27px;
+    height: 12px;
+    border: 2px solid rgb(96, 91, 91);
+    margin-top: 8px;
+    margin-left: 48px;
     color: rgb(174, 174, 177);
      border-right: none;
      font-size: 16px;
@@ -95,23 +116,28 @@ margin-left:270px ;
 }
 
 
+
 .srch-param {
-    width: 148px;
+    
+    width: 20%;
     height: 10px;
     background: transparent;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
     border-top: none;
     border-left: none;
     border-right: none;
     color: rgb(11, 11, 11);
     font-size: 15px;
     letter-spacing: 1px;
-    margin-top: 2px;
+    margin: 1px;
+    margin-top: 7px;
+    margin-bottom: 15px;
     font-family: sans-serif;
-    
-   
   }
   
+  .param-group{
+    margin-left: 50px;
+  }
   .srch-param option {
     color: black;
     background: lightgray;
@@ -120,6 +146,7 @@ margin-left:270px ;
   
   .srch-param optgroup {
     font-weight: bold;
+   
   }
   
   .srch-param-size {
@@ -151,9 +178,7 @@ border-top-right-radius:6px ;
     outline: none;
 }
 
-.search: focus{
-    outline: none;
-}
+
 
 .content{
     width: 1200px;

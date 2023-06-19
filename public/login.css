@@ -18,36 +18,38 @@ body {
     
     font-family: Arial, sans-serif;
     background:url(https://275w10.com/wp-content/themes/Shephard/assets/images/photos/Shephard-Bedroom1.jpg);
+    
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 h2 {
-    
+    margin-bottom: 10px;
     text-align: center;
     font-size: 28px;
-    margin-bottom: 20px;
     color: #090808;
 }
 
 form {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 10% auto; /* מרכז האתר עם מרווח עליון של 10% */
     padding: 30px;
-    height: 650px;
-    background:linear-gradient(to top,  rgb(77, 77, 81)50%, rgb(104, 104, 108)50%);
+    height: 550px;
+    background: linear-gradient(to top,  rgb(77, 77, 81) 50%, rgb(104, 104, 108) 50%);
     border-radius: 10px;
-   
 }
 
+
 form input {
+    
     width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
+    height: 35px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -58,6 +60,7 @@ form input[type="submit"] {
     background-color: #333;
     color: #fff;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 form input[type="submit"]:hover {
@@ -66,7 +69,8 @@ form input[type="submit"]:hover {
 
 .link {
     text-align: center;
-    margin-top: -320px;
+    margin-top: -370px;
+    margin-bottom: 2%;
     font-size: 20px;
     color: #161515;
 }
@@ -77,15 +81,16 @@ form input[type="submit"]:hover {
 }
 
 .link a:hover {
+   
     text-decoration: none;
     color: #161515;
 }
 
 
 .liw{
-    padding-top: 40px;
-    padding-bottom: 10px;
+    padding-top: 2px;
     text-align: center;
+    margin: -1px;
     font-size: 22px;
     color: #161515;
     
@@ -95,8 +100,10 @@ form input[type="submit"]:hover {
 
 
     .icon {
+        padding-top: 2px;
     display: flex;
     justify-content: center;
+    
 }
 
 .icon a {
@@ -170,3 +177,32 @@ form input[type="submit"]:hover {
     color: rgb(226, 217, 217); /* צבע הטקסט כאשר העכבר על האייקון */
 }
 
+.alert {
+    text-align: left;
+    margin-bottom: 5px; /* ייבוש תחתון בגובה של 10 פיקסלים */
+    position: relative; /* אלמנט בעל מיקום יחסי */
+    padding: 0.5px; /* ריפוד בגודל של 0.25 רימ או 4 פיקסלים בכל צד */
+    border: 4px solid #ffffff; /* מסגרת דקה עם צבע לבן */
+    border-radius: 3px; /* חיסור מעגלי בעובי 3 פיקסלים לפינות המסגרת */
+    background-color: #b6b3b3; /* רקע לבן */
+    color: #000000; /* צבע הטקסט שחור */
+    
+  }
+  
+  
+  
+  .btn-close {
+    position: absolute; /* אלמנט במיקום אבסולוטי ביחס לעלמנט האב */
+    right: 0.5rem; /* מיקום אופקי של 0.5 רימ או 8 פיקסלים מהצד הימני */
+    transform: translateY(-28%); /* הזזת האלמנט באנכית מיקום של -50% */
+    padding: 0.25rem; /* ריפוד בגודל של 0.25 רימ או 4 פיקסלים בכל צד */
+    font-size: 12px;
+    text-align: right; /* הורשת את צבע הטקסט מהאב */
+  }
+  
+  
+  
+
+  
+ 
+  

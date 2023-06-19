@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My EJS Page</title>
     <link rel="stylesheet"  href="home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -29,8 +30,9 @@
         </div>
         <div class="search">
             <input class="srch" type="search" name="" placeholder="Type to search">
-            <a href="#"><button class="btn">Search</button></a>
-            <select class="srch-param" name="category">
+            <button class="btn-sr">Search</button>
+           <div class="param-group">
+             <select class="srch-param" name="category">
                 <option value="">category</option>
                 <option value="beds">beds</option>
                 <option value="sofas">sofas</option>
@@ -75,6 +77,7 @@
                     <option value="150cm">up to 150cm</option>
                 </optgroup>
             </select>
+           </div>
         </div>
     </div>
 
@@ -82,9 +85,15 @@
         <h1> Furniture <br> <span> Design </span><br> Studio</h1>
         <br></br>
         <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+        <button class="btn btn-primary">my account</button> <!-- כפתור אישי -->
+        <button class="btn btn-success">Shopping Cart</button> <!-- כפתור עגלת קניות -->
         <button class="cn"><a href="#"> SIGN IN</a></button>
+        
     </div>
 </div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </body>
 </html>
 

@@ -9,11 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Log In</h2>
    
-    
     <form action="/login" method="post">
-        
+        <h2>Log In</h2>  
      
           <% if (alertMessage) { %>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -25,6 +23,7 @@
     <input type="password" name="password" placeholder="Password">
     <input type="submit">
     </form>
+    
     <p class="link"> D'ont have an account? <br>
     <a href="/signup">Sign Up </a>
     <div class="form">
@@ -43,6 +42,3 @@
     
 </body>
 </html>
-
-
-

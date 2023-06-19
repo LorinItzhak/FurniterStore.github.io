@@ -35,13 +35,13 @@ app.post("/signup",async(req,res)=>{
     const checkk=await collection.findOne({name:req.body.name})
     if(checkk!=null){
         //res.send("name taken")
-        let alertMessage = "Username already taken";
+        let alertMessage = " Username already taken";
         res.render("home.ejs", { alertMessage: "" });
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
        
     }
 else if(req.body.name==''||req.body.password==''){
-     let alertMessage = "Fill the missing info";
+     let alertMessage = " Fill the missing info";
         res.render("signup",{alertMessage});
 }
     else{
@@ -51,11 +51,11 @@ else if(req.body.name==''||req.body.password==''){
         };
         try {
             await collection.insertMany([data]);
-            let alertMessage = "You have successfully signed up";
+            let alertMessage = " You have successfully signed up";
             res.render("home", { alertMessage }); // Changed this line
           } catch (error) {
             console.error(error);
-            let alertMessage = "Error occurred while signing up";
+            let alertMessage = " Error occurred while signing up";
             res.render("signup", { alertMessage }); // Changed this line
           }
         
@@ -78,13 +78,13 @@ if(check.password===req.body.password){
     
 }
 else{
-    let alertMessage="wrong password"
+    let alertMessage=" wrong password"
     res.render("login",{alertMessage})
 }
   
   }
   catch{
-    let alertMessage="wrong details"
+    let alertMessage=" wrong details"
     res.render("login",{alertMessage})
   }
     
