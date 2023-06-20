@@ -13,8 +13,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
 const chairCollect = require("./mongodb")
-
-
+const bedCollect = require("./mongodb")
+const tableCollect = require("./mongodb")
+const couchCollect= require("./mongodb")
 //app.engine('ejs', require('ejs').__express);
 app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 
@@ -92,14 +93,14 @@ else{
     
     })
     
-    
+   //OBJECT ADDING************************************************************************************************************** 
 app.get("/addChair",(req,res)=>{
-res.render("addChair",{alertMessage});
+res.render("addChair",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addChair",async (req,res)=>{
 
-    const isValid = await collection.findOne({name:req.body.name})
+    let isValid = await collection.findOne({name:req.body.name})
     if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
     {
         req.body.amount += isValid.body.amount;
@@ -111,7 +112,7 @@ app.post("/addChair",async (req,res)=>{
     }
     else
     {
-        const info = {
+        let info = {
             name:req.body.name,
             color:req.body.color,
             matter:req.body.matter,
@@ -131,6 +132,125 @@ app.post("/addChair",async (req,res)=>{
     }
 })
 
+app.get("/addBed",(req,res)=>{
+    res.render("addBed",{alertMessage:""});
+    console.log("ok")
+    })
+    app.post("/addBed",async (req,res)=>{
+
+        let isValid = await collection.findOne({name:req.body.name})
+        if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+        {
+            req.body.amount += isValid.body.amount;
+        }
+        else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+        {
+            let aler = "wront info"
+            res.render("addBed.ejs",{aler})
+        }
+        else
+        {
+            let info = {
+                name:req.body.name,
+                color:req.body.color,
+                matter:req.body.matter,
+                amout:req.body.amount,
+                pic:req.body.pic,
+                size:req.body.size
+            }
+            try{
+                    await bedCollect.insertMany([info])
+                    let al = "all is done!"
+                    res.render("home", { al });
+            }
+            catch (error) {
+                console.error(error);
+                let alertMessage = "Error";
+                res.render("addBed.ejs", { alertMessage });
+            }
+        }
+    })
+
+
+    app.get("/addTable",(req,res)=>{
+        res.render("addTable",{alertMessage:""});
+        console.log("ok")
+        })
+        app.post("/addTable",async (req,res)=>{
+    
+            let isValid = await collection.findOne({name:req.body.name})
+            if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+            {
+                req.body.amount += isValid.body.amount;
+            }
+            else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+            {
+                let aler = "wront info"
+                res.render("addTable.ejs",{aler})
+            }
+            else
+            {
+                let info = {
+                    name:req.body.name,
+                    color:req.body.color,
+                    matter:req.body.matter,
+                    amout:req.body.amount,
+                    pic:req.body.pic,
+                    size:req.body.size
+                }
+                try{
+                        await tableCollect.insertMany([info])
+                        let al = "all is done!"
+                        res.render("home", { al });
+                }
+                catch (error) {
+                    console.error(error);
+                    let alertMessage = "Error";
+                    res.render("addTable.ejs", { alertMessage });
+                }
+            }
+        })
+
+        app.get("/addCouch",(req,res)=>{
+            res.render("addCouch",{alertMessage:""});
+            console.log("ok")
+            })
+            app.post("/addCouch",async (req,res)=>{
+        
+                let isValid = await collection.findOne({name:req.body.name})
+                if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+                {
+                    req.body.amount += isValid.body.amount;
+                }
+                else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+                {
+                    let aler = "wront info"
+                    res.render("addCouch.ejs",{aler})
+                }
+                else
+                {
+                    let info = {
+                        name:req.body.name,
+                        color:req.body.color,
+                        matter:req.body.matter,
+                        amout:req.body.amount,
+                        pic:req.body.pic,
+                        size:req.body.size
+                    }
+                    try{
+                            await couchCollect.insertMany([info])
+                            let al = "all is done!"
+                            res.render("home", { al });
+                    }
+                    catch (error) {
+                        console.error(error);
+                        let alertMessage = "Error";
+                        res.render("addCouch.ejs", { alertMessage });
+                    }
+                }
+            })
+
+    
 
 app.listen(3000,()=>{
     console.log("port connected")
