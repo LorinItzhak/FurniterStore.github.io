@@ -74,26 +74,30 @@ ul li a:hover{
     height: 24px;
     background-color:rgb(183, 174, 174) ;
     border: 2px solid rgb(96, 91, 91);
-    margin-top: 8px;
-    color: rgb(244, 244, 251);
+    margin-top: 7px;
+    color: #f5ecec;
      font-size: 15px;
     border-bottom-right-radius:6px ;
     border-top-right-radius:6px ;
     
     
     }
+    .btn-sr:hover {
+        background-color:rgb(232, 188, 188) ;
+       
+        }
     
    
 
 .search{
 
-width: 60%;
+width: 39%;
 margin-top: -60px;
 margin-left: 60%;
 border-radius: 10px;
-background: linear-gradient(to top,  rgb(225, 194, 194) 50%,rgb(245, 217, 217) 50%);
-border: 2px solid rgb(96, 91, 91);
-position: relative
+background-color: transparent;
+border: 1.3px solid  #f5ecec;
+
 
 
 
@@ -103,12 +107,12 @@ position: relative
 .srch{
 
     font-family: 'Times New Roman', Times, serif;
-    width: 200px;
+    width: 322px;
     height: 12px;
     border: 2px solid rgb(96, 91, 91);
-    margin-top: 8px;
-    margin-left: 48px;
-    color: rgb(174, 174, 177);
+    margin-top: 7px;
+    margin-left: 16px;
+    color: #585454;
      border-right: none;
      font-size: 16px;
      float: left;
@@ -122,40 +126,27 @@ position: relative
 
 .srch-param {
     
-    width: 20%;
+    width: 100px;
     height: 10px;
     background: transparent;
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid #f5ecec;
     border-top: none;
     border-left: none;
     border-right: none;
-    color: rgb(11, 11, 11);
-    font-size: 15px;
+    color: rgb(229, 215, 215);
+    font-size: 14px;
     letter-spacing: 1px;
     margin: 1px;
-    margin-top: 7px;
-    margin-bottom: 15px;
+    margin-top: 6px;
+    margin-bottom: 10px;
     font-family: sans-serif;
   }
   
   .param-group{
-    margin-left: 50px;
+    margin-left:17px;
   }
 
-  
-  
-
-  
-  .srch-param optgroup {
-    font-weight: bold;
-    
-   
-  }
-  
-  .srch-param-size {
-    font-weight: normal;
-  }
-  
+ 
   .srch-param:focus {
     outline: none;
   }
