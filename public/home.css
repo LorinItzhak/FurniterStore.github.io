@@ -57,7 +57,7 @@ font-size: 16px;
 
 ul li a{
 text-decoration: none;
-color: #000;
+color: #f5ecec;
 font-family: Arial, Helvetica, sans-serif;
 font-weight: bold;
 transition: 0.4s ease-in-out;
@@ -65,16 +65,17 @@ transition: 0.4s ease-in-out;
 }
 
 ul li a:hover{
-    color: #f1ebeb;
+    color: #ebc0c0;
 }
 
 .btn-sr {
+    
     width: 100px;
-    height: 25px;
-    background-color:rgb(9, 9, 9) ;
+    height: 24px;
+    background-color:rgb(183, 174, 174) ;
     border: 2px solid rgb(96, 91, 91);
     margin-top: 8px;
-    color: rgb(181, 181, 188);
+    color: rgb(244, 244, 251);
      font-size: 15px;
     border-bottom-right-radius:6px ;
     border-top-right-radius:6px ;
@@ -86,9 +87,11 @@ ul li a:hover{
 
 .search{
 
-width: 45%;
+width: 60%;
+margin-top: -60px;
+margin-left: 60%;
 border-radius: 10px;
-background: linear-gradient(to top,  rgb(77, 77, 81) 50%, rgb(104, 104, 108) 50%);
+background: linear-gradient(to top,  rgb(225, 194, 194) 50%,rgb(245, 217, 217) 50%);
 border: 2px solid rgb(96, 91, 91);
 position: relative
 
@@ -138,14 +141,14 @@ position: relative
   .param-group{
     margin-left: 50px;
   }
-  .srch-param option {
-    color: black;
-    background: lightgray;
-    font-weight: bold;
-  }
+
+  
+  
+
   
   .srch-param optgroup {
     font-weight: bold;
+    
    
   }
   
@@ -240,3 +243,34 @@ transition: 3s ease ;
     font-size: 60px;
 }
 
+.btn-my-account{
+    border:none;
+    color: #f5ecec;
+    background-color: transparent;
+    padding-top: 2px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+  top: 30px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
+  right: 40px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
+}
+
+.btn-Shopping-Cart{
+    border:none;
+    font-size: 2em;
+    size: 130%;
+    color: rgb(229, 221, 221);
+    background-color: transparent;
+    margin-bottom: 200px;
+    position: fixed;
+  top: 26px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
+  right: 100px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
+    
+}
+
+.btn-my-account:hover,
+.btn-Shopping-Cart:hover {
+    color: #ebc0c0; /* שינוי צבע הטקסט לשחור */
+    text-decoration: underline; /* הוספת קו תחתון */
+}
