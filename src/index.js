@@ -16,6 +16,8 @@ const chairCollect = require("./mongodb")
 const bedCollect = require("./mongodb")
 const tableCollect = require("./mongodb")
 const couchCollect= require("./mongodb")
+const mirrorCollect = require("./mongodb")
+const rugCollect = require("./mongodb")
 //app.engine('ejs', require('ejs').__express);
 app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 
@@ -94,13 +96,17 @@ else{
     })
     
    //OBJECT ADDING************************************************************************************************************** 
+   //****************************************************************************************************************************
+   //**************************************************************************************************************************** 
+
+   //ADD CHAIR
 app.get("/addChair",(req,res)=>{
 res.render("addChair",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addChair",async (req,res)=>{
 
-    let isValid = await collection.findOne({name:req.body.name})
+    let isValid = await chairCollect.findOne({name:req.body.name})
     if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
     {
         req.body.amount += isValid.body.amount;
@@ -117,7 +123,8 @@ app.post("/addChair",async (req,res)=>{
             color:req.body.color,
             matter:req.body.matter,
             amout:req.body.amount,
-            pic:req.body.pic
+            pic:req.body.pic,
+            price:req.body.price
         }
         try{
                 await chairCollect.insertMany([info])
@@ -132,13 +139,15 @@ app.post("/addChair",async (req,res)=>{
     }
 })
 
+//ADD BED
+
 app.get("/addBed",(req,res)=>{
     res.render("addBed",{alertMessage:""});
     console.log("ok")
     })
     app.post("/addBed",async (req,res)=>{
 
-        let isValid = await collection.findOne({name:req.body.name})
+        let isValid = await bedCollect.findOne({name:req.body.name})
         if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
         {
             req.body.amount += isValid.body.amount;
@@ -156,7 +165,8 @@ app.get("/addBed",(req,res)=>{
                 matter:req.body.matter,
                 amout:req.body.amount,
                 pic:req.body.pic,
-                size:req.body.size
+                size:req.body.size,
+                price:req.body.price
             }
             try{
                     await bedCollect.insertMany([info])
@@ -172,13 +182,16 @@ app.get("/addBed",(req,res)=>{
     })
 
 
+
+
+    //ADD TABLE
     app.get("/addTable",(req,res)=>{
         res.render("addTable",{alertMessage:""});
         console.log("ok")
         })
         app.post("/addTable",async (req,res)=>{
     
-            let isValid = await collection.findOne({name:req.body.name})
+            let isValid = await tableCollect.findOne({name:req.body.name})
             if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
             {
                 req.body.amount += isValid.body.amount;
@@ -196,7 +209,8 @@ app.get("/addBed",(req,res)=>{
                     matter:req.body.matter,
                     amout:req.body.amount,
                     pic:req.body.pic,
-                    size:req.body.size
+                    size:req.body.size,
+                    price:req.body.price
                 }
                 try{
                         await tableCollect.insertMany([info])
@@ -211,13 +225,18 @@ app.get("/addBed",(req,res)=>{
             }
         })
 
+
+
+
+        //ADD COUCH
+
         app.get("/addCouch",(req,res)=>{
             res.render("addCouch",{alertMessage:""});
             console.log("ok")
             })
             app.post("/addCouch",async (req,res)=>{
         
-                let isValid = await collection.findOne({name:req.body.name})
+                let isValid = await couchCollect.findOne({name:req.body.name})
                 if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
                 {
                     req.body.amount += isValid.body.amount;
@@ -235,7 +254,8 @@ app.get("/addBed",(req,res)=>{
                         matter:req.body.matter,
                         amout:req.body.amount,
                         pic:req.body.pic,
-                        size:req.body.size
+                        size:req.body.size,
+                        price:req.body.price
                     }
                     try{
                             await couchCollect.insertMany([info])
@@ -250,7 +270,92 @@ app.get("/addBed",(req,res)=>{
                 }
             })
 
-    
+
+            //ADD MIRROR
+
+            app.get("/addMirror",(req,res)=>{
+                res.render("addMirror",{alertMessage:""});
+                console.log("ok")
+                })
+                app.post("/addMirror",async (req,res)=>{
+            
+                    let isValid = await mirrorCollect.findOne({name:req.body.name})
+                    if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+                    {
+                        req.body.amount += isValid.body.amount;
+                    }
+                    else if(req.body.name==''||req.body.color==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+                    {
+                        let aler = "wront info"
+                        res.render("addMirror.ejs",{aler})
+                    }
+                    else
+                    {
+                        let info = {
+                            name:req.body.name,
+                            color:req.body.color,
+                            amout:req.body.amount,
+                            pic:req.body.pic,
+                            size:req.body.size,
+                            price:req.body.price
+                        }
+                        try{
+                                await mirrorCollect.insertMany([info])
+                                let al = "all is done!"
+                                res.render("home", { al });
+                        }
+                        catch (error) {
+                            console.error(error);
+                            let alertMessage = "Error";
+                            res.render("addMirror.ejs", { alertMessage });
+                        }
+                    }
+                })
+
+
+                //ADD RUG
+                app.get("/addRug",(req,res)=>{
+                    res.render("addRug",{alertMessage:""});
+                    console.log("ok")
+                    })
+                    app.post("/addRug",async (req,res)=>{
+                
+                        let isValid = await rugCollect.findOne({name:req.body.name})
+                        if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+                        {
+                            req.body.amount += isValid.body.amount;
+                        }
+                        else if(req.body.name==''||req.body.color==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+                        {
+                            let aler = "wront info"
+                            res.render("addRug.ejs",{aler})
+                        }
+                        else
+                        {
+                            let info = {
+                                name:req.body.name,
+                                color:req.body.color,
+                                amout:req.body.amount,
+                                pic:req.body.pic,
+                                size:req.body.size,
+                                price:req.body.price
+                            }
+                            try{
+                                    await rugCollect.insertMany([info])
+                                    let al = "all is done!"
+                                    res.render("home", { al });
+                            }
+                            catch (error) {
+                                console.error(error);
+                                let alertMessage = "Error";
+                                res.render("addRug.ejs", { alertMessage });
+                            }
+                        }
+                    })       
+    /*********************************************************************************************************************************
+     * *******************************************************************************************************************************
+     * *******************************************************************************************************************************
+     */
 
 app.listen(3000,()=>{
     console.log("port connected")
