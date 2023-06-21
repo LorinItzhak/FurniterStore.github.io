@@ -6,13 +6,16 @@ const ejs=require("ejs")
 const bodyParser=require('body-parser')
 //const { template } = require("handlebars")
 //const { request } = require("http")
-const collection =require("./mongodb")
+//const collection =require("./mongodb")
 //app.use=(express.static(path.join(__dirname,'views')));
 app.use(express.json())
 //const urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
-const chairCollect = require("./mongodb")
+const mongMod = require("./mongodb")
+const collection = mongMod.collection
+const chairCollect = mongMod.chairCollect
+//const chairCollect = require("./mongodb")
 const bedCollect = require("./mongodb")
 const tableCollect = require("./mongodb")
 const couchCollect= require("./mongodb")
@@ -106,30 +109,30 @@ console.log("ok")
 })
 app.post("/addChair",async (req,res)=>{
 
-    let isValid = await chairCollect.findOne({name:req.body.name})
+    let isValid = await chairCollect.findOne({nameChair:req.body.nameChair})
     if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
     {
         req.body.amount += isValid.body.amount;
     }
-    else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0)
+    else if(req.body.nameChair==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amount < 0||req.body.price < 0)
     {
-        let aler = "wront info"
-        res.render("addChair.ejs",{aler})
+        let alertMessage = "wront info"
+        res.render("addChair.ejs",{alertMessage})
     }
     else
     {
         let info = {
-            name:req.body.name,
+            nameChair:req.body.nameChair,
             color:req.body.color,
             matter:req.body.matter,
-            amout:req.body.amount,
+            amount:req.body.amount,
             pic:req.body.pic,
             price:req.body.price
         }
         try{
                 await chairCollect.insertMany([info])
-                let al = "all is done!"
-                res.render("home", { al });
+                let alertMessage = "hi"
+                res.render("home", { alertMessage:"" });
         }
         catch (error) {
             console.error(error);

@@ -23,7 +23,7 @@ const LogInSchema=new mongoose.Schema({
 })
 
 const chair = new mongoose.Schema({
-    name:{
+    nameChair:{
         type:String,
         required:true
     },
@@ -196,7 +196,7 @@ const rug = new mongoose.Schema({
     }
 })
 
-const rugCollect = new mongoose.model("rug",rug)
+/*const rugCollect = new mongoose.model("rug",rug)
 module.exports = rugCollect
 
 const mirrorCollect = new mongoose.model("mirror",mirror)
@@ -216,4 +216,9 @@ const chairCollect = new mongoose.model("chair",chair)
 module.exports=chairCollect
 
 const collection=new mongoose.model("users",LogInSchema)
-module.exports=collection
+module.exports=collection*/
+const collection=new mongoose.model("users",LogInSchema)
+const chairCollect = new mongoose.model("chairs",chair)
+module.exports={
+    collection,chairCollect
+}
