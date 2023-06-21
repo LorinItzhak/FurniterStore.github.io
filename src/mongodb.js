@@ -196,29 +196,30 @@ const rug = new mongoose.Schema({
     }
 })
 
-/*const rugCollect = new mongoose.model("rug",rug)
+/*const rugCollect = new mongoose.model("rrugs",rug)
 module.exports = rugCollect
 
-const mirrorCollect = new mongoose.model("mirror",mirror)
+const mirrorCollect = new mongoose.model("mmirrors",mirror)
 module.exports=mirrorCollect
 
-const couchCollect = new mongoose.model("couch",couch)
+const couchCollect = new mongoose.model("ccouchs",couch)
 module.exports=couchCollect
 
-const tableCollect = new mongoose.model("table",table)
+const tableCollect = new mongoose.model("ttables",table)
 module.exports=tableCollect
 
-const bedCollect = new mongoose.model("bed",bed)
+const bedCollect = new mongoose.model("bbeds",bed)
 module.exports=bedCollect
 
-
-const chairCollect = new mongoose.model("chair",chair)
+const chairCollect = new mongoose.model("cchairs",chair)
 module.exports=chairCollect
 
 const collection=new mongoose.model("users",LogInSchema)
 module.exports=collection*/
-const collection=new mongoose.model("users",LogInSchema)
 const chairCollect = new mongoose.model("chairs",chair)
-module.exports={
+const collection=new mongoose.model("users",LogInSchema)
+module.exports = {
     collection,chairCollect
 }
+
+
