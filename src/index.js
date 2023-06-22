@@ -49,7 +49,8 @@ else if(req.body.name==''||req.body.password==''){
     else{
         const data={
             name:req.body.name,
-            password:req.body.password
+            password:req.body.password,
+            admin:false
         };
         try {
             await collection.insertMany([data]);
@@ -76,8 +77,13 @@ app.post("/login",async(req,res)=>{
     const check=await collection.findOne({name:req.body.name}) 
 if(check.password===req.body.password){
     let alertMessage="Hi "+req.body.name
-    res.render("home.ejs", { alertMessage});
-    
+    if(check.admin == true)
+    {
+        res.render("adminHome",{alertMessage})
+    }
+    else{
+        res.render("home.ejs", { alertMessage});
+    }
 }
 else{
     let alertMessage=" wrong password"
@@ -103,6 +109,9 @@ res.render("addObject",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
+        let isAdmin = await collection.findOne({name:req.body.username})
+        if(isAdmin.admin == true)
+        {
         console.log("1")
         let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
         if(isValid != null)
@@ -140,6 +149,10 @@ app.post("/addObject",async (req,res)=>{
             res.render("addObject.ejs", { alertMessage });
             }
         }
+    }
+    else{
+        res.render("home",{alertMessage:"user is not admin"})
+    }
     })
 
     //DELETE OBJECT
@@ -148,26 +161,33 @@ app.post("/addObject",async (req,res)=>{
         console.log("ok")
         })
     app.post("/deleteObject",async (req,res)=>{
-        let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
-        if(isValid != null)
-        {
-            let info = {
-                category:req.body.category,
-                name:req.body.name
+        let isAdmin = await collection.findOne({name:req.body.username})
+        if(isAdmin.admin == true){
+            let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
+            if(isValid != null)
+            {
+                let info = {
+                    category:req.body.category,
+                    name:req.body.name
+                }
+                await objectCollection.findOneAndDelete({category:req.body.category,name:req.body.name},info)
+                res.render("home",{alertMessage:"done"})
             }
-            await objectCollection.findOneAndDelete({category:req.body.category,name:req.body.name},info)
-            
-            res.render("home",{alertMessage:"done"})
+            else{
+                let alertMessage = "wrong info"
+                res.render("home",{alertMessage})
+            }
         }
         else{
-            let alertMessage = "wrong info"
-            res.render("home",{alertMessage})
+            res.render("home",{alertMessage:"user is not admin"})
         }
     })
 
 
     //SHOW OBJECT TO SCREEN
     
+
+
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
      * *******************************************************************************************************************************
