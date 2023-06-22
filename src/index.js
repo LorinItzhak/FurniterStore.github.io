@@ -108,7 +108,7 @@ app.post("/addObject",async (req,res)=>{
             let info = {
                 amount:parseInt(isValid.amount)+parseInt(req.body.amount)
             }
-            await objectCollections.findOneAndUpdate({category:req.body.category,name:req.body.name},info)
+            await objectCollection.findOneAndUpdate({category:req.body.category,name:req.body.name},info)
             res.render("home",{alertMessage:""})
         }
         else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amount < 0||req.body.price < 0)
@@ -128,7 +128,7 @@ app.post("/addObject",async (req,res)=>{
             category:req.body.category
             }
             try{
-                await chairCollect.insertMany([info])
+                await objectCollection.insertMany([info])
                 let alertMessage = "hi"
                 res.render("home", { alertMessage:"" });
             }

@@ -10,7 +10,7 @@ mongoose.connect("mongodb+srv://eliav:2001@ourshop.vtknxmb.mongodb.net/?retryWri
 .catch(()=>{
     console.log('failed');
 })
-
+ 
 const LogInSchema=new mongoose.Schema({
     name:{
         type:String,
