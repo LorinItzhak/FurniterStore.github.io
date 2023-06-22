@@ -54,9 +54,146 @@ const object = new mongoose.Schema({
     }
 })
 
+const table = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    color:{
+        type:String,
+        required:true
+    },
+    matter:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+    },
+    pic:{
+        type:String,
+        required:true
+    },
+    size:{
+        type:String,
+        required:true
+    }
+})
+
+const couch = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    color:{
+        type:String,
+        required:true
+    },
+    matter:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+    },
+    pic:{
+        type:String,
+        required:true
+    },
+    size:{
+        type:String,
+        required:true
+    }
+})
+
+const mirror = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    color:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+    },
+    pic:{
+        type:String,
+        required:true
+    },
+    size:{
+        type:String,
+        required:true
+    }
+})
+
+const rug = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    size:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    color:{
+        type:String,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+    },
+    pic:{
+        type:String,
+        required:true
+    }
+})
+
+/*const rugCollect = new mongoose.model("rrugs",rug)
+module.exports = rugCollect
+
+const mirrorCollect = new mongoose.model("mmirrors",mirror)
+module.exports=mirrorCollect
+
+const couchCollect = new mongoose.model("ccouchs",couch)
+module.exports=couchCollect
+
+const tableCollect = new mongoose.model("ttables",table)
+module.exports=tableCollect
+
+const bedCollect = new mongoose.model("bbeds",bed)
+module.exports=bedCollect
+
+const chairCollect = new mongoose.model("cchairs",chair)
+module.exports=chairCollect
 
 const collection=new mongoose.model("users",LogInSchema)
-const objectCollection = new mongoose.model("objects",object)
-module.exports={
-    collection,objectCollection
+module.exports=collection*/
+const chairCollect = new mongoose.model("chairs",chair)
+const collection=new mongoose.model("users",LogInSchema)
+module.exports = {
+    collection,chairCollect
 }
+
+
