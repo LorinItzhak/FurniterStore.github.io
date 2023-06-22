@@ -14,7 +14,13 @@ app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
 const mongMod = require("./mongodb")
 const collection = mongMod.collection
-const objectCollection = mongMod.objectCollection
+const chairCollect = mongMod.chairCollect
+//const chairCollect = require("./mongodb")
+const bedCollect = require("./mongodb")
+const tableCollect = require("./mongodb")
+const couchCollect= require("./mongodb")
+const mirrorCollect = require("./mongodb")
+const rugCollect = require("./mongodb")
 //app.engine('ejs', require('ejs').__express);
 app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
 
@@ -97,50 +103,258 @@ else{
    //**************************************************************************************************************************** 
 
    //ADD CHAIR
-app.get("/addObject",(req,res)=>{
+app.get("/addChair",(req,res)=>{
 res.render("addChair",{alertMessage:""});
 console.log("ok")
 })
-app.post("/addObject",async (req,res)=>{
-        console.log("1")
-        let isValid = await chairCollect.findOne({category:req.body.category,name:req.body.name})
-        if(isValid != null)
-        {
-            let info = {
-                amount:parseInt(isValid.amount)+parseInt(req.body.amount)
-            }
-            await chairCollect.findOneAndUpdate({category:req.body.category,name:req.body.name},info)
-            res.render("home",{alertMessage:""})
-        }
-        else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amount < 0||req.body.price < 0)
-        {
-            let alertMessage = "wront info"
-            res.render("addObject",{alertMessage})
-        }
-        else
-        {
-            let info = {
-            name:req.body.name,
+app.post("/addChair",async (req,res)=>{
+
+    let isValid = await chairCollect.findOne({nameChair:req.body.nameChair})
+    if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+    {
+        req.body.amount += isValid.body.amount;
+    }
+    else if(req.body.nameChair==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amount < 0||req.body.price < 0)
+    {
+        let alertMessage = "wront info"
+        res.render("addChair.ejs",{alertMessage})
+    }
+    else
+    {
+        let info = {
+            nameChair:req.body.nameChair,
             color:req.body.color,
             matter:req.body.matter,
             amount:req.body.amount,
             pic:req.body.pic,
-            price:req.body.price,
-            category:req.body.category
-            }
-            try{
+            price:req.body.price
+        }
+        try{
                 await chairCollect.insertMany([info])
                 let alertMessage = "hi"
                 res.render("home", { alertMessage:"" });
-            }
-            catch (error) {
+        }
+        catch (error) {
             console.error(error);
             let alertMessage = "Error";
-            res.render("addObject.ejs", { alertMessage });
+            res.render("addChair.ejs", { alertMessage });
+        }
+    }
+})
+
+//ADD BED
+
+app.get("/addBed",(req,res)=>{
+    res.render("addBed",{alertMessage:""});
+    console.log("ok")
+    })
+    app.post("/addBed",async (req,res)=>{
+
+        let isValid = await bedCollect.findOne({name:req.body.name})
+        if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+        {
+            req.body.amount += isValid.body.amount;
+        }
+        else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+        {
+            let aler = "wront info"
+            res.render("addBed.ejs",{aler})
+        }
+        else
+        {
+            let info = {
+                name:req.body.name,
+                color:req.body.color,
+                matter:req.body.matter,
+                amout:req.body.amount,
+                pic:req.body.pic,
+                size:req.body.size,
+                price:req.body.price
+            }
+            try{
+                    await bedCollect.insertMany([info])
+                    let al = "all is done!"
+                    res.render("home", { al });
+            }
+            catch (error) {
+                console.error(error);
+                let alertMessage = "Error";
+                res.render("addBed.ejs", { alertMessage });
             }
         }
     })
+
+
+
+
+    //ADD TABLE
+    app.get("/addTable",(req,res)=>{
+        res.render("addTable",{alertMessage:""});
+        console.log("ok")
+        })
+        app.post("/addTable",async (req,res)=>{
     
+            let isValid = await tableCollect.findOne({name:req.body.name})
+            if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+            {
+                req.body.amount += isValid.body.amount;
+            }
+            else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+            {
+                let aler = "wront info"
+                res.render("addTable.ejs",{aler})
+            }
+            else
+            {
+                let info = {
+                    name:req.body.name,
+                    color:req.body.color,
+                    matter:req.body.matter,
+                    amout:req.body.amount,
+                    pic:req.body.pic,
+                    size:req.body.size,
+                    price:req.body.price
+                }
+                try{
+                        await tableCollect.insertMany([info])
+                        let al = "all is done!"
+                        res.render("home", { al });
+                }
+                catch (error) {
+                    console.error(error);
+                    let alertMessage = "Error";
+                    res.render("addTable.ejs", { alertMessage });
+                }
+            }
+        })
+
+
+
+
+        //ADD COUCH
+
+        app.get("/addCouch",(req,res)=>{
+            res.render("addCouch",{alertMessage:""});
+            console.log("ok")
+            })
+            app.post("/addCouch",async (req,res)=>{
+        
+                let isValid = await couchCollect.findOne({name:req.body.name})
+                if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+                {
+                    req.body.amount += isValid.body.amount;
+                }
+                else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+                {
+                    let aler = "wront info"
+                    res.render("addCouch.ejs",{aler})
+                }
+                else
+                {
+                    let info = {
+                        name:req.body.name,
+                        color:req.body.color,
+                        matter:req.body.matter,
+                        amout:req.body.amount,
+                        pic:req.body.pic,
+                        size:req.body.size,
+                        price:req.body.price
+                    }
+                    try{
+                            await couchCollect.insertMany([info])
+                            let al = "all is done!"
+                            res.render("home", { al });
+                    }
+                    catch (error) {
+                        console.error(error);
+                        let alertMessage = "Error";
+                        res.render("addCouch.ejs", { alertMessage });
+                    }
+                }
+            })
+
+
+            //ADD MIRROR
+
+            app.get("/addMirror",(req,res)=>{
+                res.render("addMirror",{alertMessage:""});
+                console.log("ok")
+                })
+                app.post("/addMirror",async (req,res)=>{
+            
+                    let isValid = await mirrorCollect.findOne({name:req.body.name})
+                    if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+                    {
+                        req.body.amount += isValid.body.amount;
+                    }
+                    else if(req.body.name==''||req.body.color==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+                    {
+                        let aler = "wront info"
+                        res.render("addMirror.ejs",{aler})
+                    }
+                    else
+                    {
+                        let info = {
+                            name:req.body.name,
+                            color:req.body.color,
+                            amout:req.body.amount,
+                            pic:req.body.pic,
+                            size:req.body.size,
+                            price:req.body.price
+                        }
+                        try{
+                                await mirrorCollect.insertMany([info])
+                                let al = "all is done!"
+                                res.render("home", { al });
+                        }
+                        catch (error) {
+                            console.error(error);
+                            let alertMessage = "Error";
+                            res.render("addMirror.ejs", { alertMessage });
+                        }
+                    }
+                })
+
+
+                //ADD RUG
+                app.get("/addRug",(req,res)=>{
+                    res.render("addRug",{alertMessage:""});
+                    console.log("ok")
+                    })
+                    app.post("/addRug",async (req,res)=>{
+                
+                        let isValid = await rugCollect.findOne({name:req.body.name})
+                        if(isValid != null&&req.body.amount >=0 && req.body.price >=0)
+                        {
+                            req.body.amount += isValid.body.amount;
+                        }
+                        else if(req.body.name==''||req.body.color==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amout < 0||req.body.price < 0||req.body.size=='')
+                        {
+                            let aler = "wront info"
+                            res.render("addRug.ejs",{aler})
+                        }
+                        else
+                        {
+                            let info = {
+                                name:req.body.name,
+                                color:req.body.color,
+                                amout:req.body.amount,
+                                pic:req.body.pic,
+                                size:req.body.size,
+                                price:req.body.price
+                            }
+                            try{
+                                    await rugCollect.insertMany([info])
+                                    let al = "all is done!"
+                                    res.render("home", { al });
+                            }
+                            catch (error) {
+                                console.error(error);
+                                let alertMessage = "Error";
+                                res.render("addRug.ejs", { alertMessage });
+                            }
+                        }
+                    })       
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
      * *******************************************************************************************************************************

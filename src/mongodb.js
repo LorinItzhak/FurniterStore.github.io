@@ -22,7 +22,34 @@ const LogInSchema=new mongoose.Schema({
     }
 })
 
-const object = new mongoose.Schema({
+const chair = new mongoose.Schema({
+    nameChair:{
+        type:String,
+        required:true
+    },
+    color:{
+        type:String,
+        required:true
+    },
+    matter:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+    },
+    pic:{
+        type:String,
+        required:true
+    }
+})
+
+const bed = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -47,9 +74,8 @@ const object = new mongoose.Schema({
         type:String,
         required:true
     },
-    category:{
+    size:{
         type:String,
-        //enum:['chair','bed','couch','mirror','rug','table'],
         required:true
     }
 })
