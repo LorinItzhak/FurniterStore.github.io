@@ -92,9 +92,11 @@ else{
     
     })
     
-   //OBJECT ADDING************************************************************************************************************** 
+   //**************************************************************************************************************************** 
    //****************************************************************************************************************************
    //**************************************************************************************************************************** 
+
+    //ADD OBJECT
 
 app.get("/addObject",(req,res)=>{
 res.render("addObject",{alertMessage:""});
@@ -113,7 +115,7 @@ app.post("/addObject",async (req,res)=>{
         }
         else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amount < 0||req.body.price < 0)
         {
-            let alertMessage = "wront info"
+            let alertMessage = "wrong info"
             res.render("addObject",{alertMessage})
         }
         else
@@ -139,6 +141,32 @@ app.post("/addObject",async (req,res)=>{
             }
         }
     })
+
+    //DELETE OBJECT
+    app.get("/deleteObject",(req,res)=>{
+        res.render("deleteObject",{alertMessage:""});
+        console.log("ok")
+        })
+    app.post("/deleteObject",async (req,res)=>{
+        let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
+        if(isValid != null)
+        {
+            let info = {
+                category:req.body.category,
+                name:req.body.name
+            }
+            await objectCollection.findOneAndDelete({category:req.body.category,name:req.body.name},info)
+            
+            res.render("home",{alertMessage:"done"})
+        }
+        else{
+            let alertMessage = "wrong info"
+            res.render("home",{alertMessage})
+        }
+    })
+
+
+    //SHOW OBJECT TO SCREEN
     
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
