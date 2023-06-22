@@ -97,12 +97,12 @@ else{
    //**************************************************************************************************************************** 
 
 app.get("/addObject",(req,res)=>{
-res.render("addChair",{alertMessage:""});
+res.render("addObject",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
         console.log("1")
-        let isValid = await chairCollect.findOne({category:req.body.category,name:req.body.name})
+        let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
         if(isValid != null)
         {
             let info = {
