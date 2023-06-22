@@ -197,6 +197,7 @@ const rug = new mongoose.Schema({
 })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*const rugCollect = new mongoose.model("rrugs",rug)
 module.exports = rugCollect
 
@@ -214,6 +215,8 @@ module.exports=bedCollect
 
 const chairCollect = new mongoose.model("cchairs",chair)
 =======
+=======
+>>>>>>> parent of 123e482 (updated server to insert and amount)
 /*const rugCollect = new mongoose.model("rug",rug)
 module.exports = rugCollect
 
@@ -231,11 +234,15 @@ module.exports=bedCollect
 
 
 const chairCollect = new mongoose.model("chair",chair)
+<<<<<<< HEAD
+>>>>>>> parent of 123e482 (updated server to insert and amount)
+=======
 >>>>>>> parent of 123e482 (updated server to insert and amount)
 module.exports=chairCollect
 
 const collection=new mongoose.model("users",LogInSchema)
 module.exports=collection*/
+<<<<<<< HEAD
 <<<<<<< HEAD
 const chairCollect = new mongoose.model("chairs",chair)
 const collection=new mongoose.model("users",LogInSchema)
@@ -245,9 +252,15 @@ module.exports = {
 
 
 =======
+=======
+>>>>>>> parent of 123e482 (updated server to insert and amount)
 const collection=new mongoose.model("users",LogInSchema)
 const chairCollect = new mongoose.model("chairs",chair)
 module.exports={
     collection,chairCollect
+<<<<<<< HEAD
+}
+>>>>>>> parent of 123e482 (updated server to insert and amount)
+=======
 }
 >>>>>>> parent of 123e482 (updated server to insert and amount)
