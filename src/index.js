@@ -101,11 +101,24 @@ else{
    //**************************************************************************************************************************** 
    //****************************************************************************************************************************
    //**************************************************************************************************************************** 
+<<<<<<< Updated upstream
 
     //ADD OBJECT
 
 app.get("/addObject",(req,res)=>{
 res.render("addObject",{alertMessage:""});
+=======
+   function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  
+  function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+  }
+   //ADD CHAIR
+app.get("/addChair",(req,res)=>{
+res.render("addChair",{alertMessage:""});
+>>>>>>> Stashed changes
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
@@ -196,3 +209,5 @@ app.post("/addObject",async (req,res)=>{
 app.listen(3000,()=>{
     console.log("port connected")
 })
+
+
