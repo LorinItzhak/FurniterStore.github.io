@@ -101,13 +101,6 @@ else{
    //**************************************************************************************************************************** 
    //****************************************************************************************************************************
    //**************************************************************************************************************************** 
-<<<<<<< Updated upstream
-
-    //ADD OBJECT
-
-app.get("/addObject",(req,res)=>{
-res.render("addObject",{alertMessage:""});
-=======
    function openSearch() {
     document.getElementById("myOverlay").style.display = "block";
   }
@@ -118,7 +111,6 @@ res.render("addObject",{alertMessage:""});
    //ADD CHAIR
 app.get("/addChair",(req,res)=>{
 res.render("addChair",{alertMessage:""});
->>>>>>> Stashed changes
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
