@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('menu.ejs') %>
     <form action="/addObject" method="post">
         name:
         <input type="text" name="name" placeholder="Name">
@@ -32,5 +33,6 @@
         <input type="text" name="username" placeholder="Username">
         <input type="submit">
         </form>
+
 </body>
 </html>

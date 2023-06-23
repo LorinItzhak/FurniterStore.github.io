@@ -447,7 +447,7 @@ input[type=text], input[type=password] {
     border-radius: 5px;
     text-align: center;
     border: 1px solid #999;
-    -moz-appearance: textfield;
+    
   }
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
@@ -485,14 +485,14 @@ input[type=text], input[type=password] {
     top: -5px;
     background: none;
     pointer-events: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+   
+    
   }
   input[type="range"]::-webkit-slider-thumb {
     height: 17px;
     width: 17px;
     border-radius: 50%;
-    background: #c60bcd;
+    background: #776377;
     pointer-events: auto;
     -webkit-appearance: none;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
