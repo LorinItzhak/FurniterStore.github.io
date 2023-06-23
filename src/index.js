@@ -109,8 +109,8 @@ else{
     document.getElementById("myOverlay").style.display = "none";
   }
    //ADD CHAIR
-app.get("/addChair",(req,res)=>{
-res.render("addChair",{alertMessage:""});
+app.get("/addObject",(req,res)=>{
+res.render("addObject",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
