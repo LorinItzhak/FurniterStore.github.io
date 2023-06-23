@@ -38,7 +38,7 @@ app.post("/signup",async(req,res)=>{
     if(checkk!=null){
         //res.send("name taken")
         let alertMessage = " Username already taken";
-        res.render("home.ejs", { alertMessage: "" });
+        res.render("signup.ejs", { alertMessage });
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
        
     }
