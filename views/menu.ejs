@@ -1,41 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My EJS Page</title>
     <link rel="stylesheet"  href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-...אמות אבטחה..." crossorigin="anonymous">
-    <link rel="stylesheet"  href="adminHome.ejs">
-
-    <title>Document</title>
+    
 </head>
 <body>
-    <%- include('menu.ejs') %>
-    <div class="admin">
-        
-        <ul>
-            <li><a href="addObject"><i class="fab fa-add"></i></a></li>
-            <li><a href="deleteObject"><i class="fab fa-remove"></i></a></li>
-        </ul>
-    </div>
-    <div class="menu-bar">
-        <ul>
-           <% if (alertMessage) { %>    
-               <li  class="alert-style"> <%= alertMessage %>  </li>
-               <% } %>  
-        
+
+    <div class="logo"><img src="logo.png"></div>
+    
+<div class="menu-bar">
+     <ul>
+        <% if (alertMessage) { %>    
+            <li  class="alert-style"> <%= alertMessage %>  </li>
+            <% } %>       
     
                 
      <li> <a href="#"> HOME </a></li>
-     
-        <li><a href="addObject"><i class="fab fa-add"></i>ADD OBJECT</a></li>
-        <li><a href="deleteObject"><i class="fab fa-remove"></i>DELETE OBJECT</a></li>
-        <li> <a href="#"> ABOUT US </a>       
-        </li>
-   
+
+     <li> <a href="#"> ABOUT US </a>       
+     </li>
 
      <li> <a href="#"> COLLECTION </a>
         <div class="sub-menu-1">

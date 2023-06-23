@@ -101,9 +101,14 @@ else{
    //**************************************************************************************************************************** 
    //****************************************************************************************************************************
    //**************************************************************************************************************************** 
-
-    //ADD OBJECT
-
+   function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  
+  function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+  }
+   //ADD CHAIR
 app.get("/addObject",(req,res)=>{
 res.render("addObject",{alertMessage:""});
 console.log("ok")
@@ -196,3 +201,5 @@ app.post("/addObject",async (req,res)=>{
 app.listen(3000,()=>{
     console.log("port connected")
 })
+
+

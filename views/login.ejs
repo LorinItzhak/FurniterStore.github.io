@@ -9,8 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-   
+    <%- include('menu.ejs') %>
     <form action="/login" method="post">
+        
         <h2>Log In</h2>  
      
           <% if (alertMessage) { %>
@@ -19,6 +20,7 @@
                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <% } %>
+        
     <input type="text" name="name" placeholder="Name">
     <input type="password" name="password" placeholder="Password">
     <input type="submit">
@@ -27,7 +29,7 @@
     <p class="link"> D'ont have an account? <br>
     <a href="signup">Sign Up </a>
     <div class="form">
-        <img src="logo.png">   
+        
         
         <p class="liw">  Follow us on </p> 
             <div class="icon"> 
