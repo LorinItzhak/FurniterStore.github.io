@@ -8,19 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-...אמות אבטחה..." crossorigin="anonymous">
-    <link rel="stylesheet"  href="adminHome.ejs">
+    <link rel="stylesheet"  href="adminHome.css">
 
     <title>Document</title>
 </head>
 <body>
-    <%- include('menu.ejs') %>
-    <div class="admin">
-        
-        <ul>
-            <li><a href="addObject"><i class="fab fa-add"></i></a></li>
-            <li><a href="deleteObject"><i class="fab fa-remove"></i></a></li>
-        </ul>
-    </div>
+  <div class="logo"><img src="logo.png"></div>
+    
     <div class="menu-bar">
         <ul>
            <% if (alertMessage) { %>    
@@ -32,7 +26,7 @@
      <li> <a href="#"> HOME </a></li>
      
         <li><a href="addObject"><i class="fab fa-add"></i>ADD OBJECT</a></li>
-        <li><a href="deleteObject"><i class="fab fa-remove"></i>DELETE OBJECT</a></li>
+        <li><a href="deleteObject"><i class="fab fa-delete"></i>DELETE OBJECT</a></li>
         <li> <a href="#"> ABOUT US </a>       
         </li>
    
@@ -61,7 +55,14 @@
             <li> <a href="#"> CONTACT </a></li>          
 </ul>
 </div>
-        
+      
+
+<div class="content">
+  <h1> Furniture <br> <span> Design </span><br> Studio</h1>
+  <br></br>
+  <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+ 
+</div>
 <button class="btn-my-search" onclick="document.getElementById('id01').style.display='block'"style="width:auto;"""><i class="fas fa-search"></i></button>
         
 <button class="btn-my-account"><i class="fas fa-user"></i></button>
