@@ -191,8 +191,36 @@ app.post("/addObject",async (req,res)=>{
 
     //SHOW OBJECT TO SCREEN
     
-
-
+    app.get('/chairs', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"chair"}); 
+        res.render('chairs', { details: data }); 
+    });
+    app.get('/bed', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"bed"}); 
+        res.render('bed', { details: data }); 
+    });
+    app.get('/couch', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"couch"}); 
+        res.render('couch', { details: data }); 
+    });
+    app.get('/mirror', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"mirror"}); 
+        res.render('mirror', { details: data }); 
+    });
+    app.get('/rug', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"rug"}); 
+        res.render('rug', { details: data }); 
+    });
+    app.get('/table', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"table"}); 
+        res.render('table', { details: data }); 
+    });
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
      * *******************************************************************************************************************************
