@@ -1,13 +1,5 @@
 
 
-.form img{
-
-    position: absolute;
-    top: -800px;
-    left: -760px;
-    transform: scale(0.12);
-
-}
 * {
     margin: 0;
     padding: 0;
@@ -18,14 +10,27 @@ body {
     
     font-family: Arial, sans-serif;
     background:url(https://275w10.com/wp-content/themes/Shephard/assets/images/photos/Shephard-Bedroom1.jpg);
-    
+    width: 100%;
+background-position: center;
+background-size:cover ; 
+height: 109vh;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    
+.alert-style{
+    font-weight: bold;
+    color: transparent;
+   font-size: 20px;
+   
+   
+  
+}
+
+.logo img{
+
+    position: fixed;
+    top: -780px;
+    left: -830px;
+    transform: scale(0.14);
 }
 
 h2 {
@@ -136,42 +141,6 @@ form input[type="submit"]:hover {
 }
 
 
-.icon a ion-icon[name="logo-google"] {
-    color: white;
-    font-size: 30px;
-    margin-right: 10px; /* הזזת האייקון ימינה */
-    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
-}
-
-.icon a:hover ion-icon[name="logo-google"] {
-    background: linear-gradient(160deg, #4285F4, #EA4335, #FBBC05, #34A853);
-    border-radius: 30%;
-}
-
-
-
-.icon a ion-icon[name="logo-twitter"] {
-    color: white;
-    font-size: 30px;
-    margin-right: 10px; /* הזזת האייקון ימינה */
-    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
-}
-.icon a:hover ion-icon[name="logo-twitter"] {
-    color: rgb(63, 158, 240);
-   font-size: 30px;
-}
-
-.icon a ion-icon[name="logo-skype"] {
-    color: white;
-    font-size: 30px;
-    margin-right: 10px; /* הזזת האייקון ימינה */
-    transition: color 0.4s ease; /* אנימציה עבור שינוי הצבע בעכבר */
-}
-.icon a:hover ion-icon[name="logo-skype"] {
-     color: rgb(63, 158, 240);
-    font-size: 30px;
-}
-
 
 .icon a:hover ion-icon {
     color: rgb(226, 217, 217); /* צבע הטקסט כאשר העכבר על האייקון */
@@ -188,9 +157,6 @@ form input[type="submit"]:hover {
     color: #000000; /* צבע הטקסט שחור */
     
   }
-  
-  
-  
   .btn-close {
     position: absolute; /* אלמנט במיקום אבסולוטי ביחס לעלמנט האב */
     right: 0.5rem; /* מיקום אופקי של 0.5 רימ או 8 פיקסלים מהצד הימני */
@@ -200,6 +166,136 @@ form input[type="submit"]:hover {
     text-align: right; /* הורשת את צבע הטקסט מהאב */
   }
   
+  
+.menu-bar{
+    margin-top: -130px;
+    position: fixed;
+    margin-left: 6%;
+    text-align: center;
+    width: 800px;
+    height: 40px;
+}
+
+.menu-bar ul
+{
+    display: inline-flex;
+    list-style: none;
+    
+}
+
+.menu-bar ul li{
+    width: 140px;
+    margin: 15px;
+    padding: 10px;
+    height: 40px;
+
+    
+}
+
+.menu-bar ul li a{
+    text-decoration: none;
+    color: rgb(176, 142, 142);
+    font-weight: bold;
+    
+    
+}
+
+.menu-bar ul li a:hover{
+    text-decoration: none;
+    color: #e2b4b4;
+    
+    
+}
+
+.sub-menu-1 ul li {
+    margin: 18px;
+    text-align: left;
+    margin-top: -18px;
+    
+}
+.sub-menu-1
+{
+    display:none ;
+}
+
+.menu-bar ul li:hover .sub-menu-1
+{   margin-left: 15px;
+    width: 120px;
+    display:block ;
+    position: absolute;
+    border-radius: 10%;
+    background : linear-gradient(to top, rgba(176, 172, 172, 0.5)50%,  rgba(176, 172, 172, 0.5)50%);
+    max-height: 310px;
+
+
+    
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul{
+    display: block;
+    margin: 10px;
+    
+
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li{
+    
+    width: 120px;
+    padding: 10px;
+    border-bottom: 1px dotted rgb(215, 167, 178);
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    margin-left: -10px;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+    border-bottom: none;
+    margin-bottom: -15px;
+    border-bottom: 10%;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li:hover{
+    color: #f5efef;
+}
+
+
+
+
+.btn-my-account{
+    border:none;
+    color: rgb(176, 142, 142);
+    background-color: transparent;
+    padding-top: 2px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    size: 80%;
+  top: 30px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
+  right: 40px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
+}
+
+.btn-Shopping-Cart{
+    border:none;
+    font-size: 2em;
+    size: 130%;
+    color: rgb(176, 142, 142);
+    background-color: transparent;
+    margin-bottom: 200px;
+    position: fixed;
+  top: 26px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
+  right: 100px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
+    
+}
+
+.btn-my-account:hover,
+.btn-Shopping-Cart:hover ,
+.btn-my-search:hover{
+    color: #ebc0c0; /* שינוי צבע הטקסט לשחור */
+    text-decoration: underline; /* הוספת קו תחתון */
+}
+
   
   
 
