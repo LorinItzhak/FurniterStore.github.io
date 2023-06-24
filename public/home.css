@@ -31,9 +31,9 @@
  }
  
  .menu-bar{
-  
+  z-index: 1;
   overflow-y: visible;
-     margin-top: -24%;
+     margin-top: -16%;
      position: fixed;
      text-align: center;
      width: 100%;
@@ -276,7 +276,7 @@
      font-family:Georgia, 'Times New Roman', Times, serif;
      font-size: 50px;
      padding-left: 50px;
-     margin-top: 30%;
+     margin-top: 20%;
      letter-spacing: 2px;
  }
  
