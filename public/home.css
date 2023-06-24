@@ -9,8 +9,6 @@
      font-weight: bold;
      color: #1e171e;
     font-size: 20px;
-    
-    
    
  }
  
@@ -25,42 +23,55 @@
  
  
  .logo img{
- 
+    display: flex;
      position: fixed;
      top: -780px;
-     left: -830px;
+     right: 35%;
      transform: scale(0.14);
  }
  
  .menu-bar{
-     margin-top: -90px;
+  
+  overflow-y: visible;
+     margin-top: -24%;
      position: fixed;
-     margin-left: 6%;
      text-align: center;
-     width: 800px;
-     height: 40px;
+     width: 100%;
+     height: 16%;
+     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+  border:1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
  }
  
  .menu-bar ul
- {
+ {  margin-left: 10%;
      display: inline-flex;
      list-style: none;
+     align-items: center;
+     padding-top: 2%;
+     
      
  }
  
  .menu-bar ul li{
-     width: 140px;
+ 
+     width: 150px;
      margin: 15px;
      padding: 10px;
-     height: 40px;
+     height: 100%;
  
      
  }
  
  .menu-bar ul li a{
+  
+  display: flex;
      text-decoration: none;
      color: #ecdcdc;
      font-weight: bold;
+     justify-content: space-around;
      
      
  }
@@ -73,9 +84,11 @@
  }
  
  .sub-menu-1 ul li {
+ 
      margin: 18px;
      text-align: left;
      margin-top: -18px;
+     height: 100%;
      
  }
  .sub-menu-1
@@ -85,12 +98,13 @@
  
  .menu-bar ul li:hover .sub-menu-1
  {   margin-left: 15px;
+
      width: 120px;
      display:block ;
      position: absolute;
      border-radius: 10%;
      background : linear-gradient(to top, rgba(176, 172, 172, 0.5)50%,  rgba(176, 172, 172, 0.5)50%);
-     max-height: 310px;
+     height: auto;
  
  
      
@@ -104,7 +118,7 @@
  }
  
  .menu-bar ul li:hover .sub-menu-1 ul li{
-     
+  display: block;
      width: 120px;
      padding: 10px;
      border-bottom: 1px dotted rgb(215, 167, 178);
@@ -115,6 +129,7 @@
  }
  
  .menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+   display: block;
      border-bottom: none;
      margin-bottom: -15px;
      border-bottom: 10%;
@@ -125,36 +140,28 @@
  }
  
  
- 
+
  
  .btn-my-account{
      border:none;
      color: #f5ecec;
      background-color: transparent;
-     padding-top: 2px;
      font-size: 2em;
      display: flex;
      justify-content: center;
      position: fixed;
-     size: 80%;
-   top: 30px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
-   right: 40px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
  }
- 
+
  .btn-Shopping-Cart{
      border:none;
      font-size: 2em;
-     size: 130%;
-     color: rgb(229, 221, 221);
+     color: #f5ecec;
      background-color: transparent;
-     margin-bottom: 200px;
-     position: fixed;
-   top: 26px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
-   right: 100px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
+     right: 10%; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
      
- }
+
  
- .btn-my-account:hover,
+ /* .btn-my-account:hover,
  .btn-Shopping-Cart:hover ,
  .btn-my-search:hover{
      color: #ebc0c0; /* שינוי צבע הטקסט לשחור */
@@ -162,19 +169,16 @@
  }
  
  .btn-my-search{
-     border:none;
+  
+     border: none;
      font-size: 2em;
-     size: 80%;
      color: rgb(229, 221, 221);
      background-color: transparent;
-     margin-bottom: 200px;
-     position: fixed;
-   top: 26px; /* כאן ניתן לשנות את המרחק מלמעלה על פי הצורך */
-   right: 160px; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
+   margin-right: 3%; /* כאן ניתן לשנות את המרחק מימין על פי הצורך */
      
- }
+ } 
  
- 
+  
  
  
  
@@ -272,7 +276,7 @@
      font-family:Georgia, 'Times New Roman', Times, serif;
      font-size: 50px;
      padding-left: 50px;
-     margin-top: 9%;
+     margin-top: 30%;
      letter-spacing: 2px;
  }
  
@@ -338,7 +342,7 @@
      background:transparent;
      margin-top: -270px;
      border-radius: 60%;
-     margin-left: 58%;
+     margin-left: 110%;
      width: 5%;
      border:none;
      font-weight: bold;
@@ -375,7 +379,7 @@
      display: flex;
      box-sizing: border-box;
      flex-direction: column;
-     align-items: left;
+     align-items: center;
      padding-left: 10%;
      justify-content: center;
     
@@ -404,9 +408,7 @@
      background-color: #a39797;
      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
      border: 1px solid #888;
-    
-     margin-left: 40%;
-     
+     margin-left: 50%;
      width: 80%; /* Could be more or less, depending on screen size */
    }
    
@@ -458,16 +460,14 @@
     width: 30%;
     height: 30%;
     align-items: left;
-   margin-bottom: -50px;
     flex-direction: column;
-margin-bottom: 2%;
   margin-left: 1%;
 
    }
    .price-input {
      width: 50%;
      display: flex;
-     margin: 30px 0 35px;
+     margin: 0 0 3%;
    }
    .price-input .field {
      display: flex;
@@ -491,7 +491,7 @@ margin-bottom: 2%;
      -webkit-appearance: none;
    }
    .price-input .separator {
-     width: 50%;
+     width: 30%;
      display: flex;
      font-size: 19px;
      align-items: center;

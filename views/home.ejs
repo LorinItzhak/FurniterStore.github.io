@@ -11,16 +11,18 @@
     
 </head>
 <body>
-
-    <div class="logo"><img src="logo.png"></div>
     
 <div class="menu-bar">
+ 
+  
      <ul>
+      <div class="logo"><img src="logo.png"></div>
+      <button class="btn-my-account"><i class="fas fa-user"></i></button>
         <% if (alertMessage) { %>    
             <li  class="alert-style"> <%= alertMessage %>  </li>
             <% } %>       
     
-                
+           
      <li> <a href="#"> HOME </a></li>
 
      <li> <a href="#"> ABOUT US </a>       
@@ -47,26 +49,17 @@
             </ul>
             </div></li>
     <li> <a href="#"> SALE </a></li>
-            <li> <a href="#"> CONTACT </a></li>          
+            <li> <a href="#"> CONTACT </a></li>      
+            
+            <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
+        
+            
+            <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+            
 </ul>
 </div>
     
    
-    <div class="content">
-        <h1> Furniture <br> <span> Design </span><br> Studio</h1>
-        <br></br>
-        <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
-        <button class="cn"><a href="#"> SIGN IN</a></button>
-    </div>
-    
-    
-        <button class="btn-my-search" onclick="document.getElementById('id01').style.display='block'"style="width:auto;"""><i class="fas fa-search"></i></button>
-        
-    <button class="btn-my-account"><i class="fas fa-user"></i></button>
-    <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
-
-
- 
 <div id="id01" class="modal">
  
   <form class="modal-content" action="">
@@ -130,6 +123,13 @@
           </div>
     </div>
   </form>
+</div>
+
+<div class="content">
+  <h1> Furniture <br> <span> Design </span><br> Studio</h1>
+  <br></br>
+  <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+  <button class="cn"><a href="#"> SIGN IN</a></button>
 </div>
 
 <script>
