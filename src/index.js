@@ -41,7 +41,6 @@ app.post("/signup",async(req,res)=>{
         let alertMessage = " Username already taken";
         res.render("signup.ejs", { alertMessage });
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
-       
     }
 else if(req.body.name==''||req.body.password==''){
      let alertMessage = " Fill the missing info";
