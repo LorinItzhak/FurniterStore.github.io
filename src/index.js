@@ -221,8 +221,23 @@ app.post("/addObject",async (req,res)=>{
         const data = await objectCollection.find({"category":"table"}); 
         res.render('table', { details: data }); 
     });
-
-
+   
+    app.get('/logOut',(req,res)=>{
+        res.render("home",{alertMessage:""});
+    })
+    app.post('/logOut',(req,res)=>{
+        
+        if(currUser != 0)
+        {
+            currUser = 0
+            console.log('exited')
+            res.render('home',{alertMessage:"successfuly logged out"})
+        }
+        else{
+            res.render('home',{alertMessage:"you werent logged in"})
+        }
+    })
+   
 
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
