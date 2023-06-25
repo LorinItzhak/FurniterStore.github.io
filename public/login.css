@@ -155,7 +155,7 @@ nav ul li:hover .sub-menu-1
     position: absolute;
     border-radius: 10%;
     background : linear-gradient(to top, rgba(176, 172, 172, 0.5)50%,  rgba(176, 172, 172, 0.5)50%);
-    height: auto; */
+    height: auto; 
 
 
     
@@ -505,7 +505,7 @@ input[type=text], input[type=password] {
     justify-content: center;
    
     
-  } */
+  } 
   
 
 
@@ -523,10 +523,9 @@ input[type=text], input[type=password] {
     /* height: 50%; /* Full height */
     /* overflow: auto; /* Enable scroll if needed */
     /* background : linear-gradient(to top, rgba(234, 200, 200, 0.689)50%,  rgba(241, 199, 199, 0.689)50%);
-    padding-top: 10px; */ */
-     */
-  } */
-   */ */
+    padding-top: 10px; */ 
+     
+
   /* Modal Content/Box */
    /*.modal-content {
     background-color: #a39797;
@@ -543,7 +542,7 @@ input[type=text], input[type=password] {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
-    */ */ */
+    */ 
   
 /*   
   .cancelbtn:hover,
@@ -640,7 +639,7 @@ input[type=text], input[type=password] {
      -webkit-appearance: none;
      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
    } */
-   */
+   
 
 
 
