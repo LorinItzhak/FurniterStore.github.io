@@ -1,83 +1,259 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add object</title>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet"  href="addObject.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="logo"><img src="logo.png"></div>
-    <div class="menu-bar">
-        <ul>
-            <% if (alertMessage) { %>    
-                <li  class="alert-style"> <%= alertMessage %>  </li>
-                <% } %>   
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="addObject.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#home" id="logo"> <img src="logo.png"></a>
         
-      <li> <a href="#"> HOME </a></li>
-      
+
+        <i class="fas fa-bars" id="ham-menu"></i>
+        <ul id="nav-bar">
+
          <li><a href="addObject"><i class="fab fa-add"></i>ADD OBJECT</a></li>
          <li><a href="deleteObject"><i class="fab fa-delete"></i>DELETE OBJECT</a></li>
-         <li> <a href="#"> ABOUT US </a>       
-         </li>       
-       
-   
-        <li> <a href="#"> COLLECTION </a>
-           <div class="sub-menu-1">
+           
+          <li>
+            <a href="#home">HOME</a>
+          </li>
+          <li>
+            <a href="#aboutus">ABOUT US</a>
+          </li>
+          <li>
+            <a href="#collection">COLLECTION</a>
+            <div class="sub-menu-1">
                <ul>
-                   <li><a href="#">SOFAS</a></li>
-                   <li><a href="#">ARMCHAIRS</a></li>
-                   <li><a href="#">TABLES</a></li>
-                   <li><a href="#">CHAIRS</a></li>
-                   <li><a href="#">BEDS</a></li>
-                   
-   
-               </ul>
-               </div></li>
-        <li> <a href="#"> DECOR </a>
-           <div class="sub-menu-1">
-               <ul>
-                   <li><a href="#">RUGS</a></li>
-                   <li><a href="#">CUSHIONS</a></li>
-                   <li><a href="#"> ACCESSORY</a></li>
-               </ul>
-               </div></li>
-       <li> <a href="#"> SALE </a></li>
-               <li> <a href="#"> CONTACT </a></li>          
-   </ul>
-   </div>
-       
-   <button class="btn-my-account"><i class="fas fa-user"></i></button>
-   <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+                  <li><a href="couch">SOFAS</a></li>
+                  <li><a href="mirror">Mirrors</a></li>
+                  <li><a href="table">TABLES</a></li>
+                  <li><a href="chairs">CHAIRS</a></li>
+                  <li><a href="bed">BEDS</a></li>
+               
+                  
   
-    <form class="/addObject" method="post">
-        name:
-        <input type="text" name="name" placeholder="Name">
-        color:
-        <input type="text" name="color" placeholder="Color">
-        pic url:
-        <input type="text" name="pic" placeholder="URL">
-        amount:
-        <input type="number" name="amount" placeholder="Amount">
-        price:
-        <input type="number" name="price" placeholder="Price">
-        matter:
-        <input type="text" name="matter" placeholder="Matter">
-        type of furniture:
-        <select name="category">
-            <option value="chair">Chair</option>
-            <option value="couch">Couch</option>
-            <option value="bed">Bed</option>
-            <option value="mirror">Mirror</option>
-            <option value="rug">Rug</option>
-            <option value="table">Table</option>
-        </select>
-        <input type="submit">
-        </form>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
-</html> 
+              </ul>
+              </div> 
+          </li>
+          <li>
+            <a href="#decor">DECOR</a>
+             <div class="sub-menu-1">
+              <ul>
+                  <li><a href="rug">RUGS</a></li>
+                  <li><a href="#">CUSHIONS</a></li>
+                  <li><a href="#"> ACCESSORY</a></li>
+              </ul>
+              </div> 
+          </li>
+          <li>
+            <a href="#contact">CONTACT</a>
+          </li>
+
+        <li>  <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
+        </li>
+           <li>
+            <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+           </li>
+             <li> <button class="btn-my-account"><i class="fas fa-user"></i></button> </li>
+
+              <% if (alertMessage) { %>    
+                  <li id="alert"> <%= alertMessage %>  </li>
+                  <% } %>  
+        </ul>
+      </nav>
+    </header>
+    <section id="home">
+        <form class="/addObject" method="post">
+            name:
+            <input type="text" name="name" placeholder="Name">
+            color:
+            <input type="text" name="color" placeholder="Color">
+            pic url:
+            <input type="text" name="pic" placeholder="URL">
+            amount:
+            <input type="number" name="amount" placeholder="Amount">
+            price:
+            <input type="number" name="price" placeholder="Price">
+            matter:
+            <input type="text" name="matter" placeholder="Matter">
+            type of furniture:
+            <select name="category">
+                <option value="chair">Chair</option>
+                <option value="couch">Couch</option>
+                <option value="bed">Bed</option>
+                <option value="mirror">Mirror</option>
+                <option value="rug">Rug</option>
+                <option value="table">Table</option>
+            </select>
+            <input type="submit" value="send">
+            </form>
+    </section>
+     
+
+       
+<div id="id01" class="modal">
+ 
+    <form class="modal-content" action="">
+      <div class="container">
+          <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+             
+        <h1>Search</h1>
+        <hr>
+        
+        <input type="text" placeholder="Tap to search" name="email" required>
+        <br>
+        
+        <label for="email"><b>Filter</b></label>
+        <br>
+        <div class="label-search">
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> SOFAS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ARMCHAIRS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> TABLES
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> CHAIRS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> BEDS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ACCESSORY
+        </label>
+      </div>
+        <div class="price-input">
+          <div class="field">
+            <span>Min</span>
+            <input type="number" class="input-min" value="2500">
+          </div>
+          <div class="separator">-</div>
+          <div class="field">
+            <span>Max</span>
+            <input type="number" class="input-max" value="7500">
+          </div>
+        </div>
+        <div class="slider">
+          <div class="progress"></div>
+        </div>
+        <div class="range-input">
+          <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+          <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+  
+          <button type="submit" class="signupbtn">Search</button>
+        </div>
+      </div>
+     
+      </div>
+    
+    
+            </div>
+      </div>
+    </form>
+  </div>
+  
+  
+  
+
+     <!-- Script -->
+     <script> let hamMenuIcon = document.getElementById("ham-menu");
+        let navBar = document.getElementById("nav-bar");
+        let navLinks = navBar.querySelectorAll("li");
+        
+        hamMenuIcon.addEventListener("click", () => {
+          navBar.classList.toggle("active");
+          hamMenuIcon.classList.toggle("fa-times");
+        });
+        navLinks.forEach((navLinks) => {
+          navLinks.addEventListener("click", () => {
+            navBar.classList.remove("active");
+            hamMenuIcon.classList.toggle("fa-times");
+          });
+        });</script>
+        
+  <script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+  </script>
+  <script>const rangeInput = document.querySelectorAll(".range-input input"),
+    priceInput = document.querySelectorAll(".price-input input"),
+    range = document.querySelector(".slider .progress");
+  let priceGap = 1000;
+  
+  priceInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let minPrice = parseInt(priceInput[0].value),
+        maxPrice = parseInt(priceInput[1].value);
+  
+      if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+        if (e.target.className === "input-min") {
+          rangeInput[0].value = minPrice;
+          range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+        } else {
+          rangeInput[1].value = maxPrice;
+          range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+        }
+      }
+    });
+  });
+  
+  rangeInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let minVal = parseInt(rangeInput[0].value),
+        maxVal = parseInt(rangeInput[1].value);
+  
+      if (maxVal - minVal < priceGap) {
+        if (e.target.className === "range-min") {
+          rangeInput[0].value = maxVal - priceGap;
+        } else {
+          rangeInput[1].value = minVal + priceGap;
+        }
+      } else {
+        priceInput[0].value = minVal;
+        priceInput[1].value = maxVal;
+        range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+        range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+      }
+    });
+  });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </body>
+  </html>
+  
+  
+  </body>
+</html>

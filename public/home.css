@@ -150,7 +150,7 @@ nav ul li:hover .sub-menu-1
     position: absolute;
     border-radius: 10%;
     background : linear-gradient(to top, rgba(176, 172, 172, 0.5)50%,  rgba(176, 172, 172, 0.5)50%);
-    height: auto; */
+    height: auto; 
 
 
     
@@ -328,7 +328,7 @@ input[type=text], input[type=password] {
     font-weight: bold;
     font-size: 25px;
   }
-   */
+   
   /* Float cancel and signup buttons and add an equal width */
    .signupbtn {
     
@@ -341,7 +341,7 @@ input[type=text], input[type=password] {
     border: none;
     border-radius: 15px;
     
-  } */
+  } 
 
   .signupbtn:hover {
     background-color: #686364;
@@ -349,7 +349,7 @@ input[type=text], input[type=password] {
     padding: 14px 20px;
     margin: 8px 0;
     
-  } */
+  } 
   
 
   /* Add padding to container elements */
@@ -364,60 +364,60 @@ input[type=text], input[type=password] {
     justify-content: center;
    
     
-  } */
+  } 
   
 
 
   /*-------עד לפה זה רספונסיבי------*/
   /* The Modal (background) */
-  /* .modal {
+   .modal {
     display: none; /* Hidden by default */
-    /* position: fixed; Stay in place */
-    /* z-index: 1; /* Sit on top */
-    /* left: 0;
+    position: fixed; 
+    z-index: 1; 
+     left: 0; 
     margin-left: -50%;
      color: #726060;
     top: 0;
     width: 50%; /* Full width */
-    /* height: 50%; /* Full height */
-    /* overflow: auto; /* Enable scroll if needed */
-    /* background : linear-gradient(to top, rgba(234, 200, 200, 0.689)50%,  rgba(241, 199, 199, 0.689)50%);
-    padding-top: 10px; */ */
-     */
-  } */
-   */ */
+   height: 50%; 
+     overflow: auto; /* Enable scroll if needed */
+    background : linear-gradient(to top, rgba(234, 200, 200, 0.689)50%,  rgba(241, 199, 199, 0.689)50%);
+    padding-top: 10px; }
+     
+ 
+   
   /* Modal Content/Box */
-   /*.modal-content {
+   .modal-content {
     background-color: #a39797;
     margin: 5% auto 15% auto; 
     border: 1px solid #888;
     margin-left: 50%;
     width: 80%; 
-  }*/
+  }
   
  
 
 
-/* hr {
+hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
-    */ */ */
+   
   
-/*   
+  
   .cancelbtn:hover,
   .cancelbtn:focus {
    
     cursor: pointer;
     color: #cec6c6;
-  } */
+  } 
   
   /* Clear floats */
-  /* .clearfix::after {
+  .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  } */
+  } 
  
 
 /* .label-search{
@@ -499,8 +499,7 @@ input[type=text], input[type=password] {
      -webkit-appearance: none;
      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
    } */
-   */
-
+   
 
 
 
@@ -515,7 +514,7 @@ input[type=text], input[type=password] {
     header {
       padding: 2.2rem 5rem;
     }
-  }
+  }}
   @media only screen and (max-width: 767px) {
     html {
       font-size: 50%;
@@ -555,4 +554,4 @@ input[type=text], input[type=password] {
       top: 65.18px;
       height: calc(100vh - 65.18px);
     }
-}}
+}
