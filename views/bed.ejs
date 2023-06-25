@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="bed.css">
     <title>OurBeds
     </title>
 </head>
@@ -15,7 +16,7 @@
         <th>Material</th>
         <th>Price</th>
         <th>Amount</th>
-        <th>Photo</th>
+        <th>public/</th>
         <th>Category</th>
     </tr>
     <% details.forEach(function(item){ %>
@@ -25,11 +26,54 @@
         <td><%= item.matter%></td>
         <td><%= item.price%></td>
         <td><%= item.amount%></td>
-        <td><%= item.pic%></td>
+        <td><img src="product1.jpg alt="<%= item.name %>"></td>
         <td><%= item.category%></td>
     </tr>
     <% }) %>
     </table>
-  
+
+    <div class="container" id="products-container"></div>
+
+    <script>
+        // מערך של המוצרים
+        var products = [
+          {
+            name: "Product 1",
+            color: "Red",
+            material: "Plastic",
+            price: "$10",
+            amount: 5,
+            photo: "product1.jpg",
+            category: "Category 1"
+          },
+          // מוצרים נוספים
+        ];
+    
+        // קביעת מספר המוצרים שתוצג
+        var numOfProducts = 10;
+    
+        // הצגת המוצרים בכרטיסיות
+        var container = document.getElementById("products-container");
+        for (var i = 0; i < numOfProducts; i++) {
+          var product = products[i % products.length];
+          var card = document.createElement("div");
+          card.classList.add("card");
+    
+          var html = "<h3><span id='product-name-" + i + "'>Name: " + product.name + "</span></h3>" +
+                     "<p>Color: " + product.color + "</p>" +
+                     "<p>Material: " + product.material + "</p>" +
+                     "<p>Price: " + product.price + "</p>" +
+                     "<p>Amount: " + product.amount + "</p>" +
+                      +
+                 "<p>Category: " + product.category + "</p>";
+    
+          card.innerHTML = html;
+          container.appendChild(card);
+    
+          // מעדכן את מסר השם של המוצר באמצעות JavaScript
+          var productNameElement = document.getElementById("product-name-" + i);
+          productNameElement.textContent = "Name: Product " + (i + 1);
+        }
+      </script>
 </body>
 </html>
