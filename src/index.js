@@ -12,6 +12,7 @@ app.use(express.json())
 //const urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
+var currUser=0
 const mongMod = require("./mongodb")
 const collection = mongMod.collection
 const objectCollection = mongMod.objectCollection
@@ -53,7 +54,7 @@ else if(req.body.name==''||req.body.password==''){
             admin:false
         };
         try {
-            await collection.insertMany([data]);
+            currUser = await collection.insertMany([data]);
             let alertMessage = " You have successfully signed up";
             res.render("home", { alertMessage }); // Changed this line
           } catch (error) {
@@ -79,9 +80,11 @@ if(check.password===req.body.password){
     let alertMessage="Hi "+req.body.name
     if(check.admin == true)
     {
+        currUser = check
         res.render("adminHome",{alertMessage})
     }
     else{
+        currUser = check
         res.render("home.ejs", { alertMessage});
     }
 }
@@ -108,14 +111,13 @@ else{
   function closeSearch() {
     document.getElementById("myOverlay").style.display = "none";
   }
-   //ADD CHAIR
+   //ADD OBJECT
 app.get("/addObject",(req,res)=>{
 res.render("addObject",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
-        let isAdmin = await collection.findOne({name:req.body.username})
-        if(isAdmin.admin == true)
+        if(currUser.admin == true)
         {
         console.log("1")
         let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
@@ -166,8 +168,7 @@ app.post("/addObject",async (req,res)=>{
         console.log("ok")
         })
     app.post("/deleteObject",async (req,res)=>{
-        let isAdmin = await collection.findOne({name:req.body.username})
-        if(isAdmin.admin == true){
+        if(currUser.admin == true){
             let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
             if(isValid != null)
             {
@@ -221,6 +222,9 @@ app.post("/addObject",async (req,res)=>{
         const data = await objectCollection.find({"category":"table"}); 
         res.render('table', { details: data }); 
     });
+
+
+
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
      * *******************************************************************************************************************************
