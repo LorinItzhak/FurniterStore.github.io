@@ -18,6 +18,17 @@ body {
     transform: scale(0.12);
 }
 
+.alert {
+  text-align: left;
+  margin-bottom: 5px; /* ייבוש תחתון בגובה של 10 פיקסלים */
+  position: relative; /* אלמנט בעל מיקום יחסי */
+  padding: 0.5px; /* ריפוד בגודל של 0.25 רימ או 4 פיקסלים בכל צד */
+  border: 4px solid #ffffff; /* מסגרת דקה עם צבע לבן */
+  border-radius: 3px; /* חיסור מעגלי בעובי 3 פיקסלים לפינות המסגרת */
+  background-color: #b6b3b3; /* רקע לבן */
+  color: #000000; /* צבע הטקסט שחור */
+  
+}
   .container {
     max-width: 400px;
     margin: 13% auto;

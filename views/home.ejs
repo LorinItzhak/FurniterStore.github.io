@@ -11,16 +11,18 @@
     
 </head>
 <body>
-
-    <div class="logo"><img src="logo.png"></div>
     
 <div class="menu-bar">
+ 
+  
      <ul>
+      <div class="logo"><img src="logo.png"></div>
+      <button class="btn-my-account"><i class="fas fa-user"></i></button>
         <% if (alertMessage) { %>    
             <li  class="alert-style"> <%= alertMessage %>  </li>
             <% } %>       
     
-                
+           
      <li> <a href="#"> HOME </a></li>
 
      <li> <a href="#"> ABOUT US </a>       
@@ -29,11 +31,12 @@
      <li> <a href="#"> COLLECTION </a>
         <div class="sub-menu-1">
             <ul>
-                <li><a href="#">SOFAS</a></li>
-                <li><a href="#">ARMCHAIRS</a></li>
-                <li><a href="#">TABLES</a></li>
-                <li><a href="#">CHAIRS</a></li>
-                <li><a href="#">BEDS</a></li>
+                <li><a href="couch">SOFAS</a></li>
+                <li><a href="mirror">Mirrors</a></li>
+                <li><a href="table">TABLES</a></li>
+                <li><a href="chairs">CHAIRS</a></li>
+                <li><a href="bed">BEDS</a></li>
+             
                 
 
             </ul>
@@ -41,32 +44,23 @@
      <li> <a href="#"> DECOR </a>
         <div class="sub-menu-1">
             <ul>
-                <li><a href="#">RUGS</a></li>
+                <li><a href="rug">RUGS</a></li>
                 <li><a href="#">CUSHIONS</a></li>
                 <li><a href="#"> ACCESSORY</a></li>
             </ul>
             </div></li>
     <li> <a href="#"> SALE </a></li>
-            <li> <a href="#"> CONTACT </a></li>          
+            <li> <a href="#"> CONTACT </a></li>      
+            
+            <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
+        
+            
+            <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+            
 </ul>
 </div>
     
    
-    <div class="content">
-        <h1> Furniture <br> <span> Design </span><br> Studio</h1>
-        <br></br>
-        <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
-        <button class="cn"><a href="#"> SIGN IN</a></button>
-    </div>
-    
-    
-        <button class="btn-my-search" onclick="document.getElementById('id01').style.display='block'"style="width:auto;"""><i class="fas fa-search"></i></button>
-        
-    <button class="btn-my-account"><i class="fas fa-user"></i></button>
-    <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
-
-
- 
 <div id="id01" class="modal">
  
   <form class="modal-content" action="">
@@ -79,61 +73,64 @@
       
       <input type="text" placeholder="Tap to search" name="email" required>
       <br>
+      
       <label for="email"><b>Filter</b></label>
       <br>
+      <div class="label-search">
       <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> sofas
-        <select class="srch-param" name="price">
-            <option value="">price</option>
-            <option value="0-100">$0 - $100</option>
-            <option value="100-500">$100 - $500</option>
-            <option value="500-1000">$500 - $1000</option>
-            <option value="1000+">$1000+</option>
-          </select>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> SOFAS
       </label>
       <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> mirrors
-        <select class="srch-param" name="COLOR">
-            <option value="">color</option>
-            <option value="white">white</option>
-            <option value="black">black</option>
-            <option value="brown">brown</option>
-            <option value="beige">beige</option>
-            <option value="grey">grey</option>
-            <option value="green">red</option>
-        </select>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ARMCHAIRS
       </label>
       <label>
-        <select class="srch-param" name="MATERIAL">
-            <option value="">material</option>
-            <option value="Solid Wood">Solid Wood</option>
-            <option value="Iron">Iron</option>
-            <option value="Glass">Glass</option>
-            <option value="Marble">Marble</option>
-            <option value="Leather">Leather</option>
-            <option value="Fabric">Fabric</option>
-        </select>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> rugs
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> TABLES
       </label>
       <label>
-        <select class="srch-param" name="category">
-            <option value="">category</option>
-            <option value="beds">beds</option>
-            <option value="sofas">sofas</option>
-            <option value="tables">tables</option>
-            <option value="mirrors">mirrors</option>
-            <option value="chairs">chairs</option>
-            <option value="rugs">rugs</option>
-        </select>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> tables
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> CHAIRS
       </label>
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> BEDS
+      </label>
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ACCESSORY
+      </label>
+    </div>
+      <div class="price-input">
+        <div class="field">
+          <span>Min</span>
+          <input type="number" class="input-min" value="2500">
+        </div>
+        <div class="separator">-</div>
+        <div class="field">
+          <span>Max</span>
+          <input type="number" class="input-max" value="7500">
+        </div>
+      </div>
+      <div class="slider">
+        <div class="progress"></div>
+      </div>
+      <div class="range-input">
+        <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
 
-      
-
-      <button type="submit" class="signupbtn">Search</button>
+        <button type="submit" class="signupbtn">Search</button>
+      </div>
+    </div>
+   
+    </div>
+  
+  
           </div>
     </div>
   </form>
+</div>
+
+<div class="content">
+  <h1> Furniture <br> <span> Design </span><br> Studio</h1>
+  <br></br>
+  <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+  <button class="cn"><a href="login"> SIGN IN</a></button>
 </div>
 
 <script>
@@ -147,6 +144,48 @@ window.onclick = function(event) {
   }
 }
 
+</script>
+<script>const rangeInput = document.querySelectorAll(".range-input input"),
+  priceInput = document.querySelectorAll(".price-input input"),
+  range = document.querySelector(".slider .progress");
+let priceGap = 1000;
+
+priceInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minPrice = parseInt(priceInput[0].value),
+      maxPrice = parseInt(priceInput[1].value);
+
+    if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+      if (e.target.className === "input-min") {
+        rangeInput[0].value = minPrice;
+        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+      } else {
+        rangeInput[1].value = maxPrice;
+        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+      }
+    }
+  });
+});
+
+rangeInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minVal = parseInt(rangeInput[0].value),
+      maxVal = parseInt(rangeInput[1].value);
+
+    if (maxVal - minVal < priceGap) {
+      if (e.target.className === "range-min") {
+        rangeInput[0].value = maxVal - priceGap;
+      } else {
+        rangeInput[1].value = minVal + priceGap;
+      }
+    } else {
+      priceInput[0].value = minVal;
+      priceInput[1].value = maxVal;
+      range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+      range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+    }
+  });
+});
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

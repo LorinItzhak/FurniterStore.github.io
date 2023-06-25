@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OurBeds
+    </title>
+</head>
+<body>
+    <h1>OurBeds</h1>
+
+<table class ="items">
+    <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Material</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Photo</th>
+        <th>Category</th>
+    </tr>
+    <% details.forEach(function(item){ %>
+    <tr>
+        <td><%= item.name%></td>
+        <td><%= item.color%></td>
+        <td><%= item.matter%></td>
+        <td><%= item.price%></td>
+        <td><%= item.amount%></td>
+        <td><%= item.pic%></td>
+        <td><%= item.category%></td>
+    </tr>
+    <% }) %>
+    </table>
+  
+</body>
+</html>

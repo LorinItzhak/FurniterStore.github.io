@@ -5,42 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="login.css">
     <title>Document</title>
 </head>
 <body>
-    <%- include('menu.ejs') %>
-    <form action="/login" method="post">
-        
-        <h2>Log In</h2>  
-     
-          <% if (alertMessage) { %>
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-               <%= alertMessage %>
-               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <% } %>
-        
-    <input type="text" name="name" placeholder="Name">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit">
-    </form>
+    <div class="logo"><img src="logo.png"></div>
     
-    <p class="link"> D'ont have an account? <br>
-    <a href="signup">Sign Up </a>
-    <div class="form">
+    <div class="menu-bar">
+         <ul>
+            <% if (alertMessage) { %>    
+                <li  class="alert-style"> <%= alertMessage %>  </li>
+                <% } %>       
         
+      <li> <a href="#"> HOME </a></li>
+      
+       
+         <li> <a href="#"> ABOUT US </a>       
+         </li>       
+       
+   
+        <li> <a href="#"> COLLECTION </a>
+           <div class="sub-menu-1">
+               <ul>
+                   <li><a href="#">SOFAS</a></li>
+                   <li><a href="#">ARMCHAIRS</a></li>
+                   <li><a href="#">TABLES</a></li>
+                   <li><a href="#">CHAIRS</a></li>
+                   <li><a href="#">BEDS</a></li>
+                   
+   
+               </ul>
+               </div></li>
+        <li> <a href="#"> DECOR </a>
+           <div class="sub-menu-1">
+               <ul>
+                   <li><a href="#">RUGS</a></li>
+                   <li><a href="#">CUSHIONS</a></li>
+                   <li><a href="#"> ACCESSORY</a></li>
+               </ul>
+               </div></li>
+       <li> <a href="#"> SALE </a></li>
+               <li> <a href="#"> CONTACT </a></li>          
+   </ul>
+   </div>
+       
+
+   <form action="/login" method="post">
         
-        <p class="liw">  Follow us on </p> 
-            <div class="icon"> 
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-                
-            </div> 
+    <h2>Log In</h2>  
+ 
+      <% if (alertMessage) { %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           <%= alertMessage %>
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
     
-    </div>
+<input type="text" name="name" placeholder="Name">
+<input type="password" name="password" placeholder="Password">
+<input type="submit">
+</form>
+
+<p class="link"> D'ont have an account? <br>
+<a href="signup">Sign Up </a>
+<div class="form">
     
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    
+    <p class="liw">  Follow us on </p> 
+        <div class="icon"> 
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            
+        </div> 
+
+</div>
+
+
+   <button class="btn-my-account"><i class="fas fa-user"></i></button>
+   <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+  
+       
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        
+
     
 </body>
 </html>
