@@ -13,6 +13,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
 var currUser=0
+var loggedIn=true
+let alertMessage=""
 const mongMod = require("./mongodb")
 const collection = mongMod.collection
 const objectCollection = mongMod.objectCollection
@@ -21,16 +23,17 @@ app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפ
 
 
 app.get("/",(req,res)=>{
-    res.render("login.ejs", { alertMessage: "" });
+    
+    res.render("home.ejs", { alertMessage,loggedIn: currUser !== 0 });
 })
 
 app.get("/signup",(req,res)=>{
     //res.render("signup") 
-    res.render("signup.ejs", { alertMessage: "" });
+    res.render("signup.ejs", { alertMessage: "" ,loggedIn: currUser !== 0});
 })
-app.get("/home",(req,res)=>{
-    //res.render("signup") 
-    res.render("home.ejs", { alertMessage: "" });
+app.get("/login",(req,res)=>{
+    
+    res.render("login.ejs", { alertMessage: "",loggedIn: currUser !== 0});
 })
 
 app.post("/signup",async(req,res)=>{
@@ -39,12 +42,12 @@ app.post("/signup",async(req,res)=>{
     if(checkk!=null){
         //res.send("name taken")
         let alertMessage = " Username already taken";
-        res.render("signup.ejs", { alertMessage });
+        res.render("signup.ejs", { alertMessage ,loggedIn: currUser !== 0});
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
     }
 else if(req.body.name==''||req.body.password==''){
      let alertMessage = " Fill the missing info";
-        res.render("signup",{alertMessage});
+        res.render("signup",{alertMessage,loggedIn: currUser !== 0});
 }
     else{
         const data={
@@ -54,12 +57,12 @@ else if(req.body.name==''||req.body.password==''){
         };
         try {
             currUser = await collection.insertMany([data]);
-            let alertMessage = " You have successfully signed up";
-            res.render("home", { alertMessage }); // Changed this line
+            let alertMessage = "Hi "+req.body.name;
+            res.render("home", { alertMessage ,loggedIn:currUser!==0}); // Changed this line
           } catch (error) {
             console.error(error);
             let alertMessage = " Error occurred while signing up";
-            res.render("signup", { alertMessage }); // Changed this line
+            res.render("signup", { alertMessage,loggedIn: currUser !== 0 }); // Changed this line
           }
         
         //await collection.insertMany([data])
@@ -80,22 +83,22 @@ if(check.password===req.body.password){
     if(check.admin == true)
     {
         currUser = check
-        res.render("adminHome",{alertMessage})
+        res.render("adminHome",{alertMessage,loggedIn: currUser !== 0})
     }
     else{
         currUser = check
-        res.render("home.ejs", { alertMessage});
+        res.render("home.ejs", { alertMessage,loggedIn: currUser !== 0});
     }
 }
 else{
     let alertMessage=" wrong password"
-    res.render("login",{alertMessage})
+    res.render("login",{alertMessage,loggedIn: currUser !== 0})
 }
   
   }
   catch{
     let alertMessage=" wrong details"
-    res.render("login",{alertMessage})
+    res.render("login",{alertMessage,loggedIn: currUser !== 0})
   }
     
     })
@@ -222,21 +225,16 @@ app.post("/addObject",async (req,res)=>{
         res.render('table', { details: data }); 
     });
    
-    app.get('/logOut',(req,res)=>{
-        res.render("home",{alertMessage:""});
-    })
-    app.post('/logOut',(req,res)=>{
-        
-        if(currUser != 0)
-        {
-            currUser = 0
-            console.log('exited')
-            res.render('home',{alertMessage:"successfuly logged out"})
+   
+    app.post('/logout', (req, res) => {
+        if (currUser !== 0) {
+            currUser = 0;
+            console.log('User logged out');
+            res.json({ success: true });
+        } else {
+            res.json({ success: false, message: 'You were not logged in' });
         }
-        else{
-            res.render('home',{alertMessage:"you werent logged in"})
-        }
-    })
+    });
    
 
     /*********************************************************************************************************************************
