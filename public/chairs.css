@@ -65,7 +65,8 @@
     color: rgb(166, 157, 157);
     height: 140vh;
     display: grid;
-    align-items:left;
+    
+    align-items:center;
   }
   h1 {
     font-size: 4rem;
@@ -354,7 +355,7 @@ input[type=text], input[type=password] {
   
 
   /* Add padding to container elements */
-   .container {
+   /*.container {
    
     padding: 16px;
     display: flex;
@@ -555,4 +556,41 @@ hr {
       top: 65.18px;
       height: calc(100vh - 65.18px);
     }
+}
+
+
+
+
+/*----------------------------------------------------------------------*/
+/*=============== PRODUCTS ===============*/
+.container {
+  width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: space-between;
+}
+
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+.card img {
+  max-width: 50%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+      flex-direction: column;
+  }
 }

@@ -69,7 +69,7 @@
     color: rgb(166, 157, 157);
     height: 100vh;
     display: grid;
-    align-items:left;
+    align-items:center;
   }
   h1 {
     font-size: 4rem;
@@ -93,38 +93,6 @@
     padding-left: 50px;
     margin-top: 20%;
     letter-spacing: 2px;
-}
-
-.content .cn{
-width:160px ;
-height: 40px;
-background: grey;
-border: none;
-margin-bottom:10px ;
- margin-left: 50px;
- font-size: 18px;
- border-radius: 10px ;
- cursor: pointer;
- transition: .4s ease ;
-
-} 
-
-.content .cn a{
-text-decoration:none;
-color:lightgray ;
-transition: 3s ease ;
-
-
-
-}
-
-.cn:hover{
-    background-color: white;
-}
-
-.content span{
-    color: aliceblue;
-    font-size: 60px;
 }
 
 
@@ -191,29 +159,31 @@ nav ul li:hover .sub-menu-1 ul li:hover{
 } */
 
 
+#alert{
+  font-weight: bold;
+  color: #1e171e;
+  font-size: 2em;
 
-.alert-style{
-    font-weight: bold;
-    color: transparent;
-   font-size: 20px;
-   
-   
-  
 }
 
 
+
 h2 {
-  margin-top: -7px;
-    margin-bottom: 4px;
+ 
     text-align: center;
-    font-size: 28px;
+    font-size: 25px;
     color: #090808;
 }
 
 form {
-    
-    max-width: 400px;
-    margin: 20% auto; /* מרכז האתר עם מרווח עליון של 10% */
+  
+  display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 700px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+   /* מרכז האתר עם מרווח עליון של 10% */
     padding: 30px;
     height: 400px;
     background: linear-gradient(to top,  rgb(77, 77, 81) 50%, rgb(104, 104, 108) 50%);
@@ -222,20 +192,20 @@ form {
 
 
 form input {
-    
-    width: 100%;
-    height: 35px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
+    
+    
 }
 
 form input[type="submit"] {
     background-color: #333;
     color: #fff;
     cursor: pointer;
+    padding: 10px;
+    border: none;
     
 }
 
@@ -248,8 +218,8 @@ margin-top: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    font-size: 20px;
+    
+    font-size: 15px;
     color: #090808;
 } 
 
@@ -271,7 +241,7 @@ margin-top: 20px;
     align-items: center;
     
     justify-content: center;
-    font-size: 20px;
+    font-size: 15px;
     color: #090808;
     
     } 
@@ -282,7 +252,7 @@ margin-top: 20px;
     display: flex;
     margin: 5px;
     /* border: 2px solid red; */
-    font-size: 20px;
+    font-size: 15px;
     justify-content: center;
     color: white;
     /* padding: 10px; */
@@ -306,18 +276,13 @@ margin-top: 20px;
   
   .fa-instagram:hover {
     
-   /* background: linear-gradient(160deg, purple, fuchsia, goldenrod);*/
-    color: rgb(226, 32, 184);
+   background: linear-gradient(160deg, purple, fuchsia, goldenrod);
+    /* color: rgb(226, 32, 184); */
   }
   
 
 /*---------alert--------*/
- #alert{
-    font-weight: bold;
-    color: #1e171e;
-    font-size: 2em;
-  
-}
+
 
 
 .btn-my-account{
@@ -423,7 +388,7 @@ border: 1.3px solid  #f5ecec;
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 50%;
+    
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;

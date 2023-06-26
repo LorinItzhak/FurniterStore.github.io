@@ -68,7 +68,7 @@ nav ul a:hover {
 }
 section#home {
   color: rgb(166, 157, 157);
-  height: auto; 
+  height: 150vh; 
   display: grid;
   align-items:center;
 }
@@ -565,9 +565,7 @@ margin-left: 1%;
   
 /* עיצוב הטופס */
 form {
-  
-  
-  transform: translateY(47%);
+    
     display: flex;
     flex-direction: column;
     align-items: stretch;
