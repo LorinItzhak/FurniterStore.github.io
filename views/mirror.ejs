@@ -2,34 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="mirror.css">
     <title>OurMirrors
     </title>
 </head>
 <body>
     <h1>OurMirrors</h1>
 
-<table class ="items">
-    <tr>
-        <th>Name</th>
-        <th>Color</th>
-        <th>Material</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Photo</th>
-        <th>Category</th>
-    </tr>
-    <% details.forEach(function(item){ %>
-    <tr>
-        <td><%= item.name%></td>
-        <td><%= item.color%></td>
-        <td><%= item.matter%></td>
-        <td><%= item.price%></td>
-        <td><%= item.amount%></td>
-        <td><%= item.pic%></td>
-        <td><%= item.category%></td>
-    </tr>
-    <% }) %>
-    </table>
+<<% details.forEach(function(item){ %>
+    <div class="product">
+        <h2 class="name"><%= item.name %></h2>
+        <p class="price">Price: <%= item.price %> USD</p>
+        <p class="details">
+            Color: <%= item.color %><br>
+            Material: <%= item.matter %><br>
+            Amount: <%= item.amount %><br>
+            Category: <%= item.category %><br>
+        </p>
+        <img src="<%= item.pic %>" alt="<%= item.name %>">
+    </div>
+<% }) %>
   
 </body>
 </html>
