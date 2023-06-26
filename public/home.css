@@ -7,6 +7,7 @@
   body {
     background : linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://275w10.com/wp-content/themes/Shephard/assets/images/photos/Shephard-Livingroom-fp.jpg);
     background-repeat: no-repeat;
+    
     background-size: cover;
   }
   
@@ -62,7 +63,7 @@
   }
   section#home {
     color: rgb(166, 157, 157);
-    height: 100vh;
+    height: 140vh;
     display: grid;
     align-items:left;
   }
