@@ -47,8 +47,11 @@ nav a {
 
 
 #logo img {
+    
   display:flex;
+  margin-bottom:-30px ;
   width: 120px;
+  justify-content: center;
   
 }
 
