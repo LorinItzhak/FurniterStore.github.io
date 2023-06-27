@@ -147,3 +147,28 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+
+
+//add to cart כפתור
+document.querySelectorAll(".button").forEach((button) =>
+    button.addEventListener("click", (e) => {
+        if (!button.classList.contains("loading")) {
+            button.classList.add("loading");
+            setTimeout(() => button.classList.remove("loading"), 3700);
+        }
+        e.preventDefault();
+    })
+);
+
+
+const cartButtons = document.querySelectorAll('.cart-button');
+
+cartButtons.forEach(button => {
+	button.addEventListener('click', cartClick);
+});
+
+function cartClick() {
+	let button = this;
+	button.classList.add('clicked');
+}
