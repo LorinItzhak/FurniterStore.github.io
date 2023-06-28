@@ -81,7 +81,7 @@
       
       <div class=" col-lg-3 sidebar">
         <% if (loggedIn) { %>
-          <p>Welcome, <%= currUser.name %>!</p>
+          <p>Welcome, <%= session.user.name %>!</p>
          <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
           <p><a class="active" href="/changePassword">Change Password</a></p>
           <p><a href="/accountInformation">Account Information</a></p>

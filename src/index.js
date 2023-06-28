@@ -29,16 +29,16 @@ app.use(session({
 
 app.get("/",(req,res)=>{
     
-    res.render("home.ejs", { alertMessage,loggedIn: currUser !== 0 });
+    res.render("home.ejs", { alertMessage,loggedIn: req.session.user !== undefined });
 })
 
 app.get("/signup",(req,res)=>{
     //res.render("signup") 
-    res.render("signup.ejs", { alertMessage: "" ,loggedIn: currUser !== 0});
+    res.render("signup.ejs", { alertMessage: "" ,loggedIn: req.session.user !== undefined});
 })
 app.get("/login",(req,res)=>{
     
-    res.render("login.ejs", { alertMessage: "",loggedIn: currUser !== 0});
+    res.render("login.ejs", { alertMessage: "",loggedIn: req.session.user !== undefined});
 })
 
 
@@ -48,12 +48,12 @@ app.post("/signup",async(req,res)=>{
     if(checkk!=null){
         //res.send("name taken")
         let alertMessage = " Username already taken";
-        res.render("signup.ejs", { alertMessage ,loggedIn: currUser !== 0});
+        res.render("signup.ejs", { alertMessage ,loggedIn: req.session.user !== undefined});
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
     }
 else if(req.body.name==''||req.body.password==''){
      let alertMessage = " Fill the missing info";
-        res.render("signup",{alertMessage,loggedIn: currUser !== 0});
+        res.render("signup",{alertMessage,loggedIn: req.session.user !== undefined});
 }
     else{
         const data={
@@ -65,11 +65,11 @@ else if(req.body.name==''||req.body.password==''){
             req.session.user = await collection.insertMany([data]);
             loggedIn=true
             let alertMessage = "Hi "+req.body.name;
-            res.render("home", { alertMessage ,loggedIn:currUser!==0}); // Changed this line
+            res.render("home", { alertMessage ,loggedIn:req.session.user!==undefined}); // Changed this line
           } catch (error) {
             console.error(error);
             let alertMessage = " Error occurred while signing up";
-            res.render("signup", { alertMessage,loggedIn: currUser !== 0 }); // Changed this line
+            res.render("signup", { alertMessage,loggedIn: req.session.user !== undefined }); // Changed this line
           }
         
         //await collection.insertMany([data])
@@ -107,7 +107,7 @@ else{
   }
   catch{
     let alertMessage=" wrong details"
-    res.render("login",{alertMessage,loggedIn: currUser !== 0})
+    res.render("login",{alertMessage,loggedIn: req.session.user !== undefined})
   }
     
     })
@@ -235,8 +235,9 @@ app.post("/addObject",async (req,res)=>{
    
    
     app.post('/logout', (req, res) => {
-        if (req.session !== 0) {
+        if (req.session) {
             req.session.destroy()
+            loggedIn=false
             console.log('User logged out');
             res.json({ success: true });
         } else {
@@ -279,8 +280,8 @@ app.post("/addObject",async (req,res)=>{
    ///////////////////////// MyAccount
 
    app.get("/myAccount", async (req, res) => {
-    if (currUser !== 0) {
-      res.render("myAccount", { loggedIn:true, currUser });
+    if (req.session.user !== undefined) {
+      res.render("myAccount", { loggedIn:true, user:req.session.user });
     } else {
       res.redirect("/login");
     }
@@ -295,20 +296,20 @@ app.post("/changePassword", async(req, res) => {
     const currentPassword = req.body.currentPassword;
     const newPassword = req.body.newPassword;
     const confirmPassword = req.body.confirmPassword;
-    if (currentPassword !== currUser.password) {
+    if (currentPassword !== req.session.user.password) {
       res.render("changePassword", { loggedIn:true,message: "Incorrect current password" });
     } else if (newPassword !== confirmPassword) {
       res.render("changePassword", { loggedIn:true,message: "New password and confirmation do not match" });
     } else {
       // Update the user's password in the database
-      let isValidd = await collection.findOne({name:currUser.name})
+      let isValidd = await collection.findOne({name:req.session.user.name})
       if(isValidd != null)
       {
           let infoo = {
               password:newPassword
             }
            
-          await collection.findOneAndUpdate({name:currUser.name},infoo)
+          await collection.findOneAndUpdate({name:req.session.user.name},infoo)
       res.render("changePassword", { loggedIn:true,message: "Password changed successfully" });
     }
     else{
@@ -320,7 +321,7 @@ app.post("/changePassword", async(req, res) => {
   app.get("/accountInformation", (req, res) => {
     // Retrieve account information for the current user from the database
     // Render the accountInformation.ejs template with the account information data
-    res.render("accountInformation", {loggedIn:true ,currUser });
+    res.render("accountInformation", {loggedIn:true ,user:req.session.user });
   });
   
 
