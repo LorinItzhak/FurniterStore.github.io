@@ -70,11 +70,11 @@
            <li>
             <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
            </li>
-             <li> <button class="btn-my-account"><i class="fas fa-user"></i></button> </li>
+             <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
 
-              <% if (alertMessage) { %>    
-                  <li id="alert"> <%= alertMessage %>  </li>
-                  <% } %>  
+             <% if (typeof alertMessage !== 'undefined' && alertMessage) { %>
+              <li id="alert"> <%= alertMessage %>  </li>
+            <% } %>
         </ul>
       </nav>
     </header>

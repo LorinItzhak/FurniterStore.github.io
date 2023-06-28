@@ -267,7 +267,53 @@ app.post("/addObject",async (req,res)=>{
         }
         res.json({infor})
     })
-   
+   ///////////////////////// MyAccount
+
+   app.get("/myAccount", async (req, res) => {
+    if (currUser !== 0) {
+      res.render("myAccount", { loggedIn:true, currUser });
+    } else {
+      res.redirect("/login");
+    }
+  });
+  
+  // Route handler for changing password
+  app.get("/changePassword", (req, res) => {
+    res.render("changePassword",{loggedIn:true});
+  });
+  
+app.post("/changePassword", async(req, res) => {
+    const currentPassword = req.body.currentPassword;
+    const newPassword = req.body.newPassword;
+    const confirmPassword = req.body.confirmPassword;
+    if (currentPassword !== currUser.password) {
+      res.render("changePassword", { loggedIn:true,message: "Incorrect current password" });
+    } else if (newPassword !== confirmPassword) {
+      res.render("changePassword", { loggedIn:true,message: "New password and confirmation do not match" });
+    } else {
+      // Update the user's password in the database
+      let isValidd = await collection.findOne({name:currUser.name})
+      if(isValidd != null)
+      {
+          let infoo = {
+              password:newPassword
+            }
+           
+          await collection.findOneAndUpdate({name:currUser.name},infoo)
+      res.render("changePassword", { loggedIn:true,message: "Password changed successfully" });
+    }
+    else{
+        res.render("changePassword", { loggedIn:true,message: "failed" });
+    }
+    }
+  });
+
+  app.get("/accountInformation", (req, res) => {
+    // Retrieve account information for the current user from the database
+    // Render the accountInformation.ejs template with the account information data
+    res.render("accountInformation", {loggedIn:true ,currUser });
+  });
+  
 
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
