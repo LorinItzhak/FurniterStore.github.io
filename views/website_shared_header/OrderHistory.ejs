@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +19,7 @@
       rel="stylesheet"
     />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/public/OrderHistory.css">
   </head>
   <body>
     
@@ -70,27 +71,133 @@
            <li>
             <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
            </li>
-             <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
+             <li> <button class="btn-my-account"><i class="fas fa-user"></i></button> </li>
 
-             <% if (typeof alertMessage !== 'undefined' && alertMessage) { %>
-              <li id="alert"> <%= alertMessage %>  </li>
-            <% } %>
+              <% if (alertMessage) { %>    
+                  <li id="alert"> <%= alertMessage %>  </li>
+                  <% } %>  
         </ul>
       </nav>
     </header>
+    <div class=" OrderHis">
+      <a>Order History</a>
+     <div class="detailsHistory">ךךךךגלכקמהכלחקגכמיהןקנרכקדרןךנכעקולירענכבוקירענכוןק׳נרןכוטעקרלכוטק׳רך
+ללללללל
+    </div> 
+    </div>
     <section id="home">
-      <div class="content">
-        <h1> Furniture <br> <span> Design </span><br> Studio</h1>
-        <br></br>
-        <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+      
+      <div class=" col-lg-3 sidebar">
+        <a href="#myaccount">my account</a>
+      
+          <a class="active" id="OrderH" href="#Orederhistory">Order history</a>
+          <div class="detailsHistory1">blablabl blablabla
+            blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla blablabla
+            blablabla blablabla
+            blablabla blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa blablabla
+            blablabla
+            blablabla
+            blablablaa
+            blablabla
+            blablablaa
+            blablabla
+            blablablaa
+            blablabla
+            blablablaa
+          </div>
+         
+        <a href="#Accountinfo">Account information</a>
+       
       
         <% if (loggedIn) { %>
-          <button class="cn" id="logoutButton">Logout</button>
+          <a id="logoutButton">Logout</a>
       <% } else { %>
-        <button class="cn"><a href="/login"> SIGN IN</a></button>
-        <button class="cn"><a href="/signup"> Sign Up</a></button>
-          <p>Please log in</p>
+        <a href="/login"> SIGN IN</a>
+        <a href="/signup"> Sign Up</a>
+          
       <% } %>
+  
+    </div>
+    
       <script>
         document.getElementById('logoutButton').addEventListener('click', function() {
             // Send a POST request to the logout route
@@ -115,108 +222,74 @@
         });
     </script>
   
-      </div>
+     
     </section>
     
-    <div id="id01" class="modal">
+       
+<div id="id01" class="modal">
  
-      <div class="modal-content" action="">
-        <div class="container">
-            <div class="clearfix">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
-               
-          <h1>Search</h1>
-          <hr>
-          
-          <input type="text" placeholder="Tap to search" name="email" required>
-          <br>
-          
-          <label for="email"><b>Filter</b></label>
-          <br>
-          <div class="label-search">
-          <label>
-            <input type="checkbox" checked="checked" id="sofa" style="margin-bottom:15px" > SOFAS
-          </label>
-          <label>
-            <input type="checkbox" checked="checked" id="armchair" style="margin-bottom:15px"> ARMCHAIRS
-          </label>
-          <label>
-            <input type="checkbox" checked="checked" id="table" style="margin-bottom:15px"> TABLES
-          </label>
-          <label>
-            <input type="checkbox" checked="checked" id="chair" style="margin-bottom:15px"> CHAIRS
-          </label>
-          <label>
-            <input type="checkbox" checked="checked" id="bed" style="margin-bottom:15px"> BEDS
-          </label>
-          <label>
-            <input type="checkbox" checked="checked" id="accs" style="margin-bottom:15px"> ACCESSORY
-          </label>
-        </div>
-          <div class="price-input">
-            <div class="field">
-              <span>Min</span>
-              <input type="number" class="input-min" value="2500">
-            </div>
-            <div class="separator">-</div>
-            <div class="field">
-              <span>Max</span>
-              <input type="number" class="input-max" value="7500">
-            </div>
-          </div>
-          <div class="slider">
-            <div class="progress"></div>
-          </div>
-          <div class="range-input">
-            <input id="min" type="range" class="range-min" min="0" max="10000" value="0" step="100">
-            <input id ="max" type="range" class="range-max" min="0" max="10000" value="10000" step="100">
-    
-            <button type="submit" class="signupbtn" onclick="objCheck()">Search</button>
-          </div>
-        </div>
-       
-        </div>
-      
+    <div class="modal-content" action="">
+      <div class="container">
+          <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+             
+        <h1>Search</h1>
+        <hr>
+        
+        <input type="text" placeholder="Tap to search" name="email" required>
+        <br>
+        
+        <label for="email"><b>Filter</b></label>
+        <br>
+        <div class="label-search">
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> SOFAS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ARMCHAIRS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> TABLES
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> CHAIRS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> BEDS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ACCESSORY
+        </label>
       </div>
-              </div>
-      
-      <script>
-         function objCheck(){
-          console.log("1")
-          var sofaCheck = document.getElementById('sofa').checked
-          var armCheck = document.getElementById('armchair').checked
-          var tableCheck = document.getElementById('table').checked
-          var chairCheck = document.getElementById('chair').checked
-          var bedCheck = document.getElementById('bed').checked
-          var accsCheck = document.getElementById('accs').checked
-          var min = document.getElementById('min').value
-          var max = document.getElementById('max').value
-          console.log(min,max)
-          const dat = {
-            sofa:sofaCheck,
-            arm:armCheck,
-            table:tableCheck,
-            chair:chairCheck,
-            bed:bedCheck,
-            accs:accsCheck,
-            min:min,
-            max:max
-          }
-          fetch('/search',{
-            method:'POST',
-            headers: {
-                  'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(dat)
-          })
-          .then(response => response.json())
-            .then(infor =>{
-             window.location.href = 'search'
-            })
-        }
-      </script>
-       
-       
+        <div class="price-input">
+          <div class="field">
+            <span>Min</span>
+            <input type="number" class="input-min" value="2500">
+          </div>
+          <div class="separator">-</div>
+          <div class="field">
+            <span>Max</span>
+            <input type="number" class="input-max" value="7500">
+          </div>
+        </div>
+        <div class="slider">
+          <div class="progress"></div>
+        </div>
+        <div class="range-input">
+          <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+          <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+  
+          <button type="submit" class="signupbtn">Search</button>
+        </div>
+      </div>
+     
+      </div>
+    
+    </div>
+            </div>
+    
+    </form>
+  
   
   
   

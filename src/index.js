@@ -196,32 +196,32 @@ app.post("/addObject",async (req,res)=>{
     
     app.get('/chairs', async (req, res) => {
         // Query for the data from MongoDB
-        const data = await objectCollection.find({"category":"chair"}); 
+        const data = await objectCollection.find({"category":"chair","amount": { $gte: 1}}); 
         res.render('chairs', { details: data }); 
     });
     app.get('/bed', async (req, res) => {
         // Query for the data from MongoDB
-        const data = await objectCollection.find({"category":"bed"}); 
+        const data = await objectCollection.find({"category":"bed","amount": { $gte: 1}}); 
         res.render('bed', { details: data }); 
     });
     app.get('/couch', async (req, res) => {
         // Query for the data from MongoDB
-        const data = await objectCollection.find({"category":"couch"}); 
+        const data = await objectCollection.find({"category":"couch","amount": { $gte: 1}}); 
         res.render('couch', { details: data }); 
     });
     app.get('/mirror', async (req, res) => {
         // Query for the data from MongoDB
-        const data = await objectCollection.find({"category":"mirror"}); 
+        const data = await objectCollection.find({"category":"mirror","amount": { $gte: 1}}); 
         res.render('mirror', { details: data }); 
     });
     app.get('/rug', async (req, res) => {
         // Query for the data from MongoDB
-        const data = await objectCollection.find({"category":"rug"}); 
+        const data = await objectCollection.find({"category":"rug","amount": { $gte: 1}}); 
         res.render('rug', { details: data }); 
     });
     app.get('/table', async (req, res) => {
         // Query for the data from MongoDB
-        const data = await objectCollection.find({"category":"table"}); 
+        const data = await objectCollection.find({"category":"table","amount": { $gte: 1}}); 
         res.render('table', { details: data }); 
     });
    
@@ -265,6 +265,7 @@ app.post("/addObject",async (req,res)=>{
         if(req.body.bed){
             infor =infor+ ',' + await objectCollection.find({"category":"bed","price": { $gte: req.body.min, $lte: req.body.max }})
         }
+        //res.render({infor:infor})
         res.json({infor})
     })
    ///////////////////////// MyAccount
