@@ -1,4 +1,4 @@
-<
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -73,9 +73,6 @@
            </li>
              <li> <button class="btn-my-account"><i class="fas fa-user"></i></button> </li>
 
-              <% if (alertMessage) { %>    
-                  <li id="alert"> <%= alertMessage %>  </li>
-                  <% } %>  
         </ul>
       </nav>
     </header>
@@ -83,19 +80,15 @@
     <section id="home">
       
       <div class=" col-lg-3 sidebar">
-        <a class="active" href="myaccount">My account</a>
-        <a href="Orederhistory">Order history</a>
-        <a href="Accountinformation">Account information</a>
-       
-      
         <% if (loggedIn) { %>
-          <a id="logoutButton">Logout</a>
-      <% } else { %>
-        <a href="/login"> SIGN IN</a>
-        <a href="/signup"> Sign Up</a>
-          
-      <% } %>
-  
+          <p>Welcome, <%= currUser.name %>!</p>
+         <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
+          <p><a class="active" href="/changePassword">Change Password</a></p>
+          <p><a href="/accountInformation">Account Information</a></p>
+        <% } else { %>
+          <p>Please <a href="/login">login</a> to access your account.</p>
+        <% } %>
+       
     </div>
       <script>
         document.getElementById('logoutButton').addEventListener('click', function() {
@@ -121,17 +114,8 @@
         });
     </script>
   
-     
     </section>
     
-    <% if (loggedIn) { %>
-      <p>Welcome, <%= currUser.name %>!</p>
-     <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
-      <p><a href="/changePassword">Change Password</a></p>
-      <p><a href="/accountInformation">Account Information</a></p>
-    <% } else { %>
-      <p>Please <a href="/login">login</a> to access your account.</p>
-    <% } %>
   </div>
 </body>
 </html>
