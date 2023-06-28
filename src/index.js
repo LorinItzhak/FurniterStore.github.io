@@ -36,6 +36,7 @@ app.get("/login",(req,res)=>{
     res.render("login.ejs", { alertMessage: "",loggedIn: currUser !== 0});
 })
 
+
 app.post("/signup",async(req,res)=>{
     
     const checkk=await collection.findOne({name:req.body.name})
@@ -167,8 +168,7 @@ app.post("/addObject",async (req,res)=>{
     //DELETE OBJECT
     app.get("/deleteObject",(req,res)=>{
         res.render("deleteObject",{alertMessage:""});
-        console.log("ok")
-        })
+    })
     app.post("/deleteObject",async (req,res)=>{
         if(currUser.admin == true){
             let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
@@ -235,6 +235,38 @@ app.post("/addObject",async (req,res)=>{
             res.json({ success: false, message: 'You were not logged in' });
         }
     });
+
+    app.get("/search",(req,res)=>{
+        res.render("search.ejs")
+    })
+    app.post('/search',async(req,res)=>{
+        var infor=""
+        if(req.body.chair)
+        {
+            infor = await objectCollection.find({"category":"chair" ,"price": { $gte: req.body.min, $lte: req.body.max }
+        })
+            
+        }
+        if(req.body.arm){
+            infor =infor + await objectCollection.find({"category":"armchair", "price": { $gte: req.body.min, $lte: req.body.max }})
+        }
+        if(req.body.table)
+        {
+            infor =infor+ ',' + await objectCollection.find({"category":"table", "price": { $gte: req.body.min, $lte: req.body.max }})
+        }
+        if(req.body.sofa)
+        {
+            infor =infor + await objectCollection.find({"category":"couch","price": { $gte: req.body.min, $lte: req.body.max }})
+        }
+        if(req.body.accs)
+        {
+            infor =infor+ ',' + await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max }})
+        }
+        if(req.body.bed){
+            infor =infor+ ',' + await objectCollection.find({"category":"bed","price": { $gte: req.body.min, $lte: req.body.max }})
+        }
+        res.json({infor})
+    })
    
 
     /*********************************************************************************************************************************
