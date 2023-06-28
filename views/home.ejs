@@ -72,9 +72,9 @@
            </li>
              <li> <button  class="btn-my-account" ><i class="fas fa-user"></i></button> </li>
 
-              <% if (alertMessage) { %>    
-                  <li id="alert"> <%= alertMessage %>  </li>
-                  <% } %>  
+             <% if (typeof alertMessage !== 'undefined' && alertMessage) { %>
+              <li id="alert"> <%= alertMessage %>  </li>
+            <% } %>
         </ul>
       </nav>
     </header>
@@ -84,7 +84,7 @@
         <br></br>
         <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
       
-        <% if (loggedIn) { %>
+        <% if (typeof loggedIn !== 'undefined'&& loggedIn) { %>
           <button class="cn" id="logoutButton">Logout</button>
       <% } else { %>
         <button class="cn"><a href="/login"> SIGN IN</a></button>

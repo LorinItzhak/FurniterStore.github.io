@@ -20,20 +20,25 @@ const collection = mongMod.collection
 const objectCollection = mongMod.objectCollection
 //app.engine('ejs', require('ejs').__express);
 app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
-
+const session = require('express-session');
+app.use(session({
+  secret: 'key',
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.get("/",(req,res)=>{
     
-    res.render("home.ejs", { alertMessage,loggedIn: currUser !== 0 });
+    res.render("home.ejs", { alertMessage,loggedIn: req.session.user !== undefined });
 })
 
 app.get("/signup",(req,res)=>{
     //res.render("signup") 
-    res.render("signup.ejs", { alertMessage: "" ,loggedIn: currUser !== 0});
+    res.render("signup.ejs", { alertMessage: "" ,loggedIn: req.session.user !== undefined});
 })
 app.get("/login",(req,res)=>{
     
-    res.render("login.ejs", { alertMessage: "",loggedIn: currUser !== 0});
+    res.render("login.ejs", { alertMessage: "",loggedIn: req.session.user !== undefined});
 })
 
 
@@ -43,12 +48,12 @@ app.post("/signup",async(req,res)=>{
     if(checkk!=null){
         //res.send("name taken")
         let alertMessage = " Username already taken";
-        res.render("signup.ejs", { alertMessage ,loggedIn: currUser !== 0});
+        res.render("signup.ejs", { alertMessage ,loggedIn: req.session.user !== undefined});
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
     }
 else if(req.body.name==''||req.body.password==''){
      let alertMessage = " Fill the missing info";
-        res.render("signup",{alertMessage,loggedIn: currUser !== 0});
+        res.render("signup",{alertMessage,loggedIn: req.session.user !== undefined});
 }
     else{
         const data={
@@ -57,13 +62,14 @@ else if(req.body.name==''||req.body.password==''){
             admin:false
         };
         try {
-            currUser = await collection.insertMany([data]);
+            req.session.user = await collection.insertMany([data]);
+            loggedIn=true
             let alertMessage = "Hi "+req.body.name;
-            res.render("home", { alertMessage ,loggedIn:currUser!==0}); // Changed this line
+            res.render("home", { alertMessage ,loggedIn:req.session.user!==undefined}); // Changed this line
           } catch (error) {
             console.error(error);
             let alertMessage = " Error occurred while signing up";
-            res.render("signup", { alertMessage,loggedIn: currUser !== 0 }); // Changed this line
+            res.render("signup", { alertMessage,loggedIn: req.session.user !== undefined }); // Changed this line
           }
         
         //await collection.insertMany([data])
@@ -83,23 +89,25 @@ if(check.password===req.body.password){
     let alertMessage="Hi "+req.body.name
     if(check.admin == true)
     {
-        currUser = check
-        res.render("adminHome",{alertMessage,loggedIn: currUser !== 0})
+        req.session.user = check
+        loggedIn = true
+        res.render("adminHome",{alertMessage,loggedIn})
     }
     else{
-        currUser = check
-        res.render("home.ejs", { alertMessage,loggedIn: currUser !== 0});
+        req.session.user = check
+        loggedIn=true
+        res.render("home.ejs", { alertMessage,loggedIn});
     }
 }
 else{
     let alertMessage=" wrong password"
-    res.render("login",{alertMessage,loggedIn: currUser !== 0})
+    res.render("login",{alertMessage,loggedIn: false})
 }
   
   }
   catch{
     let alertMessage=" wrong details"
-    res.render("login",{alertMessage,loggedIn: currUser !== 0})
+    res.render("login",{alertMessage,loggedIn: req.session.user !== undefined})
   }
     
     })
@@ -120,7 +128,7 @@ res.render("addObject",{alertMessage:""});
 console.log("ok")
 })
 app.post("/addObject",async (req,res)=>{
-        if(currUser.admin == true)
+        if(req.session.user.admin == true)
         {
         console.log("1")
         let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
@@ -130,7 +138,7 @@ app.post("/addObject",async (req,res)=>{
                 amount:parseInt(isValid.amount)+parseInt(req.body.amount)
             }
             await objectCollection.findOneAndUpdate({category:req.body.category,name:req.body.name},info)
-            res.render("home",{alertMessage:""})
+            res.render("adminHome",{alertMessage:""})
         }
         else if(req.body.name==''||req.body.color==''||req.body.matter==''||req.body.amount==''||req.body.pic==''||req.body.price==''||req.body.amount < 0||req.body.price < 0)
         {
@@ -151,7 +159,7 @@ app.post("/addObject",async (req,res)=>{
             try{
                 await objectCollection.insertMany([info])
                 let alertMessage = "hi"
-                res.render("home", { alertMessage:"" });
+                res.render("adminHome", { alertMessage:"" });
             }
             catch (error) {
             console.error(error);
@@ -170,7 +178,7 @@ app.post("/addObject",async (req,res)=>{
         res.render("deleteObject",{alertMessage:""});
     })
     app.post("/deleteObject",async (req,res)=>{
-        if(currUser.admin == true){
+        if(req.session.user.admin == true){
             let isValid = await objectCollection.findOne({category:req.body.category,name:req.body.name})
             if(isValid != null)
             {
@@ -179,11 +187,11 @@ app.post("/addObject",async (req,res)=>{
                     name:req.body.name
                 }
                 await objectCollection.findOneAndDelete({category:req.body.category,name:req.body.name},info)
-                res.render("home",{alertMessage:"done"})
+                res.render("adminHome",{alertMessage:"done"})
             }
             else{
                 let alertMessage = "wrong info"
-                res.render("home",{alertMessage})
+                res.render("adminHome",{alertMessage})
             }
         }
         else{
@@ -227,8 +235,9 @@ app.post("/addObject",async (req,res)=>{
    
    
     app.post('/logout', (req, res) => {
-        if (currUser !== 0) {
-            currUser = 0;
+        if (req.session) {
+            req.session.destroy()
+            loggedIn=false
             console.log('User logged out');
             res.json({ success: true });
         } else {
@@ -268,7 +277,53 @@ app.post("/addObject",async (req,res)=>{
         //res.render({infor:infor})
         res.json({infor})
     })
-   
+   ///////////////////////// MyAccount
+
+   app.get("/myAccount", async (req, res) => {
+    if (req.session.user !== undefined) {
+      res.render("myAccount", { loggedIn:true, user:req.session.user });
+    } else {
+      res.redirect("/login");
+    }
+  });
+  
+  // Route handler for changing password
+  app.get("/changePassword", (req, res) => {
+    res.render("changePassword",{loggedIn:true});
+  });
+  
+app.post("/changePassword", async(req, res) => {
+    const currentPassword = req.body.currentPassword;
+    const newPassword = req.body.newPassword;
+    const confirmPassword = req.body.confirmPassword;
+    if (currentPassword !== req.session.user.password) {
+      res.render("changePassword", { loggedIn:true,message: "Incorrect current password" });
+    } else if (newPassword !== confirmPassword) {
+      res.render("changePassword", { loggedIn:true,message: "New password and confirmation do not match" });
+    } else {
+      // Update the user's password in the database
+      let isValidd = await collection.findOne({name:req.session.user.name})
+      if(isValidd != null)
+      {
+          let infoo = {
+              password:newPassword
+            }
+           
+          await collection.findOneAndUpdate({name:req.session.user.name},infoo)
+      res.render("changePassword", { loggedIn:true,message: "Password changed successfully" });
+    }
+    else{
+        res.render("changePassword", { loggedIn:true,message: "failed" });
+    }
+    }
+  });
+
+  app.get("/accountInformation", (req, res) => {
+    // Retrieve account information for the current user from the database
+    // Render the accountInformation.ejs template with the account information data
+    res.render("accountInformation", {loggedIn:true ,user:req.session.user });
+  });
+  
 
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************

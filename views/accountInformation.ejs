@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <%- include('home.ejs') %>
+  <div class="container">
+    <h1>Account Information</h1>
+    <h2>Shhh..</h2>
+    <p>Username: <%= session.user.name %></p>
+    <p>Password: <%= session.user.password %></p>
+    <p><a href="/myAccount">Go Back</a></p>
+  </div>
+</body>
+</html>
