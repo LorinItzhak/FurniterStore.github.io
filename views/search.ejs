@@ -6,33 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HELLO</h1>
     <div class="cards-items">
+      <% if (typeof infor !== 'undefined' && infor) { %>
         <% infor.forEach(function(item){ %>
-         <div class="detailsItems">
-          <a class="category"><%= item.category%></a>
-          <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
-          <br>  <a>Name: <%= item.name%></a>
-          <a>Color: <%= item.color%></a>
-          <a>Matterial: <%= item.matter%></a>
-           <a>Price: <%= item.price%></a>
-          <a>  Amount: <%= item.amount%></a>
+          <div class="detailsItems">
+           <a class="category"><%= item.category%></a>
+           <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+           <br>  <a>Name: <%= item.name%></a>
+           <a>Color: <%= item.color%></a>
+           <a>Matterial: <%= item.matter%></a>
+            <a>Price: <%= item.price%></a>
+           <a>  Amount: <%= item.amount%></a>
+             
+             
+              <button class="addtocart">
+               <div class="pretext">
+                 <i class="fas fa-cart-plus"></i> Add to cart
+               </div>
+               
+               <div class="pretext done">
+                 <div class="posttext"><i class="fas fa-check"></i> Added</div>
+               </div>
+               
+             </button>
             
-            
-             <button class="addtocart">
-              <div class="pretext">
-                <i class="fas fa-cart-plus"></i> Add to cart
-              </div>
-              
-              <div class="pretext done">
-                <div class="posttext"><i class="fas fa-check"></i> Added</div>
-              </div>
-              
-            </button>
-           
-         </div>
-         <% }) %>
-      </div>
+          </div>
+          <% }) %>
+       </div>
+      <% } %>
+        
         
 </body>
 </html>
