@@ -70,7 +70,7 @@
            <li>
             <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
            </li>
-             <li> <button  class="btn-my-account" ><i class="fas fa-user"></i></button> </li>
+           <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
 
              <% if (typeof alertMessage !== 'undefined' && alertMessage) { %>
               <li id="alert"> <%= alertMessage %>  </li>
@@ -80,6 +80,8 @@
     </header>
     <section id="home">
       <div class="content">
+          
+  
         <h1> Furniture <br> <span> Design </span><br> Studio</h1>
         <br></br>
         <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
@@ -89,7 +91,7 @@
       <% } else { %>
         <button class="cn"><a href="/login"> SIGN IN</a></button>
         <button class="cn"><a href="/signup"> Sign Up</a></button>
-          <p>Please log in</p>
+          <p> </p>
       <% } %>
       <script>
         document.getElementById('logoutButton').addEventListener('click', function() {
@@ -116,6 +118,27 @@
     </script>
   
       </div>
+     
+        <div class="news-slider">
+          <h2> News</h2>
+          <div class="slider">
+            <div class="slide">
+              <h3>News 1</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <img src="/public/logo.png" alt="Image 1">
+            </div>
+            <div class="slide">
+              <h3>News 2</h3>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <img src="logo.png" alt="Image 1">
+            </div>
+            <div class="slide">
+              <h3>News 3</h3>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+              <img src="path/to/image1.jpg" alt="Image 1">
+            </div>
+          </div>
+        </div>
     </section>
     
     <div id="id01" class="modal">

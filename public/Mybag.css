@@ -9,10 +9,10 @@
     
   }
 .bodycart{
-    
+    padding-top: 190px;
 	display: flex;
 	justify-content: center;
-    align-items: center
+    align-items: center;
 }
   body {
     background: linear-gradient(to bottom right, #e9e6e9, #987b86);
@@ -20,6 +20,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+    justify-content: center;
+    align-items: center;
 	
   }
   
@@ -591,7 +593,7 @@ hr {
 	font-size: 14px;
 	font-family: 'Open Sans';
 	font-weight: 600;
-	color: #1687d9;
+	color: #42494e;
 	cursor: pointer;
 }
 .remove{

@@ -20,9 +20,10 @@
   header {
     color: #000;
     position: fixed;
+    height: auto;
     width: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
-    padding: 3rem 5rem;
+    padding: 0rem 5rem;
     backdrop-filter: blur(7px); 
     -webkit-backdrop-filter: blur(7px);
     border:1px solid rgba(255, 255, 255, 0.05);
@@ -515,7 +516,7 @@ hr {
       font-size: 56.25%;
     }
     header {
-      padding: 2.2rem 5rem;
+      padding: 0rem 5rem;
     }
   }}
   @media only screen and (max-width: 767px) {
@@ -531,7 +532,8 @@ hr {
       font-size: 3.2rem;
     }
     nav ul {
-      background-color: black;
+     
+      background-color: rgb(24, 23, 23);
       position: fixed;
       left: -100vw;
       top: 73.6px;
@@ -544,6 +546,13 @@ hr {
       transition: 1s;
       gap: 0;
     }
+    #alert{
+      font-weight: bold;
+      color: #e3dde3;
+      font-size: 1.9rem;
+    
+    
+  }
   }
 
   @media only screen and (max-width: 575px) {
@@ -551,10 +560,52 @@ hr {
       font-size: 46.87%;
     }
     header {
-      padding: 2rem 3rem;
+      padding: 0rem 3rem;
     }
     nav ul {
+      
       top: 65.18px;
       height: calc(100vh - 65.18px);
     }
+    #alert{
+      font-weight: bold;
+      color: #e3dde3;
+      font-size: 1.9rem;
+    
+  }
 }
+
+
+.news-slider {
+  /* position: fixed; */
+  top: 200Px;
+  right: 20px;
+  border-radius: 13px;
+  width: 600px;
+  height: 600px;
+  background-color: #3c3939;
+  padding: 10px;
+}
+
+.slider {
+  border-radius: 13px;
+  height: 550px;
+  overflow: scroll;
+  background-color: #524f4f;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.slide {
+  border-radius: 13px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.slide h3 {
+  margin: 0;
+}
+/* 
+.slide p{
+   margin-top=0px;} */

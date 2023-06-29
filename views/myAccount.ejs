@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/public/myAccount.css">
+    <link rel="stylesheet" href="myAccount.css">
   </head>
   <body>
     
@@ -88,7 +88,7 @@
         <% if (loggedIn) { %>
           <p>Welcome, <%= session.user.name %>!</p>
          <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
-          <p><a class="active" href="/changePassword">Change Password</a></p>
+          <p><a href="/changePassword">Change Password</a></p>
           <p><a href="/accountInformation">Account Information</a></p>
         <% } else { %>
           <p>Please <a href="/login">login</a> to access your account.</p>
