@@ -337,7 +337,7 @@ app.post("/changePassword", async(req, res) => {
   app.get("/accountInformation", (req, res) => {
     // Retrieve account information for the current user from the database
     // Render the accountInformation.ejs template with the account information data
-    res.render("accountInformation", {loggedIn:true ,user:req.session.user });
+    res.render("accountInformation", {loggedIn:true ,alertMessage:"",user:req.session.user });
   });
   
 
