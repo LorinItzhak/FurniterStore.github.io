@@ -19,11 +19,13 @@
     font-family: "Poppins", sans-serif;
   }
   header {
+    z-index: 1;
     color: #000;
     position: fixed;
+    height: auto;
     width: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
-    padding: 3rem 5rem;
+    padding: 0rem 5rem;
     backdrop-filter: blur(7px); 
     -webkit-backdrop-filter: blur(7px);
     border:1px solid rgba(255, 255, 255, 0.05);
@@ -585,15 +587,17 @@ margin-right: 200px;
   background-color: #d5c7c7;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
+  margin: 1px;
+  height: auto;
+  padding: 10px;
   width: 350px;
   
 }
 
 .detailsItems a {
   color: #333;
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-size: 14px;
   margin-bottom: 10px;
   text-decoration: none;

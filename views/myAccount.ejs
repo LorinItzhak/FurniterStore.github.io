@@ -41,7 +41,7 @@
             <a href="#collection">COLLECTION</a>
             <div class="sub-menu-1">
                <ul>
-                <li><a href="couch">SOFAS</a></li>
+                <li><a href="couch">COUCHS</a></li>
                   <li><a href="armchairs">ARMCHAIRS</a></li>
                   <li><a href="table">TABLES</a></li>
                   <li><a href="chairs">CHAIRS</a></li>
@@ -71,7 +71,7 @@
            <li>
             <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
            </li>
-             <li> <button class="btn-my-account"><i class="fas fa-user"></i></button> </li>
+           <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
 
         </ul>
       </nav>
@@ -80,16 +80,15 @@
     <section id="home">
       
       <div class=" col-lg-3 sidebar">
-        <a class="active" href="myAccount">My account</a>
-        <a href="Orederhistory">Order history</a>
-        <a href="Accountinformation">Account information</a>
-       
       
+     
         <% if (loggedIn) { %>
-          <p>Welcome, <%= user.name %>!</p>
+          <a class="active"> <p>  Welcome  <%= user.name %>!</p></a>
          <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
-          <p><a href="/changePassword">Change Password</a></p>
+        <p><a href="OrederHistory">Order history</a></p> 
+      
           <p><a href="/accountInformation">Account Information</a></p>
+         
         <% } else { %>
           <p>Please <a href="/login">login</a> to access your account.</p>
         <% } %>

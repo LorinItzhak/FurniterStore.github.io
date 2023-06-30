@@ -5,7 +5,7 @@
 }
 
 body {
-  background : linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://275w10.com/wp-content/themes/Shephard/assets/images/photos/Shephard-Livingroom-fp.jpg);
+  background : linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/fdf8cb145401397.629e0bd1be158.jpg);
   background-repeat: no-repeat;
   
   background-size: cover;
@@ -574,10 +574,10 @@ section#home {
   
   position: fixed;
   height: 140vh;
-  margin-top: 102px;
+  margin-top: 150px;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(216, 234, 234, 0.848);
+  background-color: rgba(25, 27, 27, 0.674);
 }
 
 /* .col-lg-3 {
@@ -587,9 +587,9 @@ section#home {
 .sidebar a {
   font-size: 20px;
   display: block;
-  padding: 10px;
+  
   text-decoration: none;
-  color: #282727;
+  color: #ddd6d6;
 }
 
 .sidebar a.active {
@@ -597,7 +597,6 @@ section#home {
   width: 100%;
   text-align: center;
   
-  color: #b793a6;
 }
 
 
@@ -607,7 +606,7 @@ section#home {
   width: 100%;
   text-align: center;
   
-  color: white;
+  color: rgb(166, 147, 147);
 }
 /* עיצוב רספונסיבי לתפריט צידי ברזולוציה נמוכה */
 @media only screen and (max-width: 766px) {
