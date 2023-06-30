@@ -4,6 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HOME</title>
     <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -119,26 +124,38 @@
   
       </div>
      
-        <div class="news-slider">
-          <h2> News</h2>
-          <div class="slider">
-            <div class="slide">
-              <h3>News 1</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <img src="/public/logo.png" alt="Image 1">
-            </div>
-            <div class="slide">
-              <h3>News 2</h3>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-              <img src="logo.png" alt="Image 1">
-            </div>
-            <div class="slide">
-              <h3>News 3</h3>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-              <img src="path/to/image1.jpg" alt="Image 1">
-            </div>
-          </div>
-        </div>
+    
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="logo.png" alt="Los Angeles" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="logo.png" alt="Chicago" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="logo.png" alt="New York" width="1100" height="500">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
     </section>
     
     <div id="id01" class="modal">
@@ -237,6 +254,7 @@
              window.location.href = 'search'
             })
         }
+     
       </script>
        
        
