@@ -9,7 +9,8 @@
     <h1>HELLO</h1>
     <div class="cards-items">
       <% if (typeof infor !== 'undefined' && infor) { %>
-        <% infor.forEach(function(item){ %>
+        <% for(let i =0;i<infor.length;i++){ %>
+        <% infor[i].forEach(function(item){ %>
           <div class="detailsItems">
            <a class="category"><%= item.category%></a>
            <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
@@ -34,8 +35,8 @@
           </div>
           <% }) %>
        </div>
+       <% } %>
       <% } %>
-      <%else {
         
         
 </body>

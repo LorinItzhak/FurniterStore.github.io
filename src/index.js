@@ -249,33 +249,49 @@ app.post("/addObject",async (req,res)=>{
         res.render("search.ejs")
     })
     app.post('/search',async(req,res)=>{
-        var infor=""
-        if(req.body.chair)
+        var infor=[]
+        var chairInfo=''
+        var armInfo=''
+        var tableInfo=''
+        var sofaInfo=''
+        var accsInfo=''
+        var bedInfo=''
+       if(await objectCollection.findOne({name:req.body.name}))
         {
-            infor = await objectCollection.find({"category":"chair" ,"price": { $gte: req.body.min, $lte: req.body.max }
-        })
+            infor.push(await objectCollection.findOne({name:req.body.name}))
+        }
+        if(req.body.chair == "on")
+        {
+            chairInfo = await objectCollection.find({"category":"chair" ,"price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((chairInfo))
+        }
             
+        if(req.body.arm == "on"){
+            armInfo = await objectCollection.find({"category":"armchair", "price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((armInfo))
         }
-        if(req.body.arm){
-            infor =infor + await objectCollection.find({"category":"armchair", "price": { $gte: req.body.min, $lte: req.body.max }})
-        }
-        if(req.body.table)
+        if(req.body.table == "on")
         {
-            infor =infor+ ',' + await objectCollection.find({"category":"table", "price": { $gte: req.body.min, $lte: req.body.max }})
+            tableInfo = await objectCollection.find({"category":"table", "price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((tableInfo))
         }
-        if(req.body.sofa)
+        if(req.body.sofa == "on")
         {
-            infor =infor + await objectCollection.find({"category":"couch","price": { $gte: req.body.min, $lte: req.body.max }})
+            sofaInfo =await objectCollection.find({"category":"couch","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((sofaInfo))
         }
-        if(req.body.accs)
+        if(req.body.accs== "on")
         {
-            infor =infor+ ',' + await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max }})
+            accsInfo = await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((accsInfo))
         }
-        if(req.body.bed){
-            infor =infor+ ',' + await objectCollection.find({"category":"bed","price": { $gte: req.body.min, $lte: req.body.max }})
+        if(req.body.bed == "on"){
+            bedInfo = await objectCollection.find({"category":"bed","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((bedInfo))
         }
-        //res.render({infor:infor})
-        res.json({infor})
+        console.log(infor)
+        res.render("search",{infor})
+       // res.json({infor})
     })
    ///////////////////////// MyAccount
 
@@ -321,7 +337,7 @@ app.post("/changePassword", async(req, res) => {
   app.get("/accountInformation", (req, res) => {
     // Retrieve account information for the current user from the database
     // Render the accountInformation.ejs template with the account information data
-    res.render("accountInformation", {loggedIn:true ,user:req.session.user });
+    res.render("accountInformation", {loggedIn:true ,alertMessage:"",user:req.session.user });
   });
   
 
