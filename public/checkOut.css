@@ -17,8 +17,7 @@
   body {
     background: linear-gradient(to bottom right, #e9e6e9, #987b86);
     height: 109vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
 
     justify-content: center;
     align-items: center;
@@ -786,7 +785,7 @@ nav ul li:hover .sub-menu-1 ul li:hover{
 .col-25,
 .col-50,
 .col-75 {
-  margin-top: 10%;
+  margin-top: 1%;
   
   padding: 0 16px;
 }
@@ -812,15 +811,15 @@ label {
 }
 
 .icon-container1 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   padding: 7px 0;
-  font-size: 24px;
+  font-size: 37px;
 }
 
 .btn {
-  background-color: #04AA6D;
+  background-color: #6f5867;
   color: white;
-  padding: 12px;
+  padding: 1px;
   margin: 10px 0;
   border: none;
   width: 100%;
@@ -830,7 +829,7 @@ label {
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #c5a4bb;
 }
 
 a {
@@ -842,6 +841,14 @@ hr {
   border: 1px solid rgb(215, 209, 209);
 }
 
+h2{
+  padding-top: 5%;
+display: flex;
+color: #413f3f;
+border-bottom: 1px solid rgb(156, 154, 154);
+padding-left: 3%;
+  font-size: 30px;
+}
 span.price {
   float: right;
   color: grey;
@@ -849,7 +856,12 @@ span.price {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
+  h2{
+    padding-top: 15%;
+  
+  }
   .row {
+    margin-top: 3%;
     flex-direction: column-reverse;
   }
   .col-25 {
