@@ -9,21 +9,6 @@ mongoose.connect("mongodb+srv://eliav:2001@ourshop.vtknxmb.mongodb.net/?retryWri
 .catch(()=>{
     console.log('failed');
 })
- 
-const LogInSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
-    },
-    password:{
-        type:String,
-        required:true
-    },
-    admin:{
-        type:Boolean,
-        default:false
-    }
-})
 
 const object = new mongoose.Schema({
     name:{
@@ -56,6 +41,42 @@ const object = new mongoose.Schema({
         required:true
     }
 })
+
+const cart={
+    objs:{
+        type:[object],
+        default:[]
+    },
+    totalPrice:{
+        type:Number,
+        default:0
+    },
+    totalSize:{
+        type:Number,
+        default:0
+    }
+}
+ 
+const LogInSchema=new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    admin:{
+        type:Boolean,
+        default:false
+    },
+    cart:{
+        type:cart,
+        default:{}
+    }
+})
+
+
 
 
 const objectCollection = new mongoose.model("objects",object)

@@ -19,12 +19,21 @@ const mongMod = require("./mongodb")
 const collection = mongMod.collection
 const objectCollection = mongMod.objectCollection
 //app.engine('ejs', require('ejs').__express);
+app.listen(3000,()=>{
+    console.log("port connected")
+})
 app.use(express.static(path.join(__dirname, '../public')))//מקשר את הדפי ejs  ל css רק להוסיף לינק לכל אחד מהם
-const session = require('express-session');
+const session = require('express-session')
 app.use(session({
   secret: 'key',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store:require('connect-mongo').create({mongoUrl:"mongodb+srv://eliav:2001@ourshop.vtknxmb.mongodb.net/?retryWrites=true&w=majority"})
+  /*store: new MongoStore({
+    url:"mongodb+srv://eliav:2001@ourshop.vtknxmb.mongodb.net/?retryWrites=true&w=majority",
+    ttl:12*24*60*60,
+    autoRemove:'native'
+  })*/
 }));
 
 app.get("/",(req,res)=>{
@@ -340,14 +349,120 @@ app.post("/changePassword", async(req, res) => {
     res.render("accountInformation", {loggedIn:true ,alertMessage:"",user:req.session.user });
   });
   
+  app.get("/addCart",(req,res)=>{
+    render("home",{alertMessage:""})
+})
+app.post("/addCart",async (req,res)=>{
+if(loggedIn){
+    let d = await collection.findOne({name:req.session.user.name})
+    if(d.cart==undefined)
+    {
+        d.cart={}
+        d.cart.totalSize = 0
+        d.cart.totalPrice = 0
+        d.cart.objs = []
+        
+    } 
+    if(d.cart.totalSize == 0)
+    {
+        d.cart.totalSize = 1
+        d.cart.totalPrice = parseInt(req.body.price)
+        let inf={
+            name:req.body.name,
+            category:req.body.category,
+            price:req.body.price,
+            pic:req.body.pic,
+            amount:req.body.amount,
+            color:req.body.color,
+            matter:req.body.matter
+        }
+        d.cart.objs.push(inf)
+        await d.save()
+        
+    }
+    else
+    {
+        d.cart.totalSize += 1
+        d.cart.totalPrice += parseInt(req,body.price)
+        let inf={
+            name:req.body.name,
+            category:req.body.category,
+            price:req.body.price,
+            pic:req.body.pic,
+            amount:req.body.amount,
+            color:req.body.color,
+            matter:req.body.matter
+        }
+        d.cart.objs.push(inf)
+        await d.save();
+    }
+    }
+    else
+    {
+        render("home",{alertMessage:"user not logged in"})
+    }
+})
+
+
+    /*var temp = 1
+    if(req.session.user.cart == undefined){
+        req.session.user.cart={}
+        req.session.user.cart.totalSize = 0
+        req.session.user.cart.totalPrice = 0
+        req.session.user.cart.objs = []
+        
+
+    }
+    if(req.session.user.cart.totalSize == 0){
+        let inf ={
+            name:req.body.name,
+            category:req.body.category,
+            price:req.body.price        
+        }
+        req.session.user.cart.objs.push(inf)
+        req.session.user.cart.totalSize += 1
+        req.session.user.cart.totalPrice += parseInt(req.body.price)
+        console.log(req.session.user.cart)
+        collection.findOne()
+    }
+    else
+    {
+        
+        var objs = req.session.user.cart.objs
+        console.log(objs)
+        objs.forEach(obj => {
+        if(obj.name == req.body.name){
+            temp = 0
+        }
+         }) 
+    }
+    if(temp)
+    {
+        let inf ={
+            name:req.body.name,
+            category:req.body.category,
+            price:req.body.price
+        }
+        req.session.user.cart.objs.push(inf)
+        req.session.user.cart.totalSize += 1
+        req.session.user.cart.totalPrice += parseInt(req.body.price)
+        req.session.save();
+     }
+     else
+     {
+      //render("/",{alertMessage:"already added to cart"})
+     }
+    }
+else
+{
+    //render("home",{alertMessage:"not logged in"})
+}*/
+
 
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
      * *******************************************************************************************************************************
      */
 
-app.listen(3000,()=>{
-    console.log("port connected")
-})
 
 
