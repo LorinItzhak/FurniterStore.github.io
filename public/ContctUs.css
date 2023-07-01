@@ -10,8 +10,9 @@
   }
 
   body {
-      background:url(https://275w10.com/wp-content/themes/Shephard/assets/images/photos/Shephard-Bedroom1.jpg);;
+    background :url(https://aspiremetro.com/wp-content/uploads/2021/10/1685500.jpg);
     background-repeat: no-repeat;
+   
     background-size: cover;
   }
   
@@ -180,20 +181,7 @@ h2 {
     color: #090808;
 }
 
-form {
-  
-  display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 700px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-   /* מרכז האתר עם מרווח עליון של 10% */
-    padding: 30px;
-    height: 400px;
-    background: linear-gradient(to top,  rgb(77, 77, 81) 50%, rgb(104, 104, 108) 50%);
-    border-radius: 10px;
-}
+
 
 
 form input {
@@ -212,11 +200,11 @@ form input[type="submit"] {
     padding: 10px;
     border: none;
     
-}
+} 
 
 form input[type="submit"]:hover {
     background-color: #555;
-}
+} 
 
  .link {
 margin-top: 20px;
@@ -448,7 +436,7 @@ input[type=text], input[type=password] {
   justify-content: center;
  
   
-}  
+}   */
 
 
 
@@ -641,3 +629,51 @@ margin-left: 1%;
       height: calc(100vh - 65.18px);
     }
 }
+
+
+
+form {
+  
+    display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      max-width: 700px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 0 auto;
+     /* מרכז האתר עם מרווח עליון של 10% */
+      padding: 30px;
+      height: auto;
+      background: linear-gradient(to top,  rgb(77, 77, 81) 50%, rgb(104, 104, 108) 50%);
+      border-radius: 10px;
+  }
+
+  input[type=text], select, textarea {
+    width: 100%;
+   
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: #c0b5be;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+ 
+    padding: 20px;
+  }
