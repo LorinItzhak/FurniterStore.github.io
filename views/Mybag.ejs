@@ -227,6 +227,56 @@
     </div>
             </div>
     
+
+
+            <div class="cards-items">
+              <% if (typeof details !== 'undefined' && details) { %>
+                <% for(let i =0;i<details.length;i++){ %>
+                <% details[i].forEach(function(item){ %>
+                  <form action="/deleteItem" method="post">
+                  <div class="detailsItems">
+                   <a class="category"><%= item.category%></a>
+                   <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+                   <br>  <a>Name: <%= item.name%></a>
+                   <a>Color: <%= item.color%></a>
+                   <a>Matterial: <%= item.matter%></a>
+                    <a>Price: <%= item.price%></a>
+                   <a> Amount: <%= item.amount%></a>
+                   <input type="hidden" name="name" value="<%= item.name %>">
+                     
+                      <button type="submit" class="addtocart">
+                       <div class="pretext">
+                         <i class="fas fa-cart-plus"></i> delete from cart
+                       </div>
+                       
+                       <div class="pretext done">
+                         <div class="posttext"><i class="fas fa-check"></i> Added</div>
+                       </div>
+                       
+                     </button>
+                    
+                  </div></form>
+                  <% }) %>
+               </div>
+               <% } %>
+              <% } %>
+
+<script>
+    // function deleted(){
+    //   var l = document.getElementsById('name').value
+    //   console.log(l)
+    //   fetch('/deleteItem',{
+        
+    //     method:'POST',
+    //     headers: {
+    //             'Content-Type': 'application/json'
+    //       },
+    //       body:JSON.stringify({index:index})
+    //   })
+    // }
+  
+</script>
+
     <script>
        function objCheck(){
         console.log("1")
@@ -264,6 +314,8 @@
     </script>
      
      
+  
+
 
 
 

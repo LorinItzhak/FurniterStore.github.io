@@ -354,6 +354,7 @@ app.post("/changePassword", async(req, res) => {
 })
 app.post("/addCart",async (req,res)=>{
 if(loggedIn){
+    console.log(req.body.name)
     let d = await collection.findOne({name:req.session.user.name})
     if(d.cart==undefined)
     {
@@ -377,13 +378,14 @@ if(loggedIn){
             matter:req.body.matter
         }
         d.cart.objs.push(inf)
+
         await d.save()
         
     }
     else
     {
         d.cart.totalSize += 1
-        d.cart.totalPrice += parseInt(req,body.price)
+        d.cart.totalPrice += parseInt(req.body.price)
         let inf={
             name:req.body.name,
             category:req.body.category,
@@ -399,10 +401,40 @@ if(loggedIn){
     }
     else
     {
-        render("home",{alertMessage:"user not logged in"})
+        res.render("home",{alertMessage:"user not logged in"})
     }
 })
 
+app.get("/Mybag",(req,res)=>{
+    if(req.session.user!== undefined){
+        
+        res.render("Mybag", {alertMessage:"hi",details:[req.session.user.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
+    }
+    else{
+        redirect("/login")
+    }
+})
+app.get("/deleteItem",(req,res)=>{
+    res.render("Mybag",{alertMessage:"hi",details:[req.session.user.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
+})
+app.post("/deleteItem",async (req,res)=>{
+    console.log(1)
+    let p = await collection.findOne({name:req.session.user.name})
+    var delItem = await objectCollection.findOne({name:req.body.name})
+    console.log(delItem)
+    //console.log(p.cart)
+    if(p)
+    {
+        p.cart.totalPrice -= parseInt(delItem.price)
+        p.cart.totalSize -= 1
+        filteredArr=p.cart.objs.filter(item => item.name !== delItem.name)
+        p.cart.objs = filteredArr
+        console.log(p.cart.objs)
+        await p.save()
+        res.render("Mybag",{alertMessage:"hi",details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
+    }
+    
+})
 
     /*var temp = 1
     if(req.session.user.cart == undefined){
