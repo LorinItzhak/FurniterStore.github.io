@@ -423,7 +423,7 @@ app.get("/Mybag",async (req,res)=>{
         res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
     }
     else{
-        redirect("/login")
+        res.redirect("/login")
     }
 })
 app.get("/deleteItem",async (req,res)=>{
