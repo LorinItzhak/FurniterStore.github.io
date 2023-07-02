@@ -1,39 +1,337 @@
+
+ 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="aboutUs.css">
+  </head>
+  <body>
+    
+    <header>
+      <nav>
+        <a href="#home" id="logo"> <img src="logo.png"></a>
+        <div class="title-items"><a></a> About Us</a></div>
+
+        <i class="fas fa-bars" id="ham-menu"></i>
+        <ul id="nav-bar">
+           
+          <li>
+            <a href="#home">HOME</a>
+          </li>
+          <li>
+            <a href="#aboutus">ABOUT US</a>
+          </li>
+          <li>
+            <a href="#collection">COLLECTION</a>
+            <div class="sub-menu-1">
+              <ul>
+                <li><a href="couch">COUCHS</a></li>
+                <li><a href="armchairs">ARMCHAIRS</a></li>
+                <li><a href="table">TABLES</a></li>
+                <li><a href="chairs">CHAIRS</a></li>
+                <li><a href="bed">BEDS</a></li>
+             
+                
+
+            </ul>
+            </div> 
+        </li>
+        <li>
+          <a href="#decor">DECOR</a>
+           <div class="sub-menu-1">
+            <ul>
+                <li><a href="rug">RUGS</a></li>
+                <li><a href="cushions">CUSHIONS</a></li>
+                <li><a href="mirror">MIRRORS</a></li>
+            </ul>
+              </div> 
+          </li>
+          <li>
+            <a href="#contact">CONTACT</a>
+          </li>
+
+        <li>  <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
+        </li>
+           <li>
+            <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+           </li>
+           <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
+
+
+             
+        </ul>
+      </nav>
+    </header>
+    <section id="home">
+     
+        <div class="content">
+          
+  
+            <h1> They say  <br> <span> Home </span><br> is where the heart is.</h1>
+            <br></br>
+
+
+            <p class="par"> 
+                Taking this further, we say the heart is home wherein
+                 <br> 
+                 all your furniture is made to cherish.
+                 <br> <br>
+                We at Y.E.L, have been at the forefront of the industry creating beautiful spaces for you 
+                <br>
+                within your homes and offices since 1996.
+                <br>
+                With a successful start by importing our furniture we came up with our own factories that manufactures Sofas, 
+                Beds and Chairs.
+                <br>
+                 We are humbled to have touched the lives of millions of people with our range of world class home and office furniture,
+                 innovative laminates, sturdy designer doors, exquisite veneers and top-grade plywood .
+                 <br><br>
+                 <br>
+                PASSION :
+                We dare to dream, we always aim higher.
+                <br>
+                 By constantly setting new standards in who we are
+                <br>
+                 and what we do, our passion will spur us on.
+                <br> <br>
+                PARTNERSHIP :
+                We work as a team with mutual trust and shared accountability towards a common goal
+                <br>
+                 in a collaborative environment, to meet the needs and expectations of all stakeholders.
+                 <br>
+                  We always stand behind our promises and act with complete integrity.
+                 <br> <br>
+                INNOVATION :
+                We are constantly seeking to exceed our previous best, with creativity and imagination. 
+                <br>
+                By challenging the way we see and to things, it leads to fresh perspectives and new ideas that inspire
+                <br>
+                 business innovation drive sustainable efficiencies and deliver superior product offerings.
+                 <br> <br> <br>
+                What makes us different?
+                <br> 
+                5 Year Warranty : An assurance to take care of your furniture and you.
+                <br> <br>
+                 Delivery : We provide expert technicians to assemble your furniture with care in select cities.
+                 <br> <br>
+                FREE Installation : We help you assemble your furniture free of cost.
+                <br> <br>
+                EASY Pay : With Easy Payment Options like Cash on Delivery , shopping is more convenient.</p>
+          
+       
+
+      <script>
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            // Send a POST request to the logout route
+            fetch('/logout', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server
+                if (data.success) {
+                    // Successful logout
+                    window.location.href = '/'; // Redirect to home page
+                } else {
+                    // Logout failed
+                    console.log(data.message);
+                }
+            })
+            .catch(error => {
+                // Handle any errors that occur during the request
+                console.log('An error occurred:', error);
+            });
+        });
+    </script>
+  
+
+    </section>
+       
+<div id="id01" class="modal">
+ 
+    <div class="modal-content" action="">
+      <div class="container">
+          <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+             
+        <h1>Search</h1>
+        <hr>
+        
+        <input type="text" placeholder="Tap to search" name="email" required>
+        <br>
+        
+        <label for="email"><b>Filter</b></label>
+        <br>
+        <div class="label-search">
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> SOFAS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ARMCHAIRS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> TABLES
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> CHAIRS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> BEDS
+        </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ACCESSORY
+        </label>
+      </div>
+        <div class="price-input">
+          <div class="field">
+            <span>Min</span>
+            <input type="number" class="input-min" value="2500">
+          </div>
+          <div class="separator">-</div>
+          <div class="field">
+            <span>Max</span>
+            <input type="number" class="input-max" value="7500">
+          </div>
+        </div>
+        <div class="slider">
+          <div class="progress"></div>
+        </div>
+        <div class="range-input">
+          <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+          <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+  
+          <button type="submit" class="signupbtn">Search</button>
+        </div>
+      </div>
+     
+      </div>
+    
+    </div>
+            </div>
+    
+    </form>
+  
+  <script>
     
 
-<section class="story section container">
-            <div class="story__container grid">
-                <div class="story__data">
-                    <h2 class="section__title story__section-title">
-                        Our Story
-                    </h2>
+  </script>
+  
+  
 
-                    <h1 class="story__title">
-                        Inspirational Watch of <br> this year
-                    </h1>
+     <!-- Script -->
+     
+     <script> let hamMenuIcon = document.getElementById("ham-menu");
+        let navBar = document.getElementById("nav-bar");
+        let navLinks = navBar.querySelectorAll("li");
+        
+        hamMenuIcon.addEventListener("click", () => {
+          navBar.classList.toggle("active");
+          hamMenuIcon.classList.toggle("fa-times");
+        });
+        navLinks.forEach((navLinks) => {
+          navLinks.addEventListener("click", () => {
+            navBar.classList.remove("active");
+            hamMenuIcon.classList.toggle("fa-times");
+          });
+        });const button = document.querySelector(".addtocart");
+const done = document.querySelector(".done");
+console.log(button);
+let added = false;
+button.addEventListener('click',()=>{
+  if(added){
+    done.style.transform = "translate(-110%) skew(-40deg)";
+    added = false;
+  }
+  else{
+    done.style.transform = "translate(0px)";
+    added = true;
+  }
+    
+});
 
-                    <p class="story__description">
-                        The latest and modern watches of this year, is available in various 
-                        presentations in this store, discover them now.
-                    </p>
-
-                    <a href="#" class="button button--small">Discover</a>
-                </div>
-
-                <div class="story__images">
-                    <img src="assets/img/story.png" alt="" class="story__img">
-                    <div class="story__square"></div>
-                </div>
-            </div>
-        </section>
+        
+        
+        </script>
+        
 
 
-    </body>
-    </html>
+        
+  <script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+  </script>
+  <script>const rangeInput = document.querySelectorAll(".range-input input"),
+    priceInput = document.querySelectorAll(".price-input input"),
+    range = document.querySelector(".slider .progress");
+  let priceGap = 1000;
+  
+  priceInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let minPrice = parseInt(priceInput[0].value),
+        maxPrice = parseInt(priceInput[1].value);
+  
+      if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+        if (e.target.className === "input-min") {
+          rangeInput[0].value = minPrice;
+          range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+        } else {
+          rangeInput[1].value = maxPrice;
+          range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+        }
+      }
+    });
+  });
+  
+  rangeInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let minVal = parseInt(rangeInput[0].value),
+        maxVal = parseInt(rangeInput[1].value);
+  
+      if (maxVal - minVal < priceGap) {
+        if (e.target.className === "range-min") {
+          rangeInput[0].value = maxVal - priceGap;
+        } else {
+          rangeInput[1].value = minVal + priceGap;
+        }
+      } else {
+        priceInput[0].value = minVal;
+        priceInput[1].value = maxVal;
+        range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+        range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+      }
+    });
+  });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </body>
+  </html>
+  
+  
+  </body>
+</html>

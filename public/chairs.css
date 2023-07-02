@@ -260,20 +260,8 @@ color:#554d4d;
       }
   
  
-
-.search{
-
-width: 30%;
-margin-top: -50px;
-margin-left: 60%;
-border-radius: 10px;
-background-color: transparent;
-border: 1.3px solid  #f5ecec;
-
-
-
 .srch-param{
-   
+     
   width: 100px;
   height: 10px;
   background: transparent;
@@ -306,6 +294,7 @@ border: 1.3px solid  #f5ecec;
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 50%;
+  border-radius: 10px;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -325,31 +314,31 @@ input[type=text], input[type=password] {
 
 
 /* Extra styles for the cancel button */
-.cancelbtn {
+ .cancelbtn {
   color: #5f5959;
   background:transparent;
-  margin-top: -270px;
+ 
   border-radius: 60%;
-  margin-left: 110%;
+
   width: 5%;
   border:none;
   font-weight: bold;
   font-size: 25px;
-}
+} 
  
 /* Float cancel and signup buttons and add an equal width */
- .signupbtn {
+  .signupbtn {
   
   width: 50%;
   align-items: center;
-  background-color: #bdb6b9;
+  background-color: #665f62;
   color: rgb(236, 227, 227);
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 15px;
   
-} 
+}  
 
 .signupbtn:hover {
   background-color: #686364;
@@ -357,11 +346,10 @@ input[type=text], input[type=password] {
   padding: 14px 20px;
   margin: 8px 0;
   
-} 
+}  */
 
-
-/* Add padding to container elements */
- /*.container {
+/* 
+ .container {
  
   padding: 16px;
   display: flex;
@@ -372,7 +360,7 @@ input[type=text], input[type=password] {
   justify-content: center;
  
   
-} 
+}  
 
 
 
@@ -381,7 +369,7 @@ input[type=text], input[type=password] {
  .modal {
   display: none; /* Hidden by default */
   position: fixed; 
-  z-index: 1; 
+  /* z-index: 1;  */
    left: 0; 
   margin-left: -50%;
    color: #726060;
@@ -396,13 +384,14 @@ input[type=text], input[type=password] {
  
 /* Modal Content/Box */
  .modal-content {
-  background-color: #a39797;
-  margin: 5% auto 15% auto; 
+  border-radius: 13px;
+  background : linear-gradient(124deg, rgba(234, 200, 200, 0.926)50%,  rgba(171, 120, 120, 0.785)50%);
+  margin: 10% auto 15% auto; 
   border: 1px solid #888;
-  margin-left: 50%;
+  /* margin-left: 50%; */
   width: 80%; 
+  overflow: auto;
 }
-
 
 
 
@@ -428,7 +417,7 @@ hr {
 } 
 
 
-/* .label-search{
+.label-search{
   overflow: auto;
   width: 30%;
   height: 30%;
@@ -440,8 +429,8 @@ margin-left: 1%;
  .price-input {
    width: 50%;
    display: flex;
-   margin: 0 0 3%; */
- /* }
+   margin: 0 0 3%; 
+  }
  .price-input .field {
    display: flex;
    width: 100%;
@@ -456,9 +445,9 @@ margin-left: 1%;
    margin-left: 12px;
    border-radius: 5px;
    text-align: center;
-   border: 1px solid #999; */
+   border: 1px solid #999; 
    
- /* }
+  }
  input[type="number"]::-webkit-outer-spin-button,
  input[type="number"]::-webkit-inner-spin-button {
    -webkit-appearance: none;
@@ -469,8 +458,8 @@ margin-left: 1%;
    font-size: 19px;
    align-items: center;
    justify-content: center;
- } */
- /* .slider {
+ } 
+  .slider {
    height: 5px;
    width: 50%;
    position: relative;
@@ -486,16 +475,16 @@ margin-left: 1%;
    background: #c1a1ba;
  }
  .range-input {
-   position: relative; */
- /* }
+   position: relative; 
+  }
  .range-input input {
    position: absolute;
    width: 50%;
    height: 5px;
    top: -5px;
    background: none;
-   pointer-events: none; */
-/*     
+   pointer-events: none; 
+
    
  }
  input[type="range"]::-webkit-slider-thumb {
@@ -506,8 +495,14 @@ margin-left: 1%;
    pointer-events: auto;
    -webkit-appearance: none;
    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
- } */
+ }
  
+
+
+
+
+
+
 
 
 
@@ -522,7 +517,7 @@ margin-left: 1%;
   header {
     padding: 2.2rem 5rem;
   }
-}}
+}
 @media only screen and (max-width: 767px) {
   html {
     font-size: 50%;
@@ -701,5 +696,4 @@ background:#393437;
   background:#393437;
   border: none;
 }
-
 

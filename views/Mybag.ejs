@@ -1,403 +1,447 @@
 
-    <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOME</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="/public/Mybag.css">
-    <body>
-   <header>
-    <nav>
-      <a href="#home" id="logo"> <img src="logo.png"></a>
+
+
+
+
+
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>HOME</title>
+          <!-- Font Awesome Icons -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+          
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          />
+          <!-- Google Fonts -->
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
+            rel="stylesheet"
+          />
+          <!-- Stylesheet -->
+          <link rel="stylesheet" href="/public/Mybag.css">
+          <body>
+         <header>
+          <nav>
+            <a href="#home" id="logo"> <img src="logo.png"></a>
+            
       
+            <i class="fas fa-bars" id="ham-menu"></i>
+            <ul id="nav-bar">
+               
+              <li>
+                <a href="#home">HOME</a>
+              </li>
+              <li>
+                <a href="#aboutus">ABOUT US</a>
+              </li>
+              <li>
+                <a href="#collection">COLLECTION</a>
+                <div class="sub-menu-1">
+                  <ul>
+                    <li><a href="couch">COUCHS</a></li>
+                    <li><a href="armchairs">ARMCHAIRS</a></li>
+                    <li><a href="table">TABLES</a></li>
+                    <li><a href="chairs">CHAIRS</a></li>
+                    <li><a href="bed">BEDS</a></li>
+                 
+                    
+      
+                </ul>
+                </div> 
+            </li>
+            <li>
+              <a href="#decor">DECOR</a>
+               <div class="sub-menu-1">
+                <ul>
+                    <li><a href="rug">RUGS</a></li>
+                    <li><a href="cushions">CUSHIONS</a></li>
+                    <li><a href="mirror">MIRRORS</a></li>
+                </ul>
+                  </div> 
+              </li>
+              <li>
+                <a href="#contact">CONTACT</a>
+              </li>
+      
+            <li>  <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
+            </li>
+               <li>
+                <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
+               </li>
+               <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
+      
+                  <% if (alertMessage) { %>    
+                      <li id="alert"> <%= alertMessage %>  </li>
+                      <% } %>  
+            </ul>
+          </nav>
+        </header>
+       
+      <div class="bodycart">
+        
+         <!-- <div class="content"> -->
+          <div class="CartContainer">
+              <div class="Header1">
+                  <h3 class="Heading">Shopping Cart</h3>
+                  <h5 class="Action">Remove all</h5>
+              </div>
+      
+              <div class="Cart-Items">
+                    <div class="image-box">
+                        <img src="images/apple.png" style=height:120px;>
+                    </div>
+                    <div class="about">
+                        <h1 class="title">Bed</h1>
+                        <h3 class="subtitle">Matterial: Linnen</h3>
+                        
+                    </div>
+                    <div class="counter">
+                        <div class="btn">+</div>
+                        <div class="count">2</div>
+                        <div class="btn">-</div>
+                    </div>
+                    <div class="prices">
+                        <div class="amount">4,700₪</div>
+                    
+                        <div class="remove"><u>Remove</u></div>
+                    </div>
+              </div>
+      
+              <div class="Cart-Items pad">
+                
+                    <div class="image-box">
+                        <img src="images/grapes.png" style="height: 120px;">
+                    </div>
+                    <div class="about">
+                        <h1 class="title">Chair</h1>
+                        <h3 class="subtitle">Matterial: wood</h3>
+                    
+                    </div>
+                    <div class="counter">
+                        <div class="btn">+</div>
+                        <div class="count">1</div>
+                        <div class="btn">-</div>
+                    </div>
+                    <div class="prices">
+                        <div class="amount">1,300₪</div>
+                        
+                        <div class="remove"><u>Remove</u></div>
+                    </div>
+              </div>
+              <div class="Cart-Items pad">
+                <div class="image-box">
+                    <img src="images/grapes.png" style="height: 120px;">
+                </div>
+                <div class="about">
+                    <h1 class="title">Sofa</h1>
+                    <h3 class="subtitle">Matterial: Letter</h3>
+                
+                </div>
+                <div class="counter">
+                    <div class="btn">+</div>
+                    <div class="count">1</div>
+                    <div class="btn">-</div>
+                </div>
+                <div class="prices">
+                    <div class="amount">8,900₪</div>
+                    
+                    <div class="remove"><u>Remove</u></div>
+                </div>
+              </div>
+            <hr> 
+            <div class="checkout">
+            <div class="total">
+                <div>
+                    <div class="Subtotal">Sub-Total</div>
+                    <div class="items">4 items</div>
+                </div>
+                <div class="total-amount">14,900₪</div>
+            </div>
+            <button class="button"><a href="/checkout">Checkout</a></button></div>
+       </div>
+      
+      </div>
 
-      <i class="fas fa-bars" id="ham-menu"></i>
-      <ul id="nav-bar">
-         
-        <li>
-          <a href="#home">HOME</a>
-        </li>
-        <li>
-          <a href="#aboutus">ABOUT US</a>
-        </li>
-        <li>
-          <a href="#collection">COLLECTION</a>
-          <div class="sub-menu-1">
-            <ul>
-              <li><a href="couch">COUCHS</a></li>
-              <li><a href="armchairs">ARMCHAIRS</a></li>
-              <li><a href="table">TABLES</a></li>
-              <li><a href="chairs">CHAIRS</a></li>
-              <li><a href="bed">BEDS</a></li>
+
+<div class="cards-items">
+  <% if (typeof details !== 'undefined' && details) { %>
+    <% for(let i =0;i<details.length;i++){ %>
+    <% details[i].forEach(function(item){ %>
+      <form action="/deleteItem" method="post">
+      <div class="detailsItems">
+       <a class="category"><%= item.category%></a>
+       <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+       <br>  <a>Name: <%= item.name%></a>
+       <a>Color: <%= item.color%></a>
+       <a>Matterial: <%= item.matter%></a>
+        <a>Price: <%= item.price%></a>
+       <a> Amount: <%= item.amount%></a>
+       <input type="hidden" name="name" value="<%= item.name %>">
+       <input type="hidden" name="color" value="<%= item.color %>">
+       <input type="hidden" name="pic" value="<%= item.pic %>">
+       <input type="hidden" name="category" value="<%= item.category %>">
+       <input type="hidden" name="matter" value="<%= item.matter %>">
+       <input type="hidden" name="price" value="<%= item.price %>">
+       <input type="hidden" name="amount" value="<%= item.amount %>">
+
+          <button type="submit" class="addtocart">
+           <div class="pretext">
+             <i class="fas fa-cart-plus"></i> delete from cart
+           </div>
            
+           <div class="pretext done">
+             <div class="posttext"><i class="fas fa-check"></i> Added</div>
+           </div>
+           
+         </button>
+        
+      </div></form>
+
+
+      
+         
+      
+        
+        <div id="id01" class="modal">
+      
+          <div class="modal-content" action="">
+            <div class="container">
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+                   
+              <h1>Search</h1>
+              <hr>
               
-
-          </ul>
-          </div> 
-      </li>
-      <li>
-        <a href="#decor">DECOR</a>
-         <div class="sub-menu-1">
-          <ul>
-              <li><a href="rug">RUGS</a></li>
-              <li><a href="cushions">CUSHIONS</a></li>
-              <li><a href="mirror">MIRRORS</a></li>
-          </ul>
-            </div> 
-        </li>
-        <li>
-          <a href="#contact">CONTACT</a>
-        </li>
-
-      <li>  <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
-      </li>
-         <li>
-          <button class="btn-Shopping-Cart"><i class="fas fa-shopping-cart"></i> </button>
-         </li>
-         <li> <a href="/myAccount" class="btn-my-account"> <i class="fas fa-user"></i> </a> </li>
-
-            <% if (alertMessage) { %>    
-                <li id="alert"> <%= alertMessage %>  </li>
-                <% } %>  
-      </ul>
-    </nav>
-  </header>
- 
-<div class="bodycart">
-   <!-- <div class="content"> -->
-    <div class="CartContainer">
-        <div class="Header1">
-            <h3 class="Heading">Shopping Cartצריך לשנות </h3>
-            <h5 class="Action">Remove all</h5>
-        </div>
-
-        <div class="Cart-Items">
-              <div class="image-box">
-                  <img src="images/apple.png" style=height:120px;>
-              </div>
-              <div class="about">
-                  <h1 class="title">Bed</h1>
-                  <h3 class="subtitle">Matterial: Linnen</h3>
-                  
-              </div>
-              <div class="counter">
-                  <div class="btn">+</div>
-                  <div class="count">2</div>
-                  <div class="btn">-</div>
-              </div>
-              <div class="prices">
-                  <div class="amount">4,700₪</div>
+              <input type="text" placeholder="Tap to search" name="email" required>
+              <br>
               
-                  <div class="remove"><u>Remove</u></div>
+              <label for="email"><b>Filter</b></label>
+              <br>
+              <div class="label-search">
+              <label>
+                <input type="checkbox" checked="checked" id="sofa" style="margin-bottom:15px" > SOFAS
+              </label>
+              <label>
+                <input type="checkbox" checked="checked" id="armchair" style="margin-bottom:15px"> ARMCHAIRS
+              </label>
+              <label>
+                <input type="checkbox" checked="checked" id="table" style="margin-bottom:15px"> TABLES
+              </label>
+              <label>
+                <input type="checkbox" checked="checked" id="chair" style="margin-bottom:15px"> CHAIRS
+              </label>
+              <label>
+                <input type="checkbox" checked="checked" id="bed" style="margin-bottom:15px"> BEDS
+              </label>
+              <label>
+                <input type="checkbox" checked="checked" id="accs" style="margin-bottom:15px"> ACCESSORY
+              </label>
+            </div>
+              <div class="price-input">
+                <div class="field">
+                  <span>Min</span>
+                  <input type="number" class="input-min" value="2500">
+                </div>
+                <div class="separator">-</div>
+                <div class="field">
+                  <span>Max</span>
+                  <input type="number" class="input-max" value="7500">
+                </div>
               </div>
-        </div>
-
-        <div class="Cart-Items pad">
-              <div class="image-box">
-                  <img src="images/grapes.png" style="height: 120px;">
+              <div class="slider">
+                <div class="progress"></div>
               </div>
-              <div class="about">
-                  <h1 class="title">Chair</h1>
-                  <h3 class="subtitle">Matterial: wood</h3>
-              
+              <div class="range-input">
+                <input id="min" type="range" class="range-min" min="0" max="10000" value="0" step="100">
+                <input id ="max" type="range" class="range-max" min="0" max="10000" value="10000" step="100">
+        
+                <button type="submit" class="signupbtn" onclick="objCheck()">Search</button>
               </div>
-              <div class="counter">
-                  <div class="btn">+</div>
-                  <div class="count">1</div>
-                  <div class="btn">-</div>
-              </div>
-              <div class="prices">
-                  <div class="amount">1,300₪</div>
-                  
-                  <div class="remove"><u>Remove</u></div>
-              </div>
-        </div>
-        <div class="Cart-Items pad">
-          <div class="image-box">
-              <img src="images/grapes.png" style="height: 120px;">
-          </div>
-          <div class="about">
-              <h1 class="title">Sofa</h1>
-              <h3 class="subtitle">Matterial: Letter</h3>
+            </div>
+           
+            </div>
           
           </div>
-          <div class="counter">
-              <div class="btn">+</div>
-              <div class="count">1</div>
-              <div class="btn">-</div>
-          </div>
-          <div class="prices">
-              <div class="amount">8,900₪</div>
+                  </div>
+          
+      
+      
+                  <div class="cards-items">
+                    <% if (typeof details !== 'undefined' && details) { %>
+                      <% for(let i =0;i<details.length;i++){ %>
+                      <% details[i].forEach(function(item){ %>
+                        <form action="/deleteItem" method="post">
+                        <div class="detailsItems">
+                         <a class="category"><%= item.category%></a>
+                         <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+                         <br>  <a>Name: <%= item.name%></a>
+                         <a>Color: <%= item.color%></a>
+                         <a>Matterial: <%= item.matter%></a>
+                          <a>Price: <%= item.price%></a>
+                         <a> Amount: <%= item.amount%></a>
+                         <input type="hidden" name="name" value="<%= item.name %>">
+                         <input type="hidden" name="color" value="<%= item.color %>">
+                         <input type="hidden" name="pic" value="<%= item.pic %>">
+                         <input type="hidden" name="category" value="<%= item.category %>">
+                         <input type="hidden" name="matter" value="<%= item.matter %>">
+                         <input type="hidden" name="price" value="<%= item.price %>">
+                         <input type="hidden" name="amount" value="<%= item.amount %>">
+      
+                            <button type="submit" class="addtocart">
+                             <div class="pretext">
+                               <i class="fas fa-cart-plus"></i> delete from cart
+                             </div>
+                             
+                             <div class="pretext done">
+                               <div class="posttext"><i class="fas fa-check"></i> Added</div>
+                             </div>
+                             
+                           </button>
+                          
+                        </div></form>
+                        <% }) %>
+                     </div>
+                     <% } %>
+                    <% } %>
+      
+      <script>
+          // function deleted(){
+          //   var l = document.getElementsById('name').value
+          //   console.log(l)
+          //   fetch('/deleteItem',{
               
-              <div class="remove"><u>Remove</u></div>
-          </div>
-        </div>
-      <hr> 
-      <div class="checkout">
-      <div class="total">
-          <div>
-              <div class="Subtotal">Sub-Total</div>
-              <div class="items">2 items</div>
-          </div>
-          <div class="total-amount">$6.18</div>
-      </div>
-      <button class="button"><a href="/checkout">Checkout</a></button></div>
- </div>
-
-</div>
-
-   
-
-  
-  <div id="id01" class="modal">
-
-    <div class="modal-content" action="">
-      <div class="container">
-          <div class="clearfix">
-              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
-             
-        <h1>Search</h1>
-        <hr>
+          //     method:'POST',
+          //     headers: {
+          //             'Content-Type': 'application/json'
+          //       },
+          //       body:JSON.stringify({index:index})
+          //   })
+          // }
         
-        <input type="text" placeholder="Tap to search" name="email" required>
-        <br>
+      </script>
+      
+          <script>
+             function objCheck(){
+              console.log("1")
+              var sofaCheck = document.getElementById('sofa').checked
+              var armCheck = document.getElementById('armchair').checked
+              var tableCheck = document.getElementById('table').checked
+              var chairCheck = document.getElementById('chair').checked
+              var bedCheck = document.getElementById('bed').checked
+              var accsCheck = document.getElementById('accs').checked
+              var min = document.getElementById('min').value
+              var max = document.getElementById('max').value
+              console.log(min,max)
+              const dat = {
+                sofa:sofaCheck,
+                arm:armCheck,
+                table:tableCheck,
+                chair:chairCheck,
+                bed:bedCheck,
+                accs:accsCheck,
+                min:min,
+                max:max
+              }
+              fetch('/search',{
+                method:'POST',
+                headers: {
+                      'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(dat)
+              })
+              .then(response => response.json())
+                .then(infor =>{
+                 window.location.href = 'search'
+                })
+            }
+          </script>
+           
+           
         
-        <label for="email"><b>Filter</b></label>
-        <br>
-        <div class="label-search">
-        <label>
-          <input type="checkbox" checked="checked" id="sofa" style="margin-bottom:15px" > SOFAS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" id="armchair" style="margin-bottom:15px"> ARMCHAIRS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" id="table" style="margin-bottom:15px"> TABLES
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" id="chair" style="margin-bottom:15px"> CHAIRS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" id="bed" style="margin-bottom:15px"> BEDS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" id="accs" style="margin-bottom:15px"> ACCESSORY
-        </label>
-      </div>
-        <div class="price-input">
-          <div class="field">
-            <span>Min</span>
-            <input type="number" class="input-min" value="2500">
-          </div>
-          <div class="separator">-</div>
-          <div class="field">
-            <span>Max</span>
-            <input type="number" class="input-max" value="7500">
-          </div>
-        </div>
-        <div class="slider">
-          <div class="progress"></div>
-        </div>
-        <div class="range-input">
-          <input id="min" type="range" class="range-min" min="0" max="10000" value="0" step="100">
-          <input id ="max" type="range" class="range-max" min="0" max="10000" value="10000" step="100">
-  
-          <button type="submit" class="signupbtn" onclick="objCheck()">Search</button>
-        </div>
-      </div>
-     
-      </div>
-    
-    </div>
-            </div>
-    
-
-
-            <div class="cards-items">
-              <% if (typeof details !== 'undefined' && details) { %>
-                <% for(let i =0;i<details.length;i++){ %>
-                <% details[i].forEach(function(item){ %>
-                  <form action="/deleteItem" method="post">
-                  <div class="detailsItems">
-                   <a class="category"><%= item.category%></a>
-                   <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
-                   <br>  <a>Name: <%= item.name%></a>
-                   <a>Color: <%= item.color%></a>
-                   <a>Matterial: <%= item.matter%></a>
-                    <a>Price: <%= item.price%></a>
-                   <a> Amount: <%= item.amount%></a>
-                   <input type="hidden" name="name" value="<%= item.name %>">
-                   <input type="hidden" name="color" value="<%= item.color %>">
-                   <input type="hidden" name="pic" value="<%= item.pic %>">
-                   <input type="hidden" name="category" value="<%= item.category %>">
-                   <input type="hidden" name="matter" value="<%= item.matter %>">
-                   <input type="hidden" name="price" value="<%= item.price %>">
-                   <input type="hidden" name="amount" value="<%= item.amount %>">
-
-                      <button type="submit" class="addtocart">
-                       <div class="pretext">
-                         <i class="fas fa-cart-plus"></i> delete from cart
-                       </div>
-                       
-                       <div class="pretext done">
-                         <div class="posttext"><i class="fas fa-check"></i> Added</div>
-                       </div>
-                       
-                     </button>
-                    
-                  </div></form>
-                  <% }) %>
-               </div>
-               <% } %>
-              <% } %>
-
-<script>
-    // function deleted(){
-    //   var l = document.getElementsById('name').value
-    //   console.log(l)
-    //   fetch('/deleteItem',{
-        
-    //     method:'POST',
-    //     headers: {
-    //             'Content-Type': 'application/json'
-    //       },
-    //       body:JSON.stringify({index:index})
-    //   })
-    // }
-  
-</script>
-
-    <script>
-       function objCheck(){
-        console.log("1")
-        var sofaCheck = document.getElementById('sofa').checked
-        var armCheck = document.getElementById('armchair').checked
-        var tableCheck = document.getElementById('table').checked
-        var chairCheck = document.getElementById('chair').checked
-        var bedCheck = document.getElementById('bed').checked
-        var accsCheck = document.getElementById('accs').checked
-        var min = document.getElementById('min').value
-        var max = document.getElementById('max').value
-        console.log(min,max)
-        const dat = {
-          sofa:sofaCheck,
-          arm:armCheck,
-          table:tableCheck,
-          chair:chairCheck,
-          bed:bedCheck,
-          accs:accsCheck,
-          min:min,
-          max:max
+      
+      
+      
+      
+      
+         <!-- Script -->
+         <script> let hamMenuIcon = document.getElementById("ham-menu");
+            let navBar = document.getElementById("nav-bar");
+            let navLinks = navBar.querySelectorAll("li");
+            
+            hamMenuIcon.addEventListener("click", () => {
+              navBar.classList.toggle("active");
+              hamMenuIcon.classList.toggle("fa-times");
+            });
+            navLinks.forEach((navLinks) => {
+              navLinks.addEventListener("click", () => {
+                navBar.classList.remove("active");
+                hamMenuIcon.classList.toggle("fa-times");
+              });
+            });</script>
+            
+      <script>
+      // Get the modal
+      var modal = document.getElementById('id01');
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
         }
-        fetch('/search',{
-          method:'POST',
-          headers: {
-                'Content-Type': 'application/json'
-          },
-          body:JSON.stringify(dat)
-        })
-        .then(response => response.json())
-          .then(infor =>{
-           window.location.href = 'search'
-          })
       }
-    </script>
-     
-     
-  
-
-
-
-
-
-   <!-- Script -->
-   <script> let hamMenuIcon = document.getElementById("ham-menu");
-      let navBar = document.getElementById("nav-bar");
-      let navLinks = navBar.querySelectorAll("li");
       
-      hamMenuIcon.addEventListener("click", () => {
-        navBar.classList.toggle("active");
-        hamMenuIcon.classList.toggle("fa-times");
-      });
-      navLinks.forEach((navLinks) => {
-        navLinks.addEventListener("click", () => {
-          navBar.classList.remove("active");
-          hamMenuIcon.classList.toggle("fa-times");
+      </script>
+      <script>const rangeInput = document.querySelectorAll(".range-input input"),
+        priceInput = document.querySelectorAll(".price-input input"),
+        range = document.querySelector(".slider .progress");
+      let priceGap = 1000;
+      
+      priceInput.forEach((input) => {
+        input.addEventListener("input", (e) => {
+          let minPrice = parseInt(priceInput[0].value),
+            maxPrice = parseInt(priceInput[1].value);
+      
+          if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+            if (e.target.className === "input-min") {
+              rangeInput[0].value = minPrice;
+              range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+            } else {
+              rangeInput[1].value = maxPrice;
+              range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+            }
+          }
         });
-      });</script>
+      });
       
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-</script>
-<script>const rangeInput = document.querySelectorAll(".range-input input"),
-  priceInput = document.querySelectorAll(".price-input input"),
-  range = document.querySelector(".slider .progress");
-let priceGap = 1000;
-
-priceInput.forEach((input) => {
-  input.addEventListener("input", (e) => {
-    let minPrice = parseInt(priceInput[0].value),
-      maxPrice = parseInt(priceInput[1].value);
-
-    if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
-      if (e.target.className === "input-min") {
-        rangeInput[0].value = minPrice;
-        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
-      } else {
-        rangeInput[1].value = maxPrice;
-        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
-      }
-    }
-  });
-});
-
-rangeInput.forEach((input) => {
-  input.addEventListener("input", (e) => {
-    let minVal = parseInt(rangeInput[0].value),
-      maxVal = parseInt(rangeInput[1].value);
-
-    if (maxVal - minVal < priceGap) {
-      if (e.target.className === "range-min") {
-        rangeInput[0].value = maxVal - priceGap;
-      } else {
-        rangeInput[1].value = minVal + priceGap;
-      }
-    } else {
-      priceInput[0].value = minVal;
-      priceInput[1].value = maxVal;
-      range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-      range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-    }
-  });
-});
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-</body>
-</html>
+      rangeInput.forEach((input) => {
+        input.addEventListener("input", (e) => {
+          let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+      
+          if (maxVal - minVal < priceGap) {
+            if (e.target.className === "range-min") {
+              rangeInput[0].value = maxVal - priceGap;
+            } else {
+              rangeInput[1].value = minVal + priceGap;
+            }
+          } else {
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+            range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+          }
+        });
+      });
+      </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      
+      </body>
+      </html>
