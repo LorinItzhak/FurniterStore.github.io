@@ -242,6 +242,11 @@ app.post("/addObject",async (req,res)=>{
         const data = await objectCollection.find({"category":"table","amount": { $gte: 1}}); 
         res.render('table', { details: data }); 
     });
+    app.get('/armchairs', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"armchair","amount": { $gte: 1}}); 
+        res.render('armchairs', { details: data }); 
+    });
    
    
     app.post('/logout', (req, res) => {
