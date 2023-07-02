@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HELLO</h1>
+
+    <div class="cards-items">
+        <% if (typeof details !== 'undefined' && details) { %>
+          <% for(let i =0;i<details.length;i++){ %>
+          <% details[i].forEach(function(item){ %>
+            <form action="/deleteItemC" method="post">
+            <div class="detailsItems">
+             <a class="category"><%= item.category%></a>
+             <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+             <br>  <a>Name: <%= item.name%></a>
+             <a>Color: <%= item.color%></a>
+             <a>Matterial: <%= item.matter%></a>
+              <a>Price: <%= item.price%></a>
+             <a> Amount: <%= item.amount%></a>
+             <input type="hidden" name="name" value="<%= item.name %>">
+               
+                <button type="submit" class="addtocart">
+                 <div class="pretext">
+                   <i class="fas fa-cart-plus"></i> delete from cart
+                 </div>
+                 
+                 <div class="pretext done">
+                   <div class="posttext"><i class="fas fa-check"></i> Added</div>
+                 </div>
+                 
+               </button>
+              
+            </div></form>
+            <% }) %>
+         </div>
+         <% } %>
+        <% } %>
+
+        <button type="submit"><a href="/buy" >buy all</a></button>
+</body>
+</html>

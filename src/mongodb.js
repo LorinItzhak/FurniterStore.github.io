@@ -76,12 +76,26 @@ const LogInSchema=new mongoose.Schema({
     }
 })
 
-
+const history=new mongoose.Schema({
+    purHis:{
+        type:[object],
+        default:[]
+    },
+    date:{
+        type:String,
+        required:true
+    },
+    name:{
+        type:String,
+        required:true
+    }
+})
 
 
 const objectCollection = new mongoose.model("objects",object)
 const collection=new mongoose.model("users",LogInSchema)
+const purchaseCollection = new mongoose.model("historys",history)
 module.exports = {
-    collection,objectCollection
+    collection,objectCollection,purchaseCollection
 }
 
