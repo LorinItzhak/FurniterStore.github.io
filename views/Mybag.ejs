@@ -157,7 +157,7 @@
           </div>
           <div class="total-amount">$6.18</div>
       </div>
-      <button class="button">Checkout</button></div>
+      <button class="button"><a href="/checkout">Checkout</a></button></div>
  </div>
 
 </div>
@@ -243,7 +243,13 @@
                     <a>Price: <%= item.price%></a>
                    <a> Amount: <%= item.amount%></a>
                    <input type="hidden" name="name" value="<%= item.name %>">
-                     
+                   <input type="hidden" name="color" value="<%= item.color %>">
+                   <input type="hidden" name="pic" value="<%= item.pic %>">
+                   <input type="hidden" name="category" value="<%= item.category %>">
+                   <input type="hidden" name="matter" value="<%= item.matter %>">
+                   <input type="hidden" name="price" value="<%= item.price %>">
+                   <input type="hidden" name="amount" value="<%= item.amount %>">
+
                       <button type="submit" class="addtocart">
                        <div class="pretext">
                          <i class="fas fa-cart-plus"></i> delete from cart

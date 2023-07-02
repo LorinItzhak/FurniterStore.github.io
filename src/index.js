@@ -18,6 +18,7 @@ let alertMessage=""
 const mongMod = require("./mongodb")
 const collection = mongMod.collection
 const objectCollection = mongMod.objectCollection
+const purchaseCollection=mongMod.purchaseCollection
 //app.engine('ejs', require('ejs').__express);
 app.listen(3000,()=>{
     console.log("port connected")
@@ -348,7 +349,11 @@ app.post("/changePassword", async(req, res) => {
     // Render the accountInformation.ejs template with the account information data
     res.render("accountInformation", {loggedIn:true ,alertMessage:"",user:req.session.user });
   });
-  
+  app.get("/OrderHistory",async(req,res)=>{
+    let acc = await purchaseCollection.find({"name":req.session.user.name})
+    res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true})
+  })
+
   app.get("/addCart",(req,res)=>{
     render("home",{alertMessage:""})
 })
@@ -373,14 +378,14 @@ if(loggedIn){
             category:req.body.category,
             price:req.body.price,
             pic:req.body.pic,
-            amount:req.body.amount,
+            amount:1,
             color:req.body.color,
             matter:req.body.matter
         }
         d.cart.objs.push(inf)
 
         await d.save()
-        
+        console.log(d)
     }
     else
     {
@@ -391,12 +396,14 @@ if(loggedIn){
             category:req.body.category,
             price:req.body.price,
             pic:req.body.pic,
-            amount:req.body.amount,
+            amount:1,
             color:req.body.color,
             matter:req.body.matter
         }
         d.cart.objs.push(inf)
         await d.save();
+
+        console.log(d.cart.objs)
     }
     }
     else
@@ -405,20 +412,22 @@ if(loggedIn){
     }
 })
 
-app.get("/Mybag",(req,res)=>{
+app.get("/Mybag",async (req,res)=>{
     if(req.session.user!== undefined){
-        
-        res.render("Mybag", {alertMessage:"hi",details:[req.session.user.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
+        let r = await collection.findOne({name:req.session.user.name})
+        res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
     }
     else{
         redirect("/login")
     }
 })
-app.get("/deleteItem",(req,res)=>{
-    res.render("Mybag",{alertMessage:"hi",details:[req.session.user.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
+app.get("/deleteItem",async (req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    res.render("Mybag",{alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
 })
 app.post("/deleteItem",async (req,res)=>{
     console.log(1)
+    console.log(req.session.user.cart.objs)
     let p = await collection.findOne({name:req.session.user.name})
     var delItem = await objectCollection.findOne({name:req.body.name})
     console.log(delItem)
@@ -436,59 +445,52 @@ app.post("/deleteItem",async (req,res)=>{
     
 })
 
-    /*var temp = 1
-    if(req.session.user.cart == undefined){
-        req.session.user.cart={}
-        req.session.user.cart.totalSize = 0
-        req.session.user.cart.totalPrice = 0
-        req.session.user.cart.objs = []
-        
-
-    }
-    if(req.session.user.cart.totalSize == 0){
-        let inf ={
-            name:req.body.name,
-            category:req.body.category,
-            price:req.body.price        
-        }
-        req.session.user.cart.objs.push(inf)
-        req.session.user.cart.totalSize += 1
-        req.session.user.cart.totalPrice += parseInt(req.body.price)
-        console.log(req.session.user.cart)
-        collection.findOne()
-    }
-    else
+app.get('/checkout',async (req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    res.render("checkout",{details:[r.cart.objs],size:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
+})
+app.get("/deleteItemC",async (req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    res.render("checkout",{details:[r.cart.objs],size:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
+})
+app.post("/deleteItemC",async (req,res)=>{
+    console.log(1)
+    let p = await collection.findOne({name:req.session.user.name})
+    var delItem = await objectCollection.findOne({name:req.body.name})
+    console.log(delItem)
+    //console.log(p.cart)
+    if(p)
     {
-        
-        var objs = req.session.user.cart.objs
-        console.log(objs)
-        objs.forEach(obj => {
-        if(obj.name == req.body.name){
-            temp = 0
-        }
-         }) 
+        p.cart.totalPrice -= parseInt(delItem.price)
+        p.cart.totalSize -= 1
+        filteredArr=p.cart.objs.filter(item => item.name !== delItem.name)
+        p.cart.objs = filteredArr
+        console.log(p.cart.objs)
+        await p.save()
+        res.render("checkout",{details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
     }
-    if(temp)
-    {
-        let inf ={
-            name:req.body.name,
-            category:req.body.category,
-            price:req.body.price
-        }
-        req.session.user.cart.objs.push(inf)
-        req.session.user.cart.totalSize += 1
-        req.session.user.cart.totalPrice += parseInt(req.body.price)
-        req.session.save();
-     }
-     else
-     {
-      //render("/",{alertMessage:"already added to cart"})
-     }
+    
+})
+app.get('/buy',async (req,res)=>{
+    let acc = await collection.findOne({name:req.session.user.name})
+    const today = new Date();
+    const options = { 
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        timeZone: 'Asia/Jerusalem',
+        timeZoneName: 'short'
     }
-else
-{
-    //render("home",{alertMessage:"not logged in"})
-}*/
+    
+    var f={
+        purHis:acc.cart.objs,
+        name:req.session.user.name,
+        date:today.toLocaleDateString('en-GB',options)
+    }
+    var v = await purchaseCollection.insertMany([f])
+    console.log(v)
+    res.render("home",{alertMessage:"purchased"});
+})
 
 
     /*********************************************************************************************************************************
