@@ -81,8 +81,7 @@
     </header>
     <div class=" OrderHis">
       <a>Order History</a>
-     <div class="detailsHistory">ךךךךגלכקמהכלחקגכמיהןקנרכקדרןךנכעקולירענכבוקירענכוןק׳נרןכוטעקרלכוטק׳רך
-ללללללל
+     <div class="detailsHistory">
     </div> 
     </div>
     <section id="home">
@@ -91,98 +90,28 @@
         <a href="#myAccount">my account</a>
       
           <a class="active" id="OrderH" href="#OrederHistory">Order history</a>
-          <div class="detailsHistory1">blablabl blablabla
-            blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla blablabla
-            blablabla blablabla
-            blablabla blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa blablabla
-            blablabla
-            blablabla
-            blablablaa
-            blablabla
-            blablablaa
-            blablabla
-            blablablaa
-            blablabla
-            blablablaa
+          <div class="detailsHistory1">
+            <div class="cards-items">
+              <% if (typeof details !== 'undefined' && details) { %>
+                <% for(let i =0;i<details.length;i++){ %>
+                <% details[i].purHis.forEach(function(item){ %>
+                  
+                  <div class="detailsItems">
+                   <a class="category"><%= item.category%></a>
+                   <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+                   <br>  <a>Name: <%= item.name%></a>
+                   <a>Color: <%= item.color%></a>
+                   <a>Matterial: <%= item.matter%></a>
+                    <a>Price: <%= item.price%></a>
+                   <a> Amount: <%= item.amount%></a>
+                   
+                    
+                  </div>
+                  <% }) %>
+                  
+               </div>
+               <% } %>
+              <% } %>
           </div>
          
         <a href="#Accountinfo">Account information</a>

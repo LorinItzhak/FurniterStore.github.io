@@ -349,7 +349,11 @@ app.post("/changePassword", async(req, res) => {
     // Render the accountInformation.ejs template with the account information data
     res.render("accountInformation", {loggedIn:true ,alertMessage:"",user:req.session.user });
   });
-  
+  app.get("/OrderHistory",async(req,res)=>{
+    let acc = await purchaseCollection.find({"name":req.session.user.name})
+    res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true})
+  })
+
   app.get("/addCart",(req,res)=>{
     render("home",{alertMessage:""})
 })
@@ -468,7 +472,7 @@ app.post("/deleteItemC",async (req,res)=>{
     
 })
 app.get('/buy',async (req,res)=>{
-    var cart = req.session.user.cart
+    let acc = await collection.findOne({name:req.session.user.name})
     const today = new Date();
     const options = { 
         year: 'numeric',
@@ -479,12 +483,12 @@ app.get('/buy',async (req,res)=>{
     }
     
     var f={
-        purHis:cart.objs,
+        purHis:acc.cart.objs,
         name:req.session.user.name,
         date:today.toLocaleDateString('en-GB',options)
     }
     var v = await purchaseCollection.insertMany([f])
-    
+    console.log(v)
     res.render("home",{alertMessage:"purchased"});
 })
 
