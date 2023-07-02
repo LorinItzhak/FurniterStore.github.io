@@ -351,7 +351,6 @@ app.post("/changePassword", async(req, res) => {
   });
   app.get("/OrderHistory",async(req,res)=>{
     let acc = await purchaseCollection.find({"name":req.session.user.name})
-    console.log(acc)
     res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true})
   })
 

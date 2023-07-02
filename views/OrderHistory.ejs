@@ -94,8 +94,7 @@
             <div class="cards-items">
               <% if (typeof details !== 'undefined' && details) { %>
                 <% for(let i =0;i<details.length;i++){ %>
-                  <%for(let j=0;j<details[0].length;j++){ %>
-                <% details[i][j].forEach(function(item){ %>
+                <% details[i].purHis.forEach(function(item){ %>
                   
                   <div class="detailsItems">
                    <a class="category"><%= item.category%></a>
@@ -108,8 +107,8 @@
                    
                     
                   </div>
-                  <% } %>
                   <% }) %>
+                  
                </div>
                <% } %>
               <% } %>
