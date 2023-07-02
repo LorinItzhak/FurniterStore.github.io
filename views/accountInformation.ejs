@@ -84,43 +84,21 @@
     </header>
     <div class=" OrderHis">
 
-
+      <form>
       
       <a>Account information</a>
      <div class="detailsHistory">
       <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
         
         <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <p>Username: <%= user.name %></p>
-              
-            </div>
-          </div>
+        
+        
           <div class="col-md-6" id="changePassword">
             <div class="form-group">
+              <p>Username: <%= user.name %></p>
               <p>Password: <%= user.password %></p>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-group">
-        
-
-          <form action="/changePassword" method="POST">
-              <% if (typeof message !== 'undefined' && message) { %>
-                  <li id="alert"> <%= message %>  </li>
-                <% } %>
-                <a>Change Password</a>
-            <label for="currentPassword">Current Password</label>
-            <input type="password" id="currentPassword" name="currentPassword" required>
-      
-            <label for="newPassword">New Password</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-      
-            <label for="confirmPassword">Confirm New Password</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-      
-            <button class="btn-primary" type="submit">Change Password</button>
           </form>
         </div>
       </div>
@@ -141,7 +119,7 @@
          <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
          <a class="active" href="/OrderHistory">Order history1</a>
          <a class="active" id="OrderH" href="/accountInformation">Account information</a>
-          
+         <p><a href="/changePassword">Change Password</a></p>
           <!-- <p><a  href="/changePassword">Change Password</a></p> -->
         <% } else { %>
           <p>Please <a href="/login">login</a> to access your account.</p>
@@ -164,31 +142,9 @@
                 <div class="col-md-6" id="changePassword">
                   <div class="form-group">
                     <p>Password: <%= user.password %></p>
+                    
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-              
-      
-                <form action="/changePassword" method="POST">
-                    <% if (typeof message !== 'undefined' && message) { %>
-                        <li id="alert"> <%= message %>  </li>
-                      <% } %>
-                      <a>Change Password</a>
-                  <label for="currentPassword">Current Password</label>
-                  <input type="password" id="currentPassword" name="currentPassword" required>
-            
-                  <label for="newPassword">New Password</label>
-                  <input type="password" id="newPassword" name="newPassword" required>
-            
-                  <label for="confirmPassword">Confirm New Password</label>
-                  <input type="password" id="confirmPassword" name="confirmPassword" required>
-            
-                  <button class="btn-primary" type="submit">Change Password</button>
-                </form>
-              </div>
-            </div>
-              
               
             <p><a  class="btn-primary" href="/myAccount">Go Back</a></p>
               

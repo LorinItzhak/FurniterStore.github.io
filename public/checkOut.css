@@ -1,81 +1,28 @@
 
 
-
-
-  * {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
 
+
+    
+  }
+.bodycart{
+    padding-top: 190px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
   body {
-    background:url(https://designfurniture.com.au/wp-content/uploads/Marlow-Bed-banner5.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
+    background: linear-gradient(to bottom right, #e9e6e9, #987b86);
+    height: 109vh;
+    
 
-     
-  
-.container img{
-  position: absolute;
-    top: -800px;
-    left: -760px;
-    transform: scale(0.12);
-}
-
-.alert {
-  text-align: left;
-  margin-bottom: 5px; /* ייבוש תחתון בגובה של 10 פיקסלים */
-  position: relative; /* אלמנט בעל מיקום יחסי */
-   /* ריפוד בגודל של 0.25 רימ או 4 פיקסלים בכל צד */
-  border: 4px solid #ffffff; /* מסגרת דקה עם צבע לבן */
-  border-radius: 3px; /* חיסור מעגלי בעובי 3 פיקסלים לפינות המסגרת */
-  background-color: #b6b3b3; /* רקע לבן */
-  color: #000000; /* צבע הטקסט שחור */
-  
-}
-  .container {
-    max-width: 400px;
-    margin: 13% auto;
-    padding: 30px;
-    height: auto;
-    background:linear-gradient(to top,  rgb(77, 77, 81)50%, rgb(104, 104, 108)50%);
-    border-radius: 10px;
-   
+    justify-content: center;
+    align-items: center;
+	
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    height: 35px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #333;
-    color: #fff;
-   
-  }
-  
-  input[type="submit"]:hover {
-    background-color:  #555;
-  }
-  
   
   html {
     font-size: 62.5%;
@@ -112,6 +59,7 @@
   }
 
  
+  
   #logo img {
     
     display:flex;
@@ -121,27 +69,27 @@
     
   }
   
-  
    nav ul a {
     color:#9d7a7a;
     font-weight: 600;
   }
   nav ul a:hover {
-         color:#554d4d;
+    color:#554d4d;
+
       
   }
   section#home {
     color: rgb(166, 157, 157);
-    height: 100vh;
     display: grid;
-    place-items: center;
+   
+    align-items:left;
   }
-  h1 {
+  /* h1 {
     font-size: 4rem;
-  }
+  } */
 
 
-.content .par{
+/* .content .par{
     padding-left: 50px;
     padding-bottom:25px;
     font-family:  Arial, Helvetica, sans-serif;
@@ -149,18 +97,18 @@
     line-height: 30px;
  
 
-}
+} */
 
-.content h1 {
+/* .content h1 {
 
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 50px;
     padding-left: 50px;
     margin-top: 20%;
     letter-spacing: 2px;
-}
+} */
 
-.content .cn{
+/* .content .cn{
 width:160px ;
 height: 40px;
 background: grey;
@@ -172,25 +120,25 @@ margin-bottom:10px ;
  cursor: pointer;
  transition: .4s ease ;
 
-} 
+}  */
 
-.content .cn a{
+/* .content .cn a{
 text-decoration:none;
 color:lightgray ;
 transition: 3s ease ;
 
 
 
-}
+} */
 
-.cn:hover{
+/* .cn:hover{
     background-color: white;
 }
 
 .content span{
     color: aliceblue;
     font-size: 60px;
-}
+} */
 
 
   #ham-menu {
@@ -220,7 +168,7 @@ nav ul li:hover .sub-menu-1
     position: absolute;
     border-radius: 10%;
     background : linear-gradient(to top, rgba(176, 172, 172, 0.5)50%,  rgba(176, 172, 172, 0.5)50%);
-    height: auto;
+    height: auto; 
 
 
     
@@ -290,13 +238,13 @@ nav ul li:hover .sub-menu-1 ul li:hover{
     
 } 
 
-.btn-my-account:hover,
-.btn-my-search:hover,
- .btn-Shopping-Cart:hover{
+ .btn-my-account:hover,
+  .btn-my-search:hover,
+   .btn-Shopping-Cart:hover{
+  
+  color:#554d4d;
 
-color:#554d4d;
-
-}
+ }
 
 
 
@@ -322,6 +270,9 @@ color:#554d4d;
         }
     
    
+
+
+
 
         .srch-param{
      
@@ -355,7 +306,7 @@ color:#554d4d;
       
       
       /* Full-width input fields */
-      .modal-content  input[type=text], .modal-content input[type=password] {
+      input[type=text], input[type=password] {
           width: 50%;
           border-radius: 10px;
           padding: 15px;
@@ -367,7 +318,7 @@ color:#554d4d;
         }
         
         /* Add a background color when the inputs get focus */
-        .modal-content  input[type=text]:focus, .modal-content input[type=password]:focus {
+         input[type=text]:focus, input[type=password]:focus {
           background-color: #f1e7e7;
           outline: none;
           
@@ -458,10 +409,10 @@ color:#554d4d;
         
       
       
-      hr {
+      /* hr {
           border: 1px solid #f1f1f1;
           margin-bottom: 25px;
-        }
+        } */
          
         
         
@@ -566,6 +517,197 @@ color:#554d4d;
       
       
       
+
+
+
+
+
+
+
+.CartContainer{
+	width: 70%;
+	height: 90%;
+	background-color: #dcd1d1;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px #e3e8eb33;
+}
+
+.Header1{
+	margin: auto;
+	width: 90%;
+	height: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Heading{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #2F3841;
+}
+
+.Action{
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+	border-bottom: 1px solid #E44C4C;
+}
+
+.Cart-Items{
+	margin: auto;
+	width: 90%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.image-box{
+	width: 15%;
+	text-align: center;
+}
+.about{
+	height: 100%;
+	width: 24%;
+}
+.title{
+	padding-top: 17px;
+	line-height: 8px;
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+.subtitle{
+
+	font-size: 18px;
+  padding: 5px;
+  
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #909090;
+}
+
+.counter{
+	width: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.btn{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
+	cursor: pointer;
+}
+.count{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #202020;
+}
+
+.prices{
+	height: 100%;
+	text-align: right;
+}
+.amount{
+	padding-top: 20px;
+	font-size: 26px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+.save{
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #0f64a0;
+	cursor: pointer;
+}
+.remove{
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+}
+
+.pad{
+	margin-top: 5px;
+}
+
+/* hr{
+	width: 66%;
+	float: right;
+	margin-right: 5%;
+} */
+.checkout{
+	float: right;
+	margin-right: 3%;
+	width: 28%;
+}
+.total{
+	width: 100%;
+	display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.Subtotal{
+
+	font-size: 22px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #202020;
+}
+.items{
+	font-size: 16px;
+  margin-top: 2px;
+	font-family: 'Open Sans';
+	font-weight: 500;
+	color: #909090;
+	line-height: 10px;
+}
+.total-amount{
+
+	font-size: 30px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
+}
+.button{
+  margin-bottom: 10px;
+	margin-top: 10px;
+	width: 100%;
+	height: 40px;
+	border: none;
+	background: linear-gradient(to bottom right, #e9b1bc, #eb8e9f);
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #202020;
+}
+
+
+
+
+
+
   @media only screen and (max-width: 991px) {
     html {
       font-size: 56.25%;
@@ -613,4 +755,116 @@ color:#554d4d;
       top: 65.18px;
       height: calc(100vh - 65.18px);
     }
+}
+
+
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 20px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  margin-top: 1%;
+  
+  padding: 0 16px;
+}
+
+.container1 {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container1 {
+  margin-bottom: 15px;
+  padding: 7px 0;
+  font-size: 37px;
+}
+
+.btn {
+  background-color: #6f5867;
+  color: white;
+  padding: 1px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #c5a4bb;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  
+  border: 1px solid rgb(215, 209, 209);
+}
+
+h2{
+  padding-top: 5%;
+display: flex;
+color: #413f3f;
+border-bottom: 1px solid rgb(156, 154, 154);
+padding-left: 3%;
+  font-size: 30px;
+}
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  h2{
+    padding-top: 15%;
+  
+  }
+  .row {
+    margin-top: 3%;
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
 }
