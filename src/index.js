@@ -361,6 +361,8 @@ app.post("/addCart",async (req,res)=>{
 if(loggedIn){
     console.log(req.body.name)
     let d = await collection.findOne({name:req.session.user.name})
+    let flag = 1
+    let i =0;
     if(d.cart==undefined)
     {
         d.cart={}
@@ -389,20 +391,28 @@ if(loggedIn){
     }
     else
     {
-        d.cart.totalSize += 1
-        d.cart.totalPrice += parseInt(req.body.price)
-        let inf={
-            name:req.body.name,
-            category:req.body.category,
-            price:req.body.price,
-            pic:req.body.pic,
-            amount:1,
-            color:req.body.color,
-            matter:req.body.matter
+        d.cart.objs.forEach(function(item) {
+            if(item.name == req.body.name){
+                flag = 0
+                item.amount+=parseInt(req.body.amount)
+            }
+        });
+        if(flag){
+            d.cart.totalSize += 1
+            d.cart.totalPrice += parseInt(req.body.price)
+            let inf={
+               name:req.body.name,
+               category:req.body.category,
+               price:req.body.price,
+               pic:req.body.pic,
+               amount:req.body.amount,
+               color:req.body.color,
+               matter:req.body.matter
+            }
+            d.cart.objs.push(inf)
+            
         }
-        d.cart.objs.push(inf)
         await d.save();
-
         console.log(d.cart.objs)
     }
     }
@@ -488,7 +498,19 @@ app.get('/buy',async (req,res)=>{
         date:today.toLocaleDateString('en-GB',options)
     }
     var v = await purchaseCollection.insertMany([f])
-    console.log(v)
+    acc.cart.objs.forEach(async function(item){
+        let d = await objectCollection.findOne({name:item.name})
+        if(parseInt(req.body.amount) > d.amount){
+            res.render("home",{alertMessage:"error"})
+            exit(0)
+        }
+        else{
+            d.amount -= parseInt(req.body.amount)
+            await d.save();
+        }
+    })
+    acc.cart={}
+    await acc.save()
     res.render("home",{alertMessage:"purchased"});
 })
 
