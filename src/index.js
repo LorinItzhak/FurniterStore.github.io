@@ -42,6 +42,14 @@ app.get("/",(req,res)=>{
     res.render("home.ejs", { alertMessage,loggedIn: req.session.user !== undefined });
 })
 
+app.get("/ContactUs",(req,res)=>{
+    res.render("ContactUs",{alertMessage:" "})
+})
+
+app.get("/aboutus",(req,res)=>{
+    res.render("aboutus")
+})
+
 app.get("/signup",(req,res)=>{
     //res.render("signup") 
     res.render("signup.ejs", { alertMessage: "" ,loggedIn: req.session.user !== undefined});
