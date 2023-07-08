@@ -81,32 +81,47 @@
     </header>
     <section id="home">
      
-<div class="cards-items">
-  <% details.forEach(function(item){ %>
-   <div class="detailsItems">
-    <a class="category"><%= item.category%></a>
-    <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
-    <br>  <a>Name: <%= item.name%></a>
-    <a>Color: <%= item.color%></a>
-    <a>Matterial: <%= item.matter%></a>
-     <a>Price: <%= item.price%></a>
-    <a>  Amount: <%= item.amount%></a>
+      <div class="cards-items">
+        <% details.forEach(function(item){ %>
+          <form action="/addCart" method="post">
+         <div class="detailsItems">
+          <a class="category"><%= item.category%></a>
+          <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
+          <br>  <a>Name: <%= item.name%></a>
+          <a>Color: <%= item.color%></a>
+          <a>Matterial: <%= item.matter%></a>
+           <a>Price: <%= item.price%></a>
+          <a>Amount: <%= item.amount%></a>
+          <select name="amount" id="">amount to add:
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <input type="hidden" name="name" value="<%= item.name %>">
+          <input type="hidden" name="category" value="<%= item.category%>">
+          <input type="hidden" name="price" value="<%= item.price%>">
+          <input type="hidden" name="color" value="<%= item.color%>">
+          <input type="hidden" name="pic" value="<%= item.pic%>">
+          <!-- <input type="hidden" name="amount" value="<%= item.amount%>"> -->
+          <input type="hidden" name="matter" value="<%= item.matter%>">
+          
+             <button type="submit" class="addtocart">
+              <div id="cart" class="pretext">
+                <i class="fas fa-cart-plus"></i> Add to cart
+              </div>
+              
       
-      
-       <button class="addtocart">
-        <div class="pretext">
-          <i class="fas fa-cart-plus"></i> Add to cart
-        </div>
-        
-        <div class="pretext done">
-          <div class="posttext"><i class="fas fa-check"></i> Added</div>
-        </div>
-        
-      </button>
-     
-   </div>
-   <% }) %>
-</div>
+              <div class="pretext done">
+                <div class="posttext"><i class="fas fa-check"></i> Added</div>
+              </div>
+              
+            </button>
+           
+         </div></form>
+         <% }) %>
+      </div>
 
       <script>
         document.getElementById('logoutButton').addEventListener('click', function() {
