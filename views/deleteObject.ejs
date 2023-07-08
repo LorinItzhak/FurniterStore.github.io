@@ -102,70 +102,70 @@
      
 
        
-<div id="id01" class="modal">
- 
-    <form class="modal-content" action="">
-      <div class="container">
-          <div class="clearfix">
-              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
-             
-        <h1>Search</h1>
-        <hr>
-        
-        <input type="text" placeholder="Tap to search" name="email" required>
-        <br>
-        
-        <label for="email"><b>Filter</b></label>
-        <br>
-        <div class="label-search">
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> SOFAS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ARMCHAIRS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> TABLES
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> CHAIRS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> BEDS
-        </label>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> ACCESSORY
-        </label>
-      </div>
-        <div class="price-input">
-          <div class="field">
-            <span>Min</span>
-            <input type="number" class="input-min" value="2500">
+    <form action="/search" method="post">
+      <div id="id01" class="modal">
+   
+        <div class="modal-content" action="">
+          <div class="container">
+              <div class="clearfix">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+                 
+            <h1>Search</h1>
+            <hr>
+            
+            <input type="text" placeholder="Tap to search" name="name" >
+            <br>
+            
+            <label for="email"><b>Filter</b></label>
+            <br>
+            <div class="label-search">
+            <label>
+              <input type="checkbox" checked="checked" name="sofa" style="margin-bottom:15px" > SOFAS
+            </label>
+            <label>
+              <input type="checkbox" checked="checked" name="armchair" style="margin-bottom:15px"> ARMCHAIRS
+            </label>
+            <label>
+              <input type="checkbox" checked="checked" name="table" style="margin-bottom:15px"> TABLES
+            </label>
+            <label>
+              <input type="checkbox" checked="checked" name="chair" style="margin-bottom:15px"> CHAIRS
+            </label>
+            <label>
+              <input type="checkbox" checked="checked" name="bed" style="margin-bottom:15px"> BEDS
+            </label>
+            <label>
+              <input type="checkbox" checked="checked" name="accs" style="margin-bottom:15px"> ACCESSORY
+            </label>
           </div>
-          <div class="separator">-</div>
-          <div class="field">
-            <span>Max</span>
-            <input type="number" class="input-max" value="7500">
-          </div>
-        </div>
-        <div class="slider">
-          <div class="progress"></div>
-        </div>
-        <div class="range-input">
-          <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-          <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
-  
-          <button type="submit " class="signupbtn">Search</button>
-        </div>
-      </div>
-     
-      </div>
-    
-    
+            <div class="price-input">
+              <div class="field">
+                <span>Min</span>
+                <input type="number" class="input-min" value="0">
+              </div>
+              <div class="separator">-</div>
+              <div class="field">
+                <span>Max</span>
+                <input type="number" class="input-max" value="10000">
+              </div>
             </div>
-      </div>
-    </form>
-  </div>
+            <div class="slider">
+              <div class="progress"></div>
+            </div>
+            <div class="range-input">
+              <input name="min" type="range" class="range-min" min="0" max="10000" value="0" step="100">
+              <input name ="max" type="range" class="range-max" min="0" max="10000" value="10000" step="100">
+      
+              <button type="submit" class="signupbtn">Search</button>
+            </div>
+          </div>
+         
+          </div>
+        
+        </div>
+  
+                </div>
+              </form>
   
   
   
