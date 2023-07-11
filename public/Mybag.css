@@ -432,6 +432,18 @@ color:#554d4d;
       } 
      
     
+      a {
+        color: #060708;
+        text-decoration: none;
+        background-color: transparent;
+    }
+
+    a:hover{
+      color: #060708;
+      text-decoration: none;
+      background-color: transparent;
+  }
+
     .label-search{
         overflow: auto;
         width: 30%;
@@ -528,12 +540,13 @@ color:#554d4d;
 .CartContainer{
 width: 70%;
 height: 90%;
-background-color: #dcd1d1;
+background-color: #f6eded;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #e3e8eb33;
 }
 
 .Header1{
+
 margin: auto;
 width: 90%;
 height: 15%;
@@ -543,13 +556,20 @@ align-items: center;
 }
 
 .Heading{
+  margin-top: 20px;
 font-size: 20px;
 font-family: 'Open Sans';
 font-weight: 700;
 color: #2F3841;
 }
 
+hr {
+  
+  border: 1px solid rgb(215, 209, 209);
+}
+
 .Action{
+  margin-top: 20px;
 font-size: 14px;
 font-family: 'Open Sans';
 font-weight: 600;
@@ -635,7 +655,7 @@ padding-top: 5px;
 font-size: 14px;
 font-family: 'Open Sans';
 font-weight: 600;
-color: #0f64a0;
+color: #0a0b0c;
 cursor: pointer;
 }
 .remove{
@@ -695,8 +715,8 @@ margin-top: 10px;
 width: 100%;
 height: 40px;
 border: none;
-background: linear-gradient(to bottom right, #e9b1bc, #eb8e9f);
-border-radius: 20px;
+background: linear-gradient(to bottom right, #937178, #e5b5be);
+border-radius: 13px;
 cursor: pointer;
 font-size: 16px;
 font-family: 'Open Sans';
