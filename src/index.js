@@ -42,6 +42,14 @@ app.get("/",(req,res)=>{
     res.render("home.ejs", { alertMessage,loggedIn: req.session.user !== undefined });
 })
 
+app.get("/ContactUs",(req,res)=>{
+    res.render("ContactUs",{alertMessage:" "})
+})
+
+app.get("/aboutus",(req,res)=>{
+    res.render("aboutus")
+})
+
 app.get("/signup",(req,res)=>{
     //res.render("signup") 
     res.render("signup.ejs", { alertMessage: "" ,loggedIn: req.session.user !== undefined});
@@ -242,6 +250,11 @@ app.post("/addObject",async (req,res)=>{
         const data = await objectCollection.find({"category":"table","amount": { $gte: 1}}); 
         res.render('table', { details: data }); 
     });
+    app.get('/armchairs', async (req, res) => {
+        // Query for the data from MongoDB
+        const data = await objectCollection.find({"category":"armchair","amount": { $gte: 1}}); 
+        res.render('armchairs', { details: data }); 
+    });
    
    
     app.post('/logout', (req, res) => {
@@ -428,7 +441,7 @@ app.get("/Mybag",async (req,res)=>{
         res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
     }
     else{
-        redirect("/login")
+        res.redirect("/login")
     }
 })
 app.get("/deleteItem",async (req,res)=>{
