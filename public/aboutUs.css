@@ -1,4 +1,8 @@
 /* addOject.css */
+#fform{
+  position: absolute;
+  left: -9999px;
+}
 
 * {
   padding: 0;
