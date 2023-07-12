@@ -441,7 +441,7 @@ if(loggedIn){
     }
 })
 
-app.get("/Mybag",async (req,res)=>{
+app.get("/Mybag",async (req,res)=>{ 
     if(req.session.user!== undefined){
         let r = await collection.findOne({name:req.session.user.name})
         res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
