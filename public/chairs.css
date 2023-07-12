@@ -69,7 +69,7 @@ nav ul a:hover {
 }
 section#home {
   color: rgb(166, 157, 157);
-  height: 140vh;
+  
   display: grid;
   
   align-items:center;
@@ -573,6 +573,7 @@ margin-right: 200px;
  
 }
 .cards-items {
+  margin-top: 100px;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
@@ -623,11 +624,7 @@ font-size: 12px;
 padding: 4px 8px;
 text-transform: uppercase;
 }
-@media (max-width: 600px) {
-.detailsItems {
-  width: 100%;
-}
-}
+
 
 
 
@@ -698,4 +695,21 @@ background:#393437;
   background:#393437;
   border: none;
 }
+
+
+.amount{
+
+  background: #77797d;
+  color: #ffffff;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  margin-bottom: 10px;
+  user-select: none;
+  border-radius: 10px;
+
+
+}
+
 

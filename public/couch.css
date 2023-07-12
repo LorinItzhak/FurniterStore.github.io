@@ -576,6 +576,7 @@ margin-right: 200px;
 }
 .cards-items {
 display: flex;
+margin-top: 100px;
 flex-wrap: wrap;
 justify-content: center;
 color:#3e3d3d;
@@ -625,11 +626,7 @@ font-size: 12px;
 padding: 4px 8px;
 text-transform: uppercase;
 }
-@media (max-width: 600px) {
-.detailsItems {
-  width: 100%;
-}
-}
+
 
 
 
@@ -702,3 +699,19 @@ background:#393437;
 }
 
 
+
+
+.amount{
+
+  background: #77797d;
+  color: #ffffff;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  margin-bottom: 10px;
+  user-select: none;
+  border-radius: 10px;
+
+
+}
