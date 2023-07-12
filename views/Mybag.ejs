@@ -81,11 +81,12 @@
   <div class="CartContainer">
     <div class="Header1">
       <h3 class="Heading">Shopping Cart</h3>
-      <h5 class="Action">Remove all</h5>
+      <h5 class="Action"><a href="/delAll">Remove all</a></h5>
     </div>
 
     <% if (typeof details !== 'undefined' && details) { %>
       <% for (let i = 0; i < details.length; i++) { %>
+        <form action="/deleteItem" method="post">
         <% details[i].forEach(function(item) { %>
           <div class="Cart-Items">
             <div class="image-box">
@@ -103,11 +104,14 @@
             <div class="prices">
               <div class="amount"><%= item.price %>₪</div>
               <div class="remove">
-                <u>Delete</u>
+                <input type="hidden" name="name" value="<%= item.name %>">
+                <input type="hidden" name="amount" value="<%= item.amount %>">
+               <u><button type="submit">Delete</button></u>
               </div>
             </div>
           </div>
         <% }) %>
+      </form>
       <% } %>
     <% } %>
 

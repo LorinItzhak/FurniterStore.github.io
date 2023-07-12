@@ -317,7 +317,7 @@ app.post("/addObject",async (req,res)=>{
             bedInfo = await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
             infor.push((bedInfo))
         }
-        console.log(infor)
+        
         res.render("search",{infor})
        // res.json({infor})
     })
@@ -377,8 +377,9 @@ app.post("/changePassword", async(req, res) => {
 })
 app.post("/addCart",async (req,res)=>{
 if(loggedIn){
-    console.log(req.body.name)
+    
     let d = await collection.findOne({name:req.session.user.name})
+    
     let flag = 1
     let i =0;
     if(d.cart==undefined)
@@ -405,7 +406,7 @@ if(loggedIn){
         d.cart.objs.push(inf)
 
         await d.save()
-        console.log(d)
+        
     }
     else
     {
@@ -431,7 +432,7 @@ if(loggedIn){
             
         }
         await d.save();
-        console.log(d.cart.objs)
+       
     }
     }
     else
@@ -455,10 +456,9 @@ app.get("/deleteItem",async (req,res)=>{
 })
 app.post("/deleteItem",async (req,res)=>{
     console.log(1)
-    console.log(req.session.user.cart.objs)
     let p = await collection.findOne({name:req.session.user.name})
-    var delItem = await objectCollection.findOne({name:req.body.name})
-    console.log(delItem)
+    let delItem = await objectCollection.findOne({name:req.body.name})
+    
     //console.log(p.cart)
     if(p)
     {
@@ -466,11 +466,18 @@ app.post("/deleteItem",async (req,res)=>{
         p.cart.totalSize -= 1
         filteredArr=p.cart.objs.filter(item => item.name !== delItem.name)
         p.cart.objs = filteredArr
-        console.log(p.cart.objs)
+        
         await p.save()
         res.render("Mybag",{alertMessage:"hi",details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
     }
     
+})
+
+app.get('/delAll',async (req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    r.cart = {}
+    await r.save()
+    res.render("Mybag",{alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
 })
 
 app.get('/checkout',async (req,res)=>{
@@ -482,18 +489,18 @@ app.get("/deleteItemC",async (req,res)=>{
     res.render("checkout",{details:[r.cart.objs],size:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
 })
 app.post("/deleteItemC",async (req,res)=>{
-    console.log(1)
+    
     let p = await collection.findOne({name:req.session.user.name})
     var delItem = await objectCollection.findOne({name:req.body.name})
-    console.log(delItem)
-    //console.log(p.cart)
+    
+    
     if(p)
     {
         p.cart.totalPrice -= parseInt(delItem.price)
         p.cart.totalSize -= 1
         filteredArr=p.cart.objs.filter(item => item.name !== delItem.name)
         p.cart.objs = filteredArr
-        console.log(p.cart.objs)
+        
         await p.save()
         res.render("checkout",{details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
     }
@@ -517,14 +524,16 @@ app.get('/buy',async (req,res)=>{
     }
     var v = await purchaseCollection.insertMany([f])
     acc.cart.objs.forEach(async function(item){
+        let am = item.amount
         let d = await objectCollection.findOne({name:item.name})
-        if(parseInt(req.body.amount) > d.amount){
+        if(parseInt(am) > d.amount){
             res.render("home",{alertMessage:"error"})
-            exit(0)
+            
         }
         else{
-            d.amount -= parseInt(req.body.amount)
+            d.amount -= parseInt(am)
             await d.save();
+            
         }
     })
     acc.cart={}
