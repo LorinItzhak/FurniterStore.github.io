@@ -279,6 +279,7 @@ app.post("/addObject",async (req,res)=>{
         var sofaInfo=''
         var accsInfo=''
         var bedInfo=''
+        var mirInfo=''
        if(await objectCollection.findOne({name:req.body.name}))
         {
             infor.push(await objectCollection.findOne({name:req.body.name}))
@@ -310,6 +311,10 @@ app.post("/addObject",async (req,res)=>{
         }
         if(req.body.bed == "on"){
             bedInfo = await objectCollection.find({"category":"bed","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            infor.push((bedInfo))
+        }
+        if(req.body.mirror == "on"){
+            bedInfo = await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
             infor.push((bedInfo))
         }
         console.log(infor)
