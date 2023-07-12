@@ -901,6 +901,8 @@ top:0px;
 #account{
   font-size: 15px;
  width: 100%;
+ border-radius: 10px;
+ background-color: #5f5959ab;
   padding-left: 19%;
 }
 
