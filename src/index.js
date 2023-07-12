@@ -377,7 +377,10 @@ app.post("/changePassword", async(req, res) => {
 })
 app.post("/addCart",async (req,res)=>{
 if(loggedIn){
-    
+    if(!req.session.user){
+        res.render("login",{alertMessage,loggedIn: false})
+        return
+    }
     let d = await collection.findOne({name:req.session.user.name})
     
     let flag = 1
