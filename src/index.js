@@ -362,7 +362,7 @@ app.post("/changePassword", async(req, res) => {
     }
   });
 
-  app.get("/accountInformation", (req, res) => {
+  app.get("/accountInformation",async (req, res) => {
     // Retrieve account information for the current user from the database
     // Render the accountInformation.ejs template with the account information data
     res.render("accountInformation", {loggedIn:true ,alertMessage:"",user:req.session.user });
@@ -372,8 +372,9 @@ app.post("/changePassword", async(req, res) => {
     res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true,user:req.session.user})
   })
 
-  app.get("/addCart",(req,res)=>{
-    render("home",{alertMessage:""})
+  app.get("/addCart",async (req,res)=>{
+    let referringPage = req.headers.referer || '/';
+        res.redirect(referringPage)
 })
 app.post("/addCart",async (req,res)=>{
 if(loggedIn){
@@ -382,7 +383,6 @@ if(loggedIn){
         return
     }
     let d = await collection.findOne({name:req.session.user.name})
-    
     let flag = 1
     let i =0;
     if(d.cart==undefined)
@@ -407,9 +407,10 @@ if(loggedIn){
             matter:req.body.matter
         }
         d.cart.objs.push(inf)
-
         await d.save()
-        
+        let referringPage = req.headers.referer || '/';
+        res.redirect(referringPage)
+        return
     }
     else
     {
@@ -432,10 +433,12 @@ if(loggedIn){
                matter:req.body.matter
             }
             d.cart.objs.push(inf)
-            
+        
         }
         await d.save();
-       
+        let referringPage = req.headers.referer || '/';
+        res.redirect(referringPage)
+        return
     }
     }
     else
@@ -485,6 +488,7 @@ app.get('/delAll',async (req,res)=>{
 
 app.get('/checkout',async (req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
+    console.log(req.session.user.cart.totalSize)
     res.render("checkout",{details:[r.cart.objs],size:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
 })
 app.get("/deleteItemC",async (req,res)=>{
@@ -503,7 +507,6 @@ app.post("/deleteItemC",async (req,res)=>{
         p.cart.totalSize -= 1
         filteredArr=p.cart.objs.filter(item => item.name !== delItem.name)
         p.cart.objs = filteredArr
-        
         await p.save()
         res.render("checkout",{details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
     }
