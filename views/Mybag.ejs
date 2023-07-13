@@ -192,9 +192,10 @@
 </form>
 
 <script>
-   function funcq(){
+    function funcq(){
     let nnn = document.getElementById('nnn');
     let name = nnn.dataset.value
+    console.log(name)
     fetch('/amount', {
   method: 'POST',
   headers: {
@@ -206,7 +207,7 @@
 </script>
 
 <script>
- function funcm(){
+  function funcm(){
   let mmm = document.getElementById('mmm')
   let name = mmm.dataset.value
   let am = mmm.dataset.value2

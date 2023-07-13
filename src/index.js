@@ -435,6 +435,7 @@ if(loggedIn){
             }
             d.cart.objs.push(inf)
             d.cart.totalPrice += parseInt(req.body.price)
+            d.cart.totalSize += parseInt(req.body.amount)
         }
         await d.save();
         let referringPage = req.headers.referer || '/';
