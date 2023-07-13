@@ -561,15 +561,15 @@ app.get('/amount',async (req,res)=>{
 app.post('/amount',async(req,res)=>{
     console.log(req.body.name)
     let r = await collection.findOne({name:req.session.user.name})
-    r.cart.objs.forEach(async function(item){
+    r.cart.objs.forEach(function(item){
         if(item.name == req.body.name){
             item.amount+=1
             r.cart.totalPrice+=parseInt(item.price)
+            r.cart.totalSize += 1
         }
     })
     await r.save()
     res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
-    return
 })
 
 app.get('/amountM',async(req,res)=>{
@@ -581,15 +581,15 @@ app.post('/amountM',async (req,res)=>{
     console.log(1)
     console.log(req.body.name)
     let r = await collection.findOne({name:req.session.user.name})
-    r.cart.objs.forEach( function(item){
+    r.cart.objs.forEach(function(item){
         if(item.name == req.body.name){
             item.amount-=1
             r.cart.totalPrice-=parseInt(item.price)
+            r.cart.totalSize -= 1
         }
     })
     await r.save()
     res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
-    return
 })
 
     /*********************************************************************************************************************************

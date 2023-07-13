@@ -102,7 +102,7 @@
               <div class="btn" id="mmm" onclick="funcm('<%= item.name %>','<%= item.amount %>')">-</div>
             </div>
             <div class="prices">
-              <div class="amount"><%= item.price %>₪</div>
+              <div class="p"><%= item.price %>₪</div>
               <div class="remove">
                 <input type="hidden" name="name" value="<%= item.name %>">
                 <input type="hidden" name="amount" value="<%= item.amount %>">
@@ -200,7 +200,17 @@
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({ name:name })
-}).then(location.reload())
+}).then(function(response){
+  if(response.ok)
+  {
+      location.reload()
+  }
+  else
+  {
+    console.log("error")
+    exit()
+  }
+})
   }
 </script>
 
@@ -213,7 +223,17 @@
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({ name:name })
-}).then(location.reload())
+}).then(function(response){
+  if(response.ok)
+  {
+      location.reload()
+  }
+  else
+  {
+    console.log("error")
+    exit()
+  }
+})
 }
 else{
   location.reload()
