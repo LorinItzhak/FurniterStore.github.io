@@ -385,7 +385,7 @@ if(loggedIn){
     let d = await collection.findOne({name:req.session.user.name})
     let flag = 1
     let i =0;
-    if(d.cart==undefined)
+    if(d.cart=='undefined')
     {
         d.cart={}
         d.cart.totalSize = 0
@@ -395,14 +395,14 @@ if(loggedIn){
     } 
     if(d.cart.totalSize == 0)
     {
-        d.cart.totalSize = 1
-        d.cart.totalPrice = parseInt(req.body.price)
+        d.cart.totalSize+=parseInt(req.body.amount)
+        d.cart.totalPrice += parseInt(req.body.price)*parseInt(req.body.amount)
         let inf={
             name:req.body.name,
             category:req.body.category,
             price:req.body.price,
             pic:req.body.pic,
-            amount:1,
+            amount:parseInt(req.body.amount),
             color:req.body.color,
             matter:req.body.matter
         }
@@ -418,11 +418,12 @@ if(loggedIn){
             if(item.name == req.body.name){
                 flag = 0
                 item.amount+=parseInt(req.body.amount)
+                d.cart.totalPrice += parseInt(req.body.price)
+                d.cart.totalSize+=parseInt(req.body.amount)
             }
         });
         if(flag){
-            d.cart.totalSize += 1
-            d.cart.totalPrice += parseInt(req.body.price)
+           
             let inf={
                name:req.body.name,
                category:req.body.category,
@@ -450,7 +451,8 @@ if(loggedIn){
 app.get("/Mybag",async (req,res)=>{ 
     if(req.session.user!== undefined){
         let r = await collection.findOne({name:req.session.user.name})
-        res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
+        console.log(r.cart.totalPrice)
+        res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
     }
     else{
         res.redirect("/login")
@@ -461,7 +463,7 @@ app.get("/deleteItem",async (req,res)=>{
     res.render("Mybag",{alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
 })
 app.post("/deleteItem",async (req,res)=>{
-    console.log(1)
+  
     let p = await collection.findOne({name:req.session.user.name})
     let delItem = await objectCollection.findOne({name:req.body.name})
     
