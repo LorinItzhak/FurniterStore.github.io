@@ -22,14 +22,15 @@
       rel="stylesheet"
     />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="Accountinfo.css">
+    <link rel="stylesheet" href="OrderHistory.css">
   </head>
   <body>
     
     <header>
+    
       <nav>
         <a href="#home" id="logo"> <img src="logo.png"></a>
-        
+        <div class="title-items"><a></a> Order History</a></div>
 
         <i class="fas fa-bars" id="ham-menu"></i>
         <ul id="nav-bar">
@@ -84,38 +85,63 @@
     </header>
     <div class=" OrderHis">
 
-      <form>
-      
-      <a>Order History</a>
-     <div class="detailsHistory">
-      <div class="cards-items">
+     
+    
+    <div class="orderflow"> 
+      <div class="detailsHistory">
         <% if (typeof details !== 'undefined' && details) { %>
-          <% for(let i =0;i<details.length;i++){ %>
-          <% details[i].purHis.forEach(function(item){ %>
+        <% for(let i =0;i<details.length;i++){ %>
+        <% details[i].purHis.forEach(function(item){ %>
+        <div class="detailsItems">
+            <table>
+                <tr>
+                    <th> Order Number</th>
+                    <th>Date</th>
+                    <th>product</th>
+        
+                    <th> Details</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                </tr>
+
+                <tr>
+                  <td> #1234 <%= item.orderNum %></td>
+                    <td> DD/MM/YYYY <%= item.date %></td>
+                   
+
+                    <td>
+                      <p>
+                        <%= item.category %>
+                        <br>
+                        <a class="pic"><img src="<%= item.pic %>" alt="תמונת המוצר"></a>
+                      </p>
+                    </td>
+
+                    <td>
+                        <p>
+                            Name: <%= item.name %>
+                            <br>
+                            Color: <%= item.color %>
+                            <br>
+                            Matterial: <%= item.matter %>
+                        </p>
+                    </td>
+                    <td>₪ <%= item.price %></td>
+                    <td><%= item.amount %></td>
+                </tr>
+            </table>
             
-            <div class="detailsItems">
-             <a class="category"><%= item.category%></a>
-             <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
-             <br>  <a>Name: <%= item.name%></a>
-             <a>Color: <%= item.color%></a>
-             <a>Matterial: <%= item.matter%></a>
-              <a>Price: <%= item.price%></a>
-             <a> Amount: <%= item.amount%></a>
-             
-              
-            </div>
-            <% }) %>
-            
-         
-         <% } %>
+        </div>
+        <% }) %>
         <% } %>
-      </div>
-     </div>
-          </form>
+        <% } %>
+    </div>
+    <p class="btn-primary" href="/myAccount">Go Back </p>
+          
         
-        
-      <p><a  class="btn-primary" href="/myAccount">Go Back</a></p>
-        
+    
+    </div>
+    </div>    
     </div> 
     </div>
      </div>
@@ -127,8 +153,8 @@
         <% if (loggedIn) { %>
           <a> <p>  Welcome  <%= user.name %>!</p></a>
          <!--<p><a href="/orderHistory">Order History</a></p>יותם אתה צריך לממש את ההיסטוריה הזו  -->
-         <a href="OrderHistory">Order history</a>
-         <a class="active" id="OrderH" href="accountInformation">Account information</a>
+         <a  class="active" id="OrderH" href="OrderHistory">Order history</a>
+         <a  href="accountInformation">Account information</a>
          <p><a href="changePassword">Change Password</a></p>
           <!-- <p><a  href="/changePassword">Change Password</a></p> -->
         <% } else { %>
@@ -138,29 +164,65 @@
         
        
         <div class="detailsHistory1">
-          <div class="cards-items">
+          
             <% if (typeof details !== 'undefined' && details) { %>
               <% for(let i =0;i<details.length;i++){ %>
               <% details[i].purHis.forEach(function(item){ %>
                 
                 <div class="detailsItems">
-                 <a class="category"><%= item.category%></a>
-                 <a class="pic"><img src="<%= item.pic%>" alt="Product Image"></a>
-                 <br>  <a>Name: <%= item.name%></a>
-                 <a>Color: <%= item.color%></a>
-                 <a>Matterial: <%= item.matter%></a>
-                  <a>Price: <%= item.price%></a>
-                 <a> Amount: <%= item.amount%></a>
-                 
                   
-                </div>
-                <% }) %>
+                  <table>
+                    <tr>
+                        <th> Order Number</th>
+                        <th>Date</th>
+                        <th>product</th>
+            
+                        <th> Details</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+    
+                    <tr>
+                      <td> #1234 <%= item.orderNum %></td>
+                        <td> DD/MM/YYYY <%= item.date %></td>
+                       
+    
+                        <td>
+                          <p>
+                            <%= item.category %>
+                            <br>
+                            <a class="pic"><img src="<%= item.pic %>" alt="תמונת המוצר"></a>
+                          </p>
+                        </td>
+    
+                        <td>
+                            <p>
+                                Name: <%= item.name %>
+                                <br>
+                                Color: <%= item.color %>
+                                <br>
+                                Matterial: <%= item.matter %>
+                            </p>
+                        </td>
+                        <td>₪ <%= item.price %></td>
+                        <td><%= item.amount %></td>
+                    </tr>
+                </table>
                 
-             
-             <% } %>
+            </div>
+            <% }) %>
             <% } %>
-          </div>
+            <% } %>
         </div>
+        
+              
+            
+        
+        </div>
+        </div>    
+        </div> 
+        </div>
+         </div>
       
         <% if (loggedIn) { %>
           <a id="logoutButton">Logout</a>
