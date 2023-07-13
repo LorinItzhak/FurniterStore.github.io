@@ -97,9 +97,9 @@
               <h3 class="subtitle">Material: <%= item.matter %></h3>
             </div>
             <div class="counter">
-              <div class="btn" id="nnn" onclick="funcq()" name="name" data-value="<%= item.name %>">+</div>
+              <div class="btn" id="nnn" onclick="funcq('<%= item.name %>')">+</div>
               <div class="count"><%= item.amount %></div>
-              <div class="btn" id="mmm" onclick="funcm()" name="name"data-value2="<%=item.amount %>" data-value="<%= item.name %>">-</div>
+              <div class="btn" id="mmm" onclick="funcm('<%= item.name %>','<%= item.amount %>')">-</div>
             </div>
             <div class="prices">
               <div class="amount"><%= item.price %>₪</div>
@@ -192,9 +192,7 @@
 </form>
 
 <script>
-    function funcq(){
-    let nnn = document.getElementById('nnn');
-    let name = nnn.dataset.value
+    function funcq(name){
     console.log(name)
     fetch('/amount', {
   method: 'POST',
@@ -207,11 +205,8 @@
 </script>
 
 <script>
-  function funcm(){
-  let mmm = document.getElementById('mmm')
-  let name = mmm.dataset.value
-  let am = mmm.dataset.value2
-  if(am>0){
+  function funcm(name,amount){
+  if(amount>0){
   fetch('/amountM', {
   method: 'POST',
   headers: {
