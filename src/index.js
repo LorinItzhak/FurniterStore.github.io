@@ -572,7 +572,7 @@ app.post('/amount',async(req,res)=>{
     return
 })
 
-app.get('/amountH',async(req,res)=>{
+app.get('/amountM',async(req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
     res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
 })
