@@ -408,7 +408,6 @@ if(loggedIn){
         }
         d.cart.objs.push(inf)
         await d.save()
-        console.log(d.cart.totalPrice)
         let referringPage = req.headers.referer || '/';
         res.redirect(referringPage)
         return
@@ -421,12 +420,10 @@ if(loggedIn){
                 item.amount+=parseInt(req.body.amount)
                 d.cart.totalPrice += parseInt(req.body.price)
                 d.cart.totalSize+=parseInt(req.body.amount)
-                console.log(d.cart.totalSize)
 
             }
         });
         if(flag){
-           
             let inf={
                name:req.body.name,
                category:req.body.category,
@@ -438,7 +435,6 @@ if(loggedIn){
             }
             d.cart.objs.push(inf)
             d.cart.totalPrice += parseInt(req.body.price)
-            console.log(d.cart.totalPrice)
         }
         await d.save();
         let referringPage = req.headers.referer || '/';
@@ -455,7 +451,6 @@ if(loggedIn){
 app.get("/Mybag",async (req,res)=>{ 
     if(req.session.user!== undefined){
         let r = await collection.findOne({name:req.session.user.name})
-        console.log(r.cart.totalPrice)
         res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
     }
     else{
@@ -498,7 +493,7 @@ app.get('/checkout',async (req,res)=>{
         res.render("home",{alertMessage:"error"})
         return
     }
-    console.log(req.session.user.cart.totalSize)
+    
     res.render("checkout",{details:[r.cart.objs],size:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
 })
 app.get("/deleteItemC",async (req,res)=>{
@@ -557,6 +552,30 @@ app.get('/buy',async (req,res)=>{
     res.render("home",{alertMessage:"purchased"});
 })
 
+
+app.post('/amount',async(req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    r.cart.objs.forEach(async function(item){
+        if(item.name == req.body.name){
+            item.amount+=1
+            r.cart.totalPrice+=parseInt(item.price)
+        }
+    })
+    await r.save()
+    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+})
+
+app.post('/amountM',async (req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    r.cart.objs.forEach(async function(item){
+        if(item.name == req.body.name){
+            item.amount-=1
+            r.cart.totalPrice-=parseInt(item.price)
+        }
+    })
+    await r.save()
+    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+})
 
     /*********************************************************************************************************************************
      * *******************************************************************************************************************************
