@@ -418,7 +418,7 @@ if(loggedIn){
             if(item.name == req.body.name){
                 flag = 0
                 item.amount+=parseInt(req.body.amount)
-                d.cart.totalPrice += parseInt(req.body.price)
+                d.cart.totalPrice += parseInt(req.body.price)*parseInt(req.body.amount)
                 d.cart.totalSize+=parseInt(req.body.amount)
 
             }
@@ -434,7 +434,7 @@ if(loggedIn){
                matter:req.body.matter
             }
             d.cart.objs.push(inf)
-            d.cart.totalPrice += parseInt(req.body.price)
+            d.cart.totalPrice += (parseInt(req.body.price)*parseInt(req.body.amount))
             d.cart.totalSize += parseInt(req.body.amount)
         }
         await d.save();
@@ -553,8 +553,13 @@ app.get('/buy',async (req,res)=>{
     res.render("home",{alertMessage:"purchased"});
 })
 
+app.get('/amount',async (req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+})
 
 app.post('/amount',async(req,res)=>{
+    console.log(req.body.name)
     let r = await collection.findOne({name:req.session.user.name})
     r.cart.objs.forEach(async function(item){
         if(item.name == req.body.name){
@@ -564,11 +569,19 @@ app.post('/amount',async(req,res)=>{
     })
     await r.save()
     res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    return
+})
+
+app.get('/amountH',async(req,res)=>{
+    let r = await collection.findOne({name:req.session.user.name})
+    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
 })
 
 app.post('/amountM',async (req,res)=>{
+    console.log(1)
+    console.log(req.body.name)
     let r = await collection.findOne({name:req.session.user.name})
-    r.cart.objs.forEach(async function(item){
+    r.cart.objs.forEach( function(item){
         if(item.name == req.body.name){
             item.amount-=1
             r.cart.totalPrice-=parseInt(item.price)
@@ -576,6 +589,7 @@ app.post('/amountM',async (req,res)=>{
     })
     await r.save()
     res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    return
 })
 
     /*********************************************************************************************************************************
