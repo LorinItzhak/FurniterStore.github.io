@@ -408,6 +408,7 @@ if(loggedIn){
         }
         d.cart.objs.push(inf)
         await d.save()
+        console.log(d.cart.totalPrice)
         let referringPage = req.headers.referer || '/';
         res.redirect(referringPage)
         return
@@ -420,6 +421,8 @@ if(loggedIn){
                 item.amount+=parseInt(req.body.amount)
                 d.cart.totalPrice += parseInt(req.body.price)
                 d.cart.totalSize+=parseInt(req.body.amount)
+                console.log(d.cart.totalSize)
+
             }
         });
         if(flag){
@@ -434,7 +437,8 @@ if(loggedIn){
                matter:req.body.matter
             }
             d.cart.objs.push(inf)
-        
+            d.cart.totalPrice += parseInt(req.body.price)
+            console.log(d.cart.totalPrice)
         }
         await d.save();
         let referringPage = req.headers.referer || '/';
