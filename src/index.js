@@ -490,6 +490,10 @@ app.get('/delAll',async (req,res)=>{
 
 app.get('/checkout',async (req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
+    if(r.cart.objs.length == 0){
+        res.render("home",{alertMessage:"error"})
+        return
+    }
     console.log(req.session.user.cart.totalSize)
     res.render("checkout",{details:[r.cart.objs],size:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice});
 })
