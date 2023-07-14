@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended:false}))
 app.set("view engine","ejs")
 var currUser=0
 var loggedIn=true
+var v =0;
 let alertMessage=""
 const mongMod = require("./mongodb")
 const collection = mongMod.collection
@@ -317,8 +318,9 @@ app.post("/addObject",async (req,res)=>{
             bedInfo = await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
             infor.push((bedInfo))
         }
-        
+        v = infor
         res.render("search",{infor})
+        
        // res.json({infor})
     })
    ///////////////////////// MyAccount
@@ -372,13 +374,22 @@ app.post("/changePassword", async(req, res) => {
     res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true,user:req.session.user})
   })
 
-  app.get("/addCart",async (req,res)=>{
-    let referringPage = req.headers.referer || '/';
+  /*app.get("/addCart",async (req,res)=>{
+    if(v==0){
+        let referringPage = req.headers.referer || '/';
         res.redirect(referringPage)
-})
+    }
+    else{
+        v = 0;
+        let referringPage = req.headers.referer || '/';
+        res.render("search",{infor:v})
+    }
+})*/
 app.post("/addCart",async (req,res)=>{
 if(loggedIn){
+    console.log(1)
     if(!req.session.user){
+        console.log(2)
         res.render("login",{alertMessage,loggedIn: false})
         return
     }
@@ -387,6 +398,7 @@ if(loggedIn){
     let i =0;
     if(d.cart=='undefined')
     {
+        console.log(3)
         d.cart={}
         d.cart.totalSize = 0
         d.cart.totalPrice = 0
@@ -395,6 +407,7 @@ if(loggedIn){
     } 
     if(d.cart.totalSize == 0)
     {
+        console.log(4)
         d.cart.totalSize+=parseInt(req.body.amount)
         d.cart.totalPrice += parseInt(req.body.price)*parseInt(req.body.amount)
         let inf={
@@ -406,14 +419,23 @@ if(loggedIn){
             color:req.body.color,
             matter:req.body.matter
         }
+        console.log(5)
         d.cart.objs.push(inf)
         await d.save()
-        let referringPage = req.headers.referer || '/';
-        res.redirect(referringPage)
+        console.log(v)
+        if(v==0){
+            let referringPage = req.headers.referer || '/';
+            res.redirect(referringPage)
+        }
+        else{
+            v = 0;
+            res.render("search",{infor:v})
+        }
         return
     }
     else
     {
+        console.log(6)
         d.cart.objs.forEach(function(item) {
             if(item.name == req.body.name){
                 flag = 0
@@ -438,8 +460,18 @@ if(loggedIn){
             d.cart.totalSize += parseInt(req.body.amount)
         }
         await d.save();
-        let referringPage = req.headers.referer || '/';
-        res.redirect(referringPage)
+        console.log(7)
+        console.log(v)
+        if(v==0){
+            let referringPage = req.headers.referer || '/';
+            res.redirect(referringPage)
+        }
+        else{
+            
+            let referringPage = req.headers.referer || '/';
+            res.render("search",{infor:v})
+            v=0
+        }
         return
     }
     }
