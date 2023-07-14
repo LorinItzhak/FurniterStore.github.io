@@ -374,17 +374,18 @@ app.post("/changePassword", async(req, res) => {
     res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true,user:req.session.user})
   })
 
-  /*app.get("/addCart",async (req,res)=>{
-    if(v==0){
+  app.get("/addCart",async (req,res)=>{
+    if(req.body.checker == undefined){
         let referringPage = req.headers.referer || '/';
         res.redirect(referringPage)
     }
     else{
-        v = 0;
+        
         let referringPage = req.headers.referer || '/';
         res.render("search",{infor:v})
+        
     }
-})*/
+})
 app.post("/addCart",async (req,res)=>{
 if(loggedIn){
     console.log(1)
@@ -422,14 +423,15 @@ if(loggedIn){
         console.log(5)
         d.cart.objs.push(inf)
         await d.save()
-        console.log(v)
-        if(v==0){
+        if(req.body.checker == undefined){
             let referringPage = req.headers.referer || '/';
             res.redirect(referringPage)
         }
         else{
-            v = 0;
+            
+            let referringPage = req.headers.referer || '/';
             res.render("search",{infor:v})
+            
         }
         return
     }
@@ -462,7 +464,7 @@ if(loggedIn){
         await d.save();
         console.log(7)
         console.log(v)
-        if(v==0){
+        if(req.body.checker == undefined){
             let referringPage = req.headers.referer || '/';
             res.redirect(referringPage)
         }
@@ -470,7 +472,7 @@ if(loggedIn){
             
             let referringPage = req.headers.referer || '/';
             res.render("search",{infor:v})
-            v=0
+            
         }
         return
     }
