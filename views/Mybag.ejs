@@ -97,12 +97,12 @@
               <h3 class="subtitle">Material: <%= item.matter %></h3>
             </div>
             <div class="counter">
-              <div class="btn">+</div>
+              <div class="btn" id="nnn" onclick="funcq('<%= item.name %>')">+</div>
               <div class="count"><%= item.amount %></div>
-              <div class="btn">-</div>
+              <div class="btn" id="mmm" onclick="funcm('<%= item.name %>','<%= item.amount %>')">-</div>
             </div>
             <div class="prices">
-              <div class="amount"><%= item.price %>₪</div>
+              <div class="p"><%= item.price %>₪</div>
               <div class="remove">
                 <input type="hidden" name="name" value="<%= item.name %>">
                 <input type="hidden" name="amount" value="<%= item.amount %>">
@@ -123,9 +123,9 @@
         <div>
          
           <div class="Subtotal">Sub-Total</div>
-          <div class="items"><%= details.length %> items</div>
+          <div class="items"><%= num %> items</div>
         </div>
-        <div class="total-amount"><%=price%></div>
+        <div class="total-amount"><%=price%>₪</div>
       </div>
       <button class="button">
         <a href="/checkout">Checkout</a>
@@ -190,6 +190,56 @@
     </div>
   </div>
 </form>
+
+<script>
+    function funcq(name){
+    console.log(name)
+    fetch('/amount', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ name:name })
+}).then(function(response){
+  if(response.ok)
+  {
+      location.reload()
+  }
+  else
+  {
+    console.log("error")
+    exit()
+  }
+})
+  }
+</script>
+
+<script>
+  function funcm(name,amount){
+  if(amount>0){
+  fetch('/amountM', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ name:name })
+}).then(function(response){
+  if(response.ok)
+  {
+      location.reload()
+  }
+  else
+  {
+    console.log("error")
+    exit()
+  }
+})
+}
+else{
+  location.reload()
+}
+  }
+</script>
 
 <script>
   // Get the modal
