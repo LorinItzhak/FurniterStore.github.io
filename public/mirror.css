@@ -68,7 +68,7 @@ nav ul a:hover {
 }
 section#home {
   color: rgb(166, 157, 157);
-  height: 140vh;
+
   display: grid;
   
   align-items:center;
