@@ -82,7 +82,36 @@
         <h1> Furniture <br> <span> Design </span><br> Studio</h1>
         <br></br>
         <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+        <% if (typeof loggedIn !== 'undefined'&& loggedIn) { %>
+          <button class="cn" id="logoutButton">Logout</button>
+      <% } else { %>
         <button class="cn"><a href="/login"> SIGN IN</a></button>
+        <button class="cn"><a href="/signup"> Sign Up</a></button>
+          <p> </p>
+      <% } %>
+      <script>
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            // Send a POST request to the logout route
+            fetch('/logout', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server
+                if (data.success) {
+                    // Successful logout
+                    window.location.href = '/'; // Redirect to home page
+                } else {
+                    // Logout failed
+                    console.log(data.message);
+                }
+            })
+            .catch(error => {
+                // Handle any errors that occur during the request
+                console.log('An error occurred:', error);
+            });
+        });
+    </script>
       </div>
     </section>
      
