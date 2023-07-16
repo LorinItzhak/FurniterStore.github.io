@@ -584,7 +584,7 @@ color:#554d4d;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 10px;
     padding: 20px;
-    width: 350px;
+    width: 450px;
     
   
   }
@@ -698,7 +698,7 @@ background:#393437;
 
 .container-Card{
   display: grid;
-  max-width: 960px;
+  max-width: 100%;
     grid-template-columns: repeat(3,auto);
     gap: 1rem;
     margin: auto;
