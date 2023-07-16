@@ -12,9 +12,10 @@
 
 body{
  
-  background :  url(https://i.pinimg.com/originals/32/b2/1d/32b21dcfb636f400f46366da7c8419bc.jpg);
+  background :  url(https://static.wixstatic.com/media/deb2e4_21f14f04f52f44558ec3437a0b792709~mv2.jpg/v1/fill/w_1977,h_2768,al_c,q_90/deb2e4_21f14f04f52f44558ec3437a0b792709~mv2.webp);
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgb(150, 118, 124);
   
 }
 
@@ -85,13 +86,17 @@ h1 {
   font-size: 4rem;
 }
 
+.content{
+  margin-top: 10%;
+  margin-bottom: 50px;
+}
 
 .content .par{
   color: #1e171e;
   font-size: 20px;
   padding-left: 50px;
   padding-bottom:25px;
-  font-family:  Arial, Helvetica, sans-serif;
+  
   letter-spacing: 1.2px;
   line-height: 30px;
 
@@ -102,8 +107,8 @@ h1 {
 color: #333;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 50px;
-  padding-left: 50px;
-  margin-top: 20%;
+ 
+ 
   letter-spacing: 2px;
 }
 
@@ -135,8 +140,10 @@ transition: 3s ease ;
 }
 
 .content span{
-  color: aliceblue;
+  text-shadow: 6px 4px 6px rgba(0, 0, 0, 0.862);
+  color: rgb(240, 217, 220);
   font-size: 60px;
+  font-family: 'Abril Fatface', serif;
 }
 
 
@@ -625,4 +632,10 @@ form {
    
    
    
-  
+  .title-items {
+border-bottom: 2px solid black;
+font-size: 25px;
+margin-right: 200px;
+
+ 
+}
