@@ -439,7 +439,7 @@ color:#554d4d;
     }
 
     a:hover{
-      color: #060708;
+      color: #5c6166;
       text-decoration: none;
       background-color: transparent;
   }
@@ -573,9 +573,14 @@ hr {
 font-size: 14px;
 font-family: 'Open Sans';
 font-weight: 600;
+
+cursor: pointer;
+
+}
+.Action:hover{
 color: #E44C4C;
 cursor: pointer;
-border-bottom: 1px solid #E44C4C;
+
 }
 
 .Cart-Items{
@@ -777,3 +782,21 @@ color: #202020;
     height: calc(100vh - 65.18px);
   }
 }
+
+
+.remove{
+border: none;
+cursor: pointer;
+color: black;
+}
+
+.remove:hover{
+  border: none;
+  cursor: pointer;
+  color: rgb(76, 74, 74);
+  }
+
+  img{
+    border-radius: 10px;
+ 
+  }
