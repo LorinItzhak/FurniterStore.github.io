@@ -78,13 +78,14 @@ else if(req.body.name==''||req.body.password==''){
         const data={
             name:req.body.name,
             password:req.body.password,
-            admin:false
+            admin:false,
+            cart:{}
         };
         try {
             req.session.user = await collection.insertMany([data]);
             loggedIn=true
             let alertMessage = "Hi "+req.body.name;
-            res.render("home", { alertMessage ,loggedIn:req.session.user!==undefined}); // Changed this line
+            res.render("login", { alertMessage }); // Changed this line
           } catch (error) {
             console.error(error);
             let alertMessage = " Error occurred while signing up";
