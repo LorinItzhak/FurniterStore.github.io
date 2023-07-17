@@ -397,7 +397,7 @@ if(loggedIn){
     let d = await collection.findOne({name:req.session.user.name})
     let flag = 1
     let i =0;
-    if(d.cart=='undefined')
+    if(d.cart==undefined)
     {
         console.log(3)
         d.cart={}
@@ -484,10 +484,14 @@ if(loggedIn){
 })
 
 app.get("/Mybag",async (req,res)=>{ 
-    if(req.session.user!== undefined){
+    if(req.session.user!== undefined && req.session.user.cart !== undefined){
         let r = await collection.findOne({name:req.session.user.name})
         res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
     }
+    else if(req.session.user.cart == undefined){
+        res.render("home",{alertMessage:"add to cart first"})
+    }
+    
     else{
         res.redirect("/login")
     }
