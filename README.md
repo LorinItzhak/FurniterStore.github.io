@@ -1,7 +1,7 @@
-## Welcome to Our E-commerce Website
+## Welcome to Our Funitre Website
 
 ### Introduction
-This repository hosts an e-commerce website that provides a seamless shopping experience for customers. Below, you'll find an overview of the main features and functionalities of the website.
+This repository hosts an Funitre website that provides a seamless shopping experience for customers. Below, you'll find an overview of the main features and functionalities of the website.
 
 ### Table of Contents
 1. *Registration and Login*
