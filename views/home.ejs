@@ -36,20 +36,20 @@
         <ul id="nav-bar">
            
           <li>
-            <a href="/">HOME</a>
+            <a href="/">בית</a>
           </li>
           <li>
-            <a href="aboutus">ABOUT US</a>
+            <a href="aboutus">קצת עלינו</a>
           </li>
           <li>
-            <a href="#collection">COLLECTION</a>
+            <a href="#collection">המוצרים שלנו</a>
             <div class="sub-menu-1">
               <ul>
-                <li><a href="couch">COUCHS</a></li>
-                <li><a href="armchairs">ARMCHAIRS</a></li>
-                <li><a href="table">TABLES</a></li>
-                <li><a href="chairs">CHAIRS</a></li>
-                <li><a href="bed">BEDS</a></li>
+                <li><a href="couch">ספות</a></li>
+                <li><a href="armchairs">כסאות בר</a></li>
+                <li><a href="table">שולחנות</a></li>
+                <li><a href="chairs">כסאות</a></li>
+                <li><a href="bed">מיטות</a></li>
              
                 
 
@@ -57,16 +57,16 @@
             </div> 
         </li>
         <li>
-          <a href="#decor">DECOR</a>
+          <a href="#decor">מוצרים נלווים</a>
            <div class="sub-menu-1">
             <ul>
-                <li><a href="rug">RUGS</a></li>
-                <li><a href="mirror">MIRRORS</a></li>
+                <li><a href="rug">מזרונים</a></li>
+                <li><a href="mirror">חדרי ילדים</a></li>
             </ul>
               </div> 
           </li>
           <li>
-            <a href="ContactUs">CONTACT</a>
+            <a href="ContactUs">צור קשר</a>
           </li>
 
         <li>  <button class="btn-my-search" onclick="document.getElementById('id01').style.display='flex'"style="width:auto;"><i class="fas fa-search"></i></button>
@@ -84,15 +84,15 @@
       <div class="content">
           
   
-        <h1> Furniture <br> <span> Design </span><br> Studio</h1>
+        <h1> Rehitei <br> <span> Comfort </span><br> Design</h1>
         <br></br>
-        <p class="par"> UNRIVALED DESIGN. UNCOMPROMISING QUALITY.<br> UNLIMITED POSSIBILITIES. WE’VE PARTNERED WITH <br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
+        <p dir="rtl" class="par"> היי מה שלומך היום.<br> ארץ ישראל שלי יפה וגם<br> ACCLAIMED DESIGNERS FROM AROUND THE WORLD <br> TO CREATE EXCLUSIVE FURNITURE COLLECTIONS UNSURPASSED<br> IN FORM, FUNCTION AND BEAUTY. EXPERIENCE INSPIRED <br> OUTDOOR FURNISHINGS FOR EVERY SPACE, EVERY ENVIRONMENT.</br></p>
       
         <% if (typeof loggedIn !== 'undefined'&& loggedIn) { %>
           <button class="cn" id="logoutButton">Logout</button>
       <% } else { %>
-        <button class="cn"><a href="/login"> SIGN IN</a></button>
-        <button class="cn"><a href="/signup"> Sign Up</a></button>
+        <button class="cn"><a href="/login"> התחברות</a></button>
+        <button class="cn"><a href="/signup"> הרשמה</a></button>
           <p> </p>
       <% } %>
       <script>
@@ -123,53 +123,9 @@
      
     
 
-<div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  
-  <!-- The slideshow -->
- <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-  {
-  "width"; 770,
-  "height"; 400,
-  "currencies"; [
-    "EUR",
-    "USD",
-    "JPY",
-    "GBP",
-    "CHF",
-    "AUD",
-    "CAD",
-    "NZD"
-  ],
-  "isTransparent"; false,
-  "colorTheme"; "light",
-  "locale"; "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-    
-  
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
     </section>
     
-    <form id="formm" action="/search" method="post">
+    <form action="/search" method="post">
       <div id="id01" class="modal">
    
         <div class="modal-content" action="">
@@ -177,62 +133,67 @@
               <div class="clearfix">
                   <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
                  
-            <h1>Search</h1>
-            <hr>
-            
-            <input type="text" placeholder="Tap to search" name="name" >
-            <br>
-            
-            <label for="email"><b>Filter</b></label>
-            <br>
-            <div class="label-search">
-            <label>
-              <input type="checkbox" checked="checked" name="sofa" style="margin-bottom:15px" > SOFAS
-            </label>
-            <label>
-              <input type="checkbox" checked="checked" name="armchair" style="margin-bottom:15px"> ARMCHAIRS
-            </label>
-            <label>
-              <input type="checkbox" checked="checked" name="table" style="margin-bottom:15px"> TABLES
-            </label>
-            <label>
-              <input type="checkbox" checked="checked" name="chair" style="margin-bottom:15px"> CHAIRS
-            </label>
-            <label>
-              <input type="checkbox" checked="checked" name="bed" style="margin-bottom:15px"> BEDS
-            </label>
-            <label>
-              <input type="checkbox" checked="checked" name="mirror" style="margin-bottom:15px"> MIRRORS
-            </label>
-          </div>
-            <div class="price-input">
-              <div class="field">
-                <span>Min</span>
-                <input type="number" class="input-min" value="0">
-              </div>
-              <div class="separator">-</div>
-              <div class="field">
-                <span>Max</span>
-                <input type="number" class="input-max" value="10000">
-              </div>
-            </div>
-            <div class="slider">
-              <div class="progress"></div>
-            </div>
-            <div class="range-input">
-              <input name="min" type="range" class="range-min" min="0" max="10000" value="0" step="100">
-              <input name ="max" type="range" class="range-max" min="0" max="10000" value="10000" step="100">
-      
-              <button type="submit" class="signupbtn">Search</button>
-            </div>
-          </div>
-         
-          </div>
-        
-        </div>
-  
+                   
+                  <h1>חיפוש</h1>
+                  <hr>
+                  
+                  <input type="text" placeholder="חפש לפי שם המוצר" name="name" >
+                  <br>
+                  
+                  <label for="email"><b>סינון</b></label>
+                  <br>
+                  <div class="label-search">
+                  <label>
+                    <input type="checkbox" checked="checked" name="sofa" style="margin-bottom:15px" > ספות
+                  </label>
+                  <label>
+                    <input type="checkbox" checked="checked" name="armchair" style="margin-bottom:15px"> כסאות בר
+                  </label>
+                  <label>
+                    <input type="checkbox" checked="checked" name="table" style="margin-bottom:15px"> שולחנות
+                  </label>
+                  <label>
+                    <input type="checkbox" checked="checked" name="chair" style="margin-bottom:15px"> כסאות
+                  </label>
+                  <label>
+                    <input type="checkbox" checked="checked" name="bed" style="margin-bottom:15px"> מיטות
+                  </label>
+                  <label>
+                    <input type="checkbox" checked="checked" name="mirror" style="margin-bottom:15px"> מזרונים
+                  </label>
+                  <label>
+                    <input type="checkbox" checked="checked" name="rug" style="margin-bottom:15px"> חדרי ילדים
+                  </label>
                 </div>
+                  <div class="price-input">
+                    <div class="field">
+                      <span>מינימום</span>
+                      <input type="number" class="input-min" value="0">
+                    </div>
+                    <div class="separator">-</div>
+                    <div class="field">
+                      <span>מקסימום</span>
+                      <input type="number" class="input-max" value="10000">
+                    </div>
+                  </div>
+                  <div class="slider">
+                    <div class="progress"></div>
+                  </div>
+                  <div class="range-input">
+                    <input name="min" type="range" class="range-min" min="0" max="10000" value="0" step="100">
+                    <input name ="max" type="range" class="range-max" min="0" max="10000" value="10000" step="100">
+            
+                    <button type="submit" class="signupbtn">חפש</button>
+                  </div>
+                </div>
+               
+                </div>
+              
+              </div>
+        
+                      </div>
               </form>
+  
       
       
       <script>

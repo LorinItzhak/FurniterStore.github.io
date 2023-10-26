@@ -66,12 +66,12 @@ app.post("/signup",async(req,res)=>{
     const checkk=await collection.findOne({name:req.body.name})
     if(checkk!=null){
         //res.send("name taken")
-        let alertMessage = " Username already taken";
+        let alertMessage = "שם משתמש כבר תפוס";
         res.render("signup.ejs", { alertMessage ,loggedIn: req.session.user !== undefined});
        // res.render("signup.ejs", { alertMessage: "Username already taken" });
     }
 else if(req.body.name==''||req.body.password==''){
-     let alertMessage = " Fill the missing info";
+     let alertMessage = " מלא את המידע החסר";
         res.render("signup",{alertMessage,loggedIn: req.session.user !== undefined});
 }
     else{
@@ -84,11 +84,11 @@ else if(req.body.name==''||req.body.password==''){
         try {
             req.session.user = await collection.insertMany([data]);
             loggedIn=true
-            let alertMessage = "Hi "+req.body.name;
+            let alertMessage = "היי "+req.body.name;
             res.render("login", { alertMessage }); // Changed this line
           } catch (error) {
             console.error(error);
-            let alertMessage = " Error occurred while signing up";
+            let alertMessage = "קיימת בעיה בהרשמה";
             res.render("signup", { alertMessage,loggedIn: req.session.user !== undefined }); // Changed this line
           }
         
@@ -106,7 +106,7 @@ app.post("/login",async(req,res)=>{
   try{
     const check=await collection.findOne({name:req.body.name}) 
 if(check.password===req.body.password){
-    let alertMessage="Hi "+req.body.name
+    let alertMessage="היי "+req.body.name
     if(check.admin == true)
     {
         req.session.user = check
@@ -120,13 +120,13 @@ if(check.password===req.body.password){
     }
 }
 else{
-    let alertMessage=" wrong password"
+    let alertMessage=" סיסמא שגויה"
     res.render("login",{alertMessage,loggedIn: false})
 }
   
   }
   catch{
-    let alertMessage=" wrong details"
+    let alertMessage=" פרטים שגויים"
     res.render("login",{alertMessage,loggedIn: req.session.user !== undefined})
   }
     
@@ -189,7 +189,7 @@ app.post("/addObject",async (req,res)=>{
         }
     }
     else{
-        res.render("home",{alertMessage:"user is not admin"})
+        res.render("home",{alertMessage:"המשתמש לא מנהל"})
     }
     })
 
@@ -207,15 +207,15 @@ app.post("/addObject",async (req,res)=>{
                     name:req.body.name
                 }
                 await objectCollection.findOneAndDelete({category:req.body.category,name:req.body.name},info)
-                res.render("adminHome",{alertMessage:"done"})
+                res.render("adminHome",{alertMessage:"בוצע"})
             }
             else{
-                let alertMessage = "wrong info"
+                let alertMessage = "מידע שגוי"
                 res.render("adminHome",{alertMessage})
             }
         }
         else{
-            res.render("home",{alertMessage:"user is not admin"})
+            res.render("home",{alertMessage:"המשתמש לא אדמין"})
         }
     })
 
@@ -306,9 +306,9 @@ app.post("/addObject",async (req,res)=>{
             sofaInfo =await objectCollection.find({"category":"couch","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
             infor.push((sofaInfo))
         }
-        if(req.body.accs== "on")
+        if(req.body.rug== "on")
         {
-            accsInfo = await objectCollection.find({"category":"mirror","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
+            accsInfo = await objectCollection.find({"category":"rug","price": { $gte: req.body.min, $lte: req.body.max },"amount": { $gte: 1}})
             infor.push((accsInfo))
         }
         if(req.body.bed == "on"){
@@ -336,7 +336,7 @@ app.post("/addObject",async (req,res)=>{
   
   // Route handler for changing password
   app.get("/changePassword", (req, res) => {
-    res.render("changePassword",{loggedIn:true});
+    res.render("changePassword",{loggedIn:true,user:req.session.user});
   });
   
 app.post("/changePassword", async(req, res) => {
@@ -344,9 +344,9 @@ app.post("/changePassword", async(req, res) => {
     const newPassword = req.body.newPassword;
     const confirmPassword = req.body.confirmPassword;
     if (currentPassword !== req.session.user.password) {
-      res.render("changePassword", { loggedIn:true,message: "Incorrect current password" });
+      res.render("changePassword", { loggedIn:true,message: "סיסמא נוכחית לא נכונה" });
     } else if (newPassword !== confirmPassword) {
-      res.render("changePassword", { loggedIn:true,message: "New password and confirmation do not match" });
+      res.render("changePassword", { loggedIn:true,message: "רשום את סיסמא החדשה באופן זהה בשני התיבות" });
     } else {
       // Update the user's password in the database
       let isValidd = await collection.findOne({name:req.session.user.name})
@@ -357,10 +357,10 @@ app.post("/changePassword", async(req, res) => {
             }
            
           await collection.findOneAndUpdate({name:req.session.user.name},infoo)
-      res.render("changePassword", { loggedIn:true,message: "Password changed successfully" });
+      res.render("changePassword", { loggedIn:true,message: "הסיסמא סונתה בהצלחה" });
     }
     else{
-        res.render("changePassword", { loggedIn:true,message: "failed" });
+        res.render("changePassword", { loggedIn:true,message: "הסיסמא לא שונתה" });
     }
     }
   });
@@ -372,7 +372,7 @@ app.post("/changePassword", async(req, res) => {
   });
   app.get("/OrderHistory",async(req,res)=>{
     let acc = await purchaseCollection.find({"name":req.session.user.name})
-    res.render("OrderHistory",{alertMessage:"hi",details:acc,loggedIn:true,user:req.session.user})
+    res.render("OrderHistory",{alertMessage:"היי",details:acc,loggedIn:true,user:req.session.user})
   })
 
   app.get("/addCart",async (req,res)=>{
@@ -480,17 +480,20 @@ if(loggedIn){
     }
     else
     {
-        res.render("home",{alertMessage:"user not logged in"})
+        res.render("home",{alertMessage:"התחבר למשתמש"})
     }
 })
 
 app.get("/Mybag",async (req,res)=>{ 
     if(req.session.user!== undefined && req.session.user.cart !== undefined){
         let r = await collection.findOne({name:req.session.user.name})
-        res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+        res.render("Mybag", {alertMessage:"היי",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    }
+    else if(req.session.user == undefined){
+        res.render("login",{alertMessage:"התחבר לחשבון"})
     }
     else if(req.session.user.cart == undefined){
-        res.render("home",{alertMessage:"add to cart first"})
+        res.render("home",{alertMessage:"ראשית תוסיף לעגלת הקניות"})
     }
     
     else{
@@ -499,7 +502,7 @@ app.get("/Mybag",async (req,res)=>{
 })
 app.get("/deleteItem",async (req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
-    res.render("Mybag",{alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
+    res.render("Mybag",{alertMessage:"היי",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
 })
 app.post("/deleteItem",async (req,res)=>{
   
@@ -515,7 +518,7 @@ app.post("/deleteItem",async (req,res)=>{
         p.cart.objs = filteredArr
         
         await p.save()
-        res.render("Mybag",{alertMessage:"hi",details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
+        res.render("Mybag",{alertMessage:"היי",details:[p.cart.objs],num:p.cart.totalPrice,price:p.cart.totalPrice})
     }
     
 })
@@ -524,13 +527,13 @@ app.get('/delAll',async (req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
     r.cart = {}
     await r.save()
-    res.render("Mybag",{alertMessage:"hi",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
+    res.render("Mybag",{alertMessage:"היי",details:[r.cart.objs],num:req.session.user.cart.totalSize,price:req.session.user.cart.totalPrice})
 })
 
 app.get('/checkout',async (req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
     if(r.cart.objs.length == 0){
-        res.render("home",{alertMessage:"error"})
+        res.render("home",{alertMessage:"שגיאה"})
         return
     }
     
@@ -578,7 +581,7 @@ app.get('/buy',async (req,res)=>{
         let am = item.amount
         let d = await objectCollection.findOne({name:item.name})
         if(parseInt(am) > d.amount){
-            res.render("home",{alertMessage:"error"})
+            res.render("home",{alertMessage:"שגיאה"})
             
         }
         else{
@@ -589,12 +592,12 @@ app.get('/buy',async (req,res)=>{
     })
     acc.cart={}
     await acc.save()
-    res.render("home",{alertMessage:"purchased"});
+    res.render("home",{alertMessage:"נרכש"});
 })
 
 app.get('/amount',async (req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
-    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    res.render("Mybag", {alertMessage:"היי",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
 })
 
 app.post('/amount',async(req,res)=>{
@@ -608,12 +611,12 @@ app.post('/amount',async(req,res)=>{
         }
     })
     await r.save()
-    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    res.render("Mybag", {alertMessage:"היי",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
 })
 
 app.get('/amountM',async(req,res)=>{
     let r = await collection.findOne({name:req.session.user.name})
-    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    res.render("Mybag", {alertMessage:"היי",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
 })
 
 app.post('/amountM',async (req,res)=>{
@@ -628,7 +631,7 @@ app.post('/amountM',async (req,res)=>{
         }
     })
     await r.save()
-    res.render("Mybag", {alertMessage:"hi",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
+    res.render("Mybag", {alertMessage:"היי",details:[r.cart.objs],num:r.cart.totalSize,price:r.cart.totalPrice});
 })
 
     /*********************************************************************************************************************************
