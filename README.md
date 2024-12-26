@@ -1,4 +1,4 @@
-## Welcome to Our Funitre Website
+## Welcome to Our Furnitre Website
 
 ### Introduction
 This repository hosts an Funitre website that provides a seamless shopping experience for customers. Below, you'll find an overview of the main features and functionalities of the website.
